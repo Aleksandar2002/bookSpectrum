@@ -1,0 +1,37 @@
+{
+    "books" : [
+            {
+                "title":"The Lord of the Rings: The Fellowship of the Ring",
+                "image":"somePath",
+                "author":"J.R.R. Tolkien",
+                "price":"1400",
+                "currency": "RSD",
+                "publisher":"Your Library",
+                "discaunt":null,
+                "yearOfPublishing": "2020",
+                "genre": "adventure/fantasy"
+            },
+            {
+                "title":"The Lord of the Rings: The Two Towers",
+                "image":"somePath2",
+                "author":"J.R.R. Tolkien",
+                "price":"1500",
+                "currency": "RSD",
+                "publisher":"Your Library",
+                "discaunt":null,
+                "yearOfPublishing": "2020",
+                "genre": "adventure/fantasy"
+            },
+            {
+                "title":"The Lord of the Rings: The Return of the King",
+                "image":"somePath",
+                "author":"J.R.R. Tolkien",
+                "price":"1700",
+                "currency": "RSD",
+                "publisher":"Your Library",
+                "discaunt":"10",
+                "yearOfPublishing": "2021",
+                "genre": "adventure/fantasy"
+            }
+        ]
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <!-- BOOTSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+        <!-- FONT FAMILY -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+        <!-- <link rel="preconnect" href="https://fonts.googleapis.com"/> -->
+        <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> -->
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>  -->
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- MATERIAL -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"/>
+        <title>BookSpectrum</title>
+        
+    </head>
+    <body>
+        <header>
+            <div class="row secondary-header">
+                <div class="wrapper">
+                    <div class="col col-lg-8 contact-info">
+                        <p class="phone-num"><i class="zmdi zmdi-smartphone-iphone"></i> +381/63/2424/523</p>
+                        <p class="email"><i class="zmdi zmdi-email"></i> aleksandar.kovacevic.27.21@ict.edu.rs</p>
+                        <p class="email"><i class="zmdi zmdi-pin"></i> Zdravka Čelara 16, Beograd</p>
+                    </div>
+                    <div class="col col-lg-4 cart-fav">
+                        <button><i class="zmdi zmdi-shopping-cart"></i></button>
+                        <button><i class="zmdi zmdi-favorite"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row main-header">
+                <div class="wrapper">
+                    <div class="col col-lg-2 logo">
+                        <a href="index.html"><img src="assets/images/logo4.png" alt="Logo"></a>
+                    </div>
+                    <div class="col col-lg-6 navigation">
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="shop.html">Shop</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="author.html">Author</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col col-lg-4 search">
+                        <form action="" method="GET">
+                            <input type="text" name="txbSearch" id="searchTxb" placeholder="Search for books..."/>
+                            <button id="searchBtn"><i class="zmdi zmdi-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="main">
+            <div id="banner">
+                <div id="banner-image">
+                    <div id="banner-layer"></div>
+                </div>
+                <div id="banner-text">
+                    <h1>BookSpectrum</h1>
+                    <h3>Today a reader , tomorrow a leader</h3>
+                    <a href="">READ MORE</a>
+                </div>
+            </div>
+            <div id="company-info" class="row">
+                <div id="main-image" class="col col-lg-6">
+                    <div class="layer"></div>
+                </div>
+                <div id="info-text-secondaryImage" class="col col-lg-6">
+                    <div class="text">
+                        <h2>Who are we?</h2>
+                        <p> We are a company that sells high-quality books. We have a long tradition of 
+                            successful business with a very small number of dissatisfied customers.
+                        <p>
+                        <br/> 
+                        <p>Our goal is to satisfy all age groups, whether they are children or adults.
+                            We sell books of various genres, from science fiction to thrillers.
+                        </p>
+                        <a href="">READ MORE</a>
+                    </div>
+                    <div id="secondary-image">
+                        <div class="layer"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="services">
+                <h2>Service info</h2>
+                <hr class="line"/>
+                <div class="row service-blocks">
+                    <div class="col col-lg-5 service">
+                        <div class="text">
+                            <h4>Location</h4>
+                            <p>You can see our location <a href="contact.html">here</a></p>
+                        </div>
+                        <i class="zmdi zmdi-gps-dot"></i>
+                    </div>
+                    <div class="col col-lg-5 service">
+                        <div class="text">
+                            <h4>Payment</h4>
+                            <p>You can pay with cash or credit card</p>
+                        </div>
+                        <i class="zmdi zmdi-card"></i>
+                    </div>
+                </div>
+                <div class="row service-blocks">
+                    <div class="col col-lg-5 service">
+                        <div class="text">
+                            <h4>Work time</h4>
+                            <p>During the week: 8h-18h , weekend: 8h-14h</p>
+                        </div>
+                        <i class="zmdi zmdi-time"></i>
+                    </div>
+                    <div class="col col-lg-5 service">
+                        <div class="text">
+                            <h4>Any questions?</h4>
+                            <p>if you have any doubts, call our call center</p>
+                        </div>
+                        <i class="zmdi zmdi-phone-end"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="customers-impressions">
+                <h2>Customer impressions</h2>
+                <hr class="line"/>
+                <div class="row wrapper impressions">
+                    <div class="col col-lg-5 impression">
+                        <h4>Isabella Torres</h4>
+                        <div class="bottom">
+                            <p>Moje omiljene knjige su naucno fantasticne , usluga je bila veoma dobra</p>
+                            <img src="assets/images/homePage/impressionsCustomers/person7.jpg" alt="Some customer image"/>
+                        </div>
+                    </div>
+                    <div class="col col-lg-5 impression">
+                        <h4>Charlotte Cooper</h4>
+                        <div class="bottom">
+                            <p>Moje omiljene knjige su naucno fantasticne , usluga je bila veoma dobra</p>
+                            <img src="assets/images/homePage/impressionsCustomers/person4.jpg" alt="Some customer image"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="next" class="arrows">
+                    <button id="nextBtn">
+                        <i class="zmdi zmdi-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="prev" class="arrows">
+                    <button id="prevBtn">
+                        <i class="zmdi zmdi-chevron-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row wrapper">
+                <div class="col col-lg-4">
+                    <h3>Navigation links</h3>
+                    <hr class="line"/>
+                    <nav class="footer-menu">
+                        <ul class="menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="author.html">Author</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col col-lg-4">
+                    <h3>Useful links</h3>
+                    <hr class="line"/>
+                    <nav class="footer-menu">
+                        <ul class="menu">
+                            <li><a href="documentation.pdf">Documentation</a></li>
+                            <li><a href="sitemap.xml">Sitemap</a></li>
+                            <li><a href="rss.xml">RSS feed</a></li>
+                            <li><a href="main.js">Main.js</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col col-lg-4 last">
+                    <div id="newsletter">
+                        <h3>Newsletter</h3>
+                        <hr class="line"/>
+                        <div id="subscribe">
+                            <input type="text" name="txbNewsletter" id="txbNewsletter" placeholder="Enter mail for newsletter"/>
+                            <button id="newletterBtn"><i class="zmdi zmdi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="social-networks">
+                            <li><a href="github.com"><i class="zmdi zmdi-github"></i></a></li>
+                            <li><a href="linkedin.com"><i class="zmdi zmdi-linkedin"></i></a></li>
+                            <li><a href="twitter.com"><i class="zmdi zmdi-twitter"></i></a></li>
+                            <li><a href="youtube.com"><i class="zmdi zmdi-youtube-play"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <hr class="line"/>
+            <div class="row copyright">
+                <div class="col col-lg-12">
+                    <p>Copyright @ BookSpectrum 2023</p>
+                </div>
+            </div>
+        </footer>
+        <script src="assets/js/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

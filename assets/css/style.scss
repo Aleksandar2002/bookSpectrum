@@ -1,0 +1,554 @@
+$turquoise: #0BFCDC;
+$purple: #6138df;
+// $white: #F3EFF5;
+$white: #fefefe;
+$blue:#06BCC1;
+$black: #2F2D2E;
+@mixin flexbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flexcol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin transition{
+    transition: .23s ease-in-out;
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+html{
+    body{
+        font-family: 'Work Sans', sans-serif;
+        background-color: $white;
+        color: $purple;
+        .row{
+            margin: 0;
+            padding: 0;
+            &>*{
+                padding: 0;
+            }
+        }
+        ul{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        nav{
+            ul.menu{
+                margin: 0;
+                @include flexbox();
+                justify-content: center;
+                li{
+                    @include transition();
+                    &:hover a{
+                        background-color: $purple;
+                        color: $white;
+                    }
+                    &:hover{
+                        transform: scale(1.15);
+                    }
+                    a{
+                        color: $purple;
+                        padding: 5px 12px;
+                        font-size: 1.1rem;
+                        @include transition();
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+        hr.line{
+            width: 14%;
+            border-radius: 5px;
+            height: 5px;
+            background-color: $white;
+            opacity: 1;
+            margin-bottom: 40px;
+        }
+        button , input{
+            outline: none;
+            border: none;
+        }
+        .wrapper{
+            width: 70%;
+            margin: 0 auto;
+        }
+        header{
+            .row{
+                .wrapper{
+                    display: flex;
+                    justify-content: space-between;
+                    .col{
+                        &.contact-info{
+                            @include flexbox();
+                            p{
+                                display: inline;
+                                margin: 0 7px;
+                                font-size: .86rem;
+                                i{
+                                    margin-right: 5px;
+                                    font-size: 1.1rem;
+                                }
+                            }
+                        }
+                        &.cart-fav{
+                            @include flexbox();
+                            justify-content: flex-end;
+                            button{
+                                color: $white;
+                                background-color: transparent;
+                                padding: 5px;
+                                font-size: 1.5rem;
+                                margin: 0 5px;
+                                @include transition();
+                                &:hover{
+                                    color: $purple;
+                                }
+                            }
+                        }
+                        &.logo{
+                            a{
+                                img{
+                                    transition: .3s ease-in-out;
+                                    width: 86px;
+                                }
+                            }
+                        }
+                        &.navigation, &.search{
+                            @include flexbox();
+                            justify-content: center;
+                            form{
+                                ::placeholder {
+                                    color: $white;
+                                    opacity: .8;
+                                }
+                                @include flexbox();
+                                justify-content: center;
+                                input,button{
+                                    border: 1px solid $purple;
+                                    background-color: $purple;
+                                    color: $white;
+                                    @include transition();
+                                    padding: 8px 12px;
+                                }
+                                input{
+                                    width: 280px;
+                                    border-radius: 15px 0 0 15px;
+                                    &:focus{
+                                        background-color: $white;
+                                        color: $purple;
+                                    }
+                                }
+                                button{
+                                    border-left: none;
+                                    border-radius: 0 15px 15px 0;
+                                    &:hover{
+                                        background-color: $white;
+                                        color: $purple;
+                                    }
+                                    i{
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+                        }
+                        &.search{
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+                &.secondary-header{
+                    padding: 8px 0 ;
+                    color: $white;
+                    background-color: $blue;
+                }
+                &.main-header{
+                    // box-shadow: 1px 0px 10px $black;
+                    // background-color: $purple;
+                }
+            }
+        }
+        #main{
+            #banner{
+                width: 100%;
+                height: 720px;
+                #banner-image{
+                    width: 100%;
+                    height: 100%;
+                    background:url('../images/homePage/headImg.jpg');
+                    background-position: bottom;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    #banner-layer{
+                        width: 100%;
+                        height: 100%;
+                        // background-color: rgba(6, 188, 193, .1);
+                        // background-color: rgba(47, 45, 46, .4);
+                        background-color: rgba(97, 56, 223,.3);
+                    }
+                }
+                #banner-text{
+                    position: absolute;
+                    color: $white;
+                    bottom: 25%;
+                    left: 10%;
+                    @include flexcol();
+                    align-items: flex-start;
+                    h1{
+                        font-size: 4.8rem;
+                        font-weight: 600;
+                    }
+                    h3{
+                        font-size: 2.46rem;
+                    }
+                    a{
+                        position: relative;
+                        font-size: 1.156rem;
+                        color: $white;
+                        border: 2px solid $blue;
+                        background-color: transparent;
+                        padding: 8px 14px;
+                        margin-top: 20px;
+                        z-index: 1;
+                        overflow: hidden;
+                        border-radius: 4px;
+                        &::before{
+                            content: '';
+                            height: 100%;
+                            position: absolute;
+                            left: 50%;
+                            top: 0;
+                            width: 0%;
+                            background-color: $blue;
+                            z-index: -1;
+                            @include transition();
+                        }
+                        &:hover::before{
+                            width: 100%;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+            #company-info{
+                height: 1000px;
+                col{
+                    overflow: hidden;
+                }
+                #main-image , #secondary-image{
+                    position: relative;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    &>.layer{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        // background-color: rgba(6, 188, 193, .1);
+                        background-color: rgba(47, 45, 46, .31);
+                        background-color: rgba(97, 56, 223,.21);
+                    }
+                }
+                #main-image{
+                    background-image: url('../images/homePage/sl12.jpg');
+                    background-position: top;
+                }
+                #info-text-secondaryImage{
+                    height: 100%;
+                    width: 50%;
+                    @include flexcol();
+                    .text{
+                        height: 60%;
+                        padding: 130px 40px 40px 40px;
+                        @include flexcol();
+                        justify-content: flex-start;
+                        h2{
+                            font-size: 2.5rem;
+                            margin-bottom: 30px;
+                            color: $purple;
+                        }
+                        p{
+                            max-width: 540px;
+                            // color: rgba(47, 45, 46, .8);
+                            color: rgba(97, 56, 223, .83);
+                            font-size: 1.023rem;
+                            margin: 0;
+                            &:first-of-type{
+                                margin-top: 10px;
+                            }
+                        }
+                        a{
+                            color: $white;
+                            background-color: $blue;
+                            font-size: 1.1rem;
+                            padding: 8px 15px;
+                            border-radius: 4px;
+                            margin-top: 37px;
+                            border: 1px solid $blue;
+                            @include transition();
+                            &:hover{
+                                color: $blue;
+                                background-color: $white;
+                            }
+                        }
+                    }
+                    #secondary-image{
+                        height: 40%;
+                        width: 100%;
+                        background-image: url('../images/homePage/sl5.jpg');
+                        background-position: center;
+                    }
+                }
+            }
+            #services{
+                width: 100%;
+                min-height: 689px;
+                background-color: $purple;
+                color: $white;
+                @include flexcol();
+                justify-content: flex-start;
+                padding: 60px;
+                h2{
+                    font-size: 2.7rem;
+                }
+                .service-blocks{
+                    width: 50%;
+                    @include flexbox();
+                    justify-content: space-around;
+                    .service{
+                        @include flexbox();
+                        background-color: $white;
+                        margin: 30px 0;
+                        padding: 24px;
+                        border-radius: 4px;
+                        color: $purple;
+                        min-height: 150px;
+                        @include transition();
+                        &:hover{
+                            transform: scale(1.2);
+                        }
+                        h4{
+                            font-size: 1.62rem;
+                        }
+                        p{
+                            font-size: 1rem;
+                            max-width: 97%;
+                        }
+                        a{
+                            color:$blue;
+                            @include transition();
+                            &:hover{
+                                color: $purple;
+                            }
+                        }
+                        i{
+                            font-size: 2rem;
+                            border-radius: 50%;
+                            background-color: $blue;
+                            color: $white;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+            #customers-impressions{
+                position: relative;
+                min-height: 700px;
+                padding: 70px 0;
+                @include flexcol();
+                justify-content: flex-start;
+                hr.line{
+                    background-color: $purple;
+                }
+                h2{
+                    font-size: 2.7rem;
+                }
+                .row{
+                    margin-top: 68px;
+                    @include flexbox();
+                    justify-content: space-around;
+                    .col{
+                        @include flexcol();
+                        background-color: $blue;
+                        color: $white;
+                        padding: 50px 40px;
+                        border-radius: 10px;
+                        @include transition();
+                        &:hover{
+                            transform: scale(1.08);
+                        }
+                        h4{
+                            font-size: 2.2rem;
+                        }
+                        p{
+                            font-size: 1.2rem;
+                            color: rgba(254, 254, 254, .8);
+                            max-width: 256px;
+                        }
+                        .bottom{
+                            @include flexbox();
+                            width: 100%;
+                            margin-top: 20px;
+                        }
+                        img{
+                            width: 160px;
+                            border-radius: 12px;
+                            height: 140px;
+                        }
+                    }
+                }
+                .arrows{
+                    font-size: 5.7rem;
+                    position: absolute;
+                    top: 45%;
+                    &#next{
+                        right: 10%;
+                    }
+                    &#prev{
+                        left: 10%;
+                    }
+                    button{
+                        background-color: transparent;
+                        color: $purple;
+                        @include transition();
+                        &:hover{
+                            color: $blue;
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            color: $white;
+            background-image:linear-gradient(to left ,$blue , $purple  , $purple );
+            border-radius: 80px 0 0 0 ;
+            padding: 80px 0;
+            .line{
+                margin: 40px auto;
+                width: 50%;
+                height: 4px;
+            }
+            .row{
+                @include flexbox();
+                .col{
+                    .line{
+                        margin: 0 auto 40px auto;
+                        height: 2px;
+                        width: 140px;
+                    }
+                    min-height: 200px;
+                    height: 100%;
+                    margin: 0;
+                    h3{
+                        font-size: 1.5rem;
+                        margin-bottom: 10px;
+                        text-align: center
+                    }
+                    nav.footer-menu{
+                        ul{
+                            @include flexcol();
+                            padding: 0;
+                            li{
+                                margin: 3px 0;
+                                a{
+                                    color: $white;
+                                }
+                                &:hover a{
+                                    background-color: $white;
+                                    color: $purple;
+                                }
+                                &:hover{
+                                    transform: none;
+                                }
+                            }
+                        }
+                    }
+                    &.last{
+                        @include flexcol();
+                        nav{
+                            .social-networks{
+                                padding: 0;
+                                @include flexbox();
+                                justify-content: center;
+                                li{
+                                    margin:  0 10px;
+                                    width: 40px;
+                                    height: 40px;
+                                    background-color: $white;
+                                    border-radius: 50%;
+                                    @include transition();
+                                    &:hover{
+                                        background-color: $purple;
+                                    }
+                                    &:hover a{
+                                        color: $white;
+                                    }
+                                    a{
+                                        @include flexbox();
+                                        justify-content: center;
+                                        color: $blue;
+                                        width: 100%;
+                                        height: 100%;
+                                        @include transition();
+                                        font-size: 1.5rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #subscribe{
+                        @include flexbox();
+                        justify-content: center;
+                        ::placeholder {
+                            color: $black;
+                            opacity: .5;
+                        }
+                        input,button{
+                            font-size: .9rem;
+                            padding: 6px 10px;
+                            @include transition();
+                            color: $blue;
+                            background-color: $white;
+                            margin: 0;
+                        }
+                        input{
+                            border-radius: 4px 0 0 4px;
+                            &:focus{
+                                color: $white;
+                                background-color: $purple;
+                            }
+                        }
+                        button{
+                            border-radius:  0 4px 4px 0;
+                            &:hover{
+                                color: $white;
+                                background-color: $purple;
+                            }
+                        }
+                    }
+                }
+                &.copyright{
+                    margin: 40px 0 0 0;
+                    justify-content: center;
+                    .col{
+                        min-height: auto;                        
+                        p{
+                            text-align: center;
+                            font-size: 1.2rem;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
