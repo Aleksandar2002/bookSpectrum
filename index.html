@@ -4,7 +4,7 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="shortcut icon" href="#" type="image/x-icon">
+        <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
         <!-- CSS -->
         <link rel="stylesheet" href="assets/css/style.css"/>
         <link rel="stylesheet" href="assets/css/responsive.css"/>
@@ -14,9 +14,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com"/> -->
-        <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>  -->
         <!-- Jquery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- MATERIAL -->
@@ -34,15 +31,15 @@
                         <p class="email"><i class="zmdi zmdi-pin"></i> Zdravka Čelara 16, Beograd</p>
                     </div>
                     <div class="col col-lg-4 cart-fav">
-                        <button><i class="zmdi zmdi-shopping-cart"></i></button>
-                        <button><i class="zmdi zmdi-favorite"></i></button>
+                        <button id="cartBtn"><i class="zmdi zmdi-shopping-cart"></i></button>
+                        <button id="favBtn"><i class="zmdi zmdi-favorite"></i></button>
                     </div>
                 </div>
             </div>
             <div class="row main-header">
                 <div class="wrapper">
                     <div class="col col-lg-2 logo">
-                        <a href="index.html"><img src="assets/images/logo4.png" alt="Logo"></a>
+                        <a href="index.html"><img src="assets/images/logo.png" alt="Logo"></a>
                     </div>
                     <div class="col col-lg-6 navigation">
                         <nav>
@@ -214,6 +211,126 @@
                 </div>
             </div>
         </footer>
+        <div class="popupCartFav">
+            <div class="popup-content">
+                <div class="cart">
+                    <!-- <p class="no">1</p>
+                    <img src="" alt=""> -->
+                    <h2>Cart</h2>
+                    <table class="cartTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button id="deleteCartProduct">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button id="deleteCartProduct">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button id="deleteCartProduct">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button id="deleteCartProduct">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button id="deleteCartProduct">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button id="deleteCartProduct">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="cartFooter">
+                        <p>Total Price: <span id="totalPrice">231</span>$</p>
+                        <p>Number of products: <span id="numberOfProducts">23</span></p>
+                        <button id="buyBtn">Buy Products</button>
+                    </div>
+                </div>
+                <button id="closePopupBtn"><i class="zmdi zmdi-close"></i></button>
+            </div>
+        </div>
+        <div id="toTop">
+            <button>
+                <i class="zmdi zmdi-chevron-up"></i>
+                <i class="zmdi zmdi-chevron-up"></i>
+                <i class="zmdi zmdi-chevron-up"></i>
+            </button>
+        </div>
         <script src="assets/js/app.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>

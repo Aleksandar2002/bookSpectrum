@@ -73,7 +73,7 @@ html{
             opacity: 1;
             margin-bottom: 40px;
         }
-        button , input{
+        button , input ,select{
             outline: none;
             border: none;
         }
@@ -258,7 +258,7 @@ html{
                     }
                 }
                 #main-image{
-                    background-image: url('../images/homePage/sl12.jpg');
+                    background-image: url('../images/homePage/mainImage.jpg');
                     background-position: top;
                 }
                 #info-text-secondaryImage{
@@ -303,7 +303,7 @@ html{
                     #secondary-image{
                         height: 40%;
                         width: 100%;
-                        background-image: url('../images/homePage/sl5.jpg');
+                        background-image: url('../images/homePage/secondaryImage.jpg');
                         background-position: center;
                     }
                 }
@@ -547,6 +547,132 @@ html{
                             margin: 0;
                         }
                     }
+                }
+            }
+        }
+        .popupCartFav{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            height: 100%;
+            @include flexbox();
+            justify-content: center;
+            background-color: rgba(97, 56, 223, .9);
+            background-color: rgba(6, 188, 193, .9);
+            display: none;
+            &.open{
+                display: flex;
+            }
+            .popup-content{
+                @include flexcol();
+                width:750px;
+                min-height: 570px;
+                background-color: $white;
+                color: $purple;
+                position: relative;
+                border-radius: 5px;
+                padding: 30px;
+                h2{
+                    text-align: center;
+                    margin-bottom: 40px;
+                    font-size: 2.4rem;   
+                }
+                .cart{
+                    width: 100%;
+                    button, select{
+                        background-color: $purple;
+                        color: $white;
+                        font-size: .95rem;
+                        padding: 7px 12px;
+                        border-radius: 4px;
+                        @include transition();
+                        border: 1px solid $purple;
+                    }
+                    .cartTable{
+                        width: 100%;
+                        tr{
+                            td , th{
+                                border: 1px solid $purple;
+                                text-align: center;
+                                padding: 4px;
+                                img{
+                                    width: 40px;
+                                }
+                                select{
+                                    width: 70px;
+                                }
+                                button:hover , select:focus{
+                                    background-color: $white;
+                                    color: $purple;
+                                }
+                            }
+                        }
+                    }
+                    .cartFooter{
+                        @include flexcol();
+                        p{
+                            span{
+                                color: $blue;
+                            }
+                            &:first-of-type{
+                                margin-top: 30px;
+                            }
+                        }
+                        #buyBtn{
+                            background-color: $white;
+                            margin-top: 14px;
+                            color: $purple;
+                            &:hover{
+                                background-color: $purple;
+                                color: $white;
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
+                button#closePopupBtn{
+                    color: $purple;
+                    background-color: transparent;
+                    position: absolute;
+                    top: 2%;
+                    right: 4%;
+                    font-size: 1.5rem;
+                    @include transition();
+                    &:hover{
+                        color: $blue;
+                    }
+                }
+            }
+        }
+        #toTop{
+            position: fixed;
+            bottom: 4%;
+            right: 3%;
+            button{
+                background-color: $purple;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                font-size: 3rem;
+                color: $white;
+                @include flexcol();
+                position: relative;
+                @include transition();
+                i{
+                    position: absolute;
+                    top: -5%;
+                    &:nth-of-type(2){
+                        top: 15%;
+                    }
+                    &:nth-of-type(3){
+                        top: 35%;
+                    }
+                }
+                &:hover{
+                    background-color: $white;
+                    color: $purple;
+
                 }
             }
         }
