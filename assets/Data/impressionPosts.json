@@ -1,0 +1,42 @@
+[
+    {
+        "id":1,
+        "postText":"I have been shopping at this bookstore for a long time and I am completely satisfied with the service as well as the quality.",
+        "postDate":"15.9.2022",
+        "image":{
+            "path":"person1.jpg",
+            "alt":"Tiffany's photo"
+        },
+        "personName":"Tiffany Morgan"
+    },
+    {
+        "id":2,
+        "postText":"Every time I go to this store, even when I didn't plan to buy anything, I return home with my hands full, My sincere recommendations.",
+        "postDate":"25.7.2022",
+        "image":{
+            "path":"person2.jpg",
+            "alt":"Judith's photo"
+        },
+        "personName":"Judith Turner"
+    },
+    {
+        "id":3,
+        "postText":"I heard about this store from my friend, my favorite genre is science fiction, and here I found all my favorite authors.",
+        "postDate":"11.12.2022",
+        "image":{
+            "path":"person3.jpg",
+            "alt":"Mike's photo"
+        },
+        "personName":"Mike Baker"
+    },
+    {
+        "id":4,
+        "postText":"I've been reading books since I was little, and I haven't found a place where I can find everything I'm interested in until I heard about this shop.",
+        "postDate":"18.11.2022",
+        "image":{
+            "path":"person4.jpg",
+            "alt":"Michayla's photo"
+        },
+        "personName":"Michayla Griffin"
+    }
+]

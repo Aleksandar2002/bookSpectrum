@@ -1,0 +1,257 @@
+[
+    {
+        "id":1,
+        "title":"Lord of the Rings: The Fellowship of the Ring",
+        "image":{
+            "path":"fellowshipOfTheRing.jpg",
+            "alt":"Fellowship Of The Ring"
+        },
+        "price":{
+            "oldPrice":1500,
+            "discaunt":10
+        },
+        "yearOfPublishing":"2021",
+        "author":"J.R.R Tolkien",
+        "genres":[1,2],
+        "publisher":"Bloomsbury Publishing",
+        "shortDescription":"Set in Middle-earth during the Third Age, The Fellowship of the Ring follows the unlikely hero, Frodo Baggins, in his quest to destroy the One Ring of ultimate power before the evil Sauron can regain the weapon. Accompanied by a group of fellow hobbits and representatives of Men, Elves, and Dwarves, Frodo is guided by the wizard Gandalf"
+    },
+    {
+        "id":2,
+        "title":"Lord of the Rings: The  Two Towers",
+        "image":{
+            "path":"twoTowers.jpg",
+            "alt":"Two Towers"
+        },
+        "price":{
+            "oldPrice":1600,
+            "discaunt":15
+        },
+        "yearOfPublishing":"2021",
+        "author":"J.R.R Tolkien",
+        "genres":[1,2],
+        "publisher":"Bloomsbury Publishing",
+        "shortDescription":"As Frodo and Sam leave, a band of orcs captures Merry and Pippin and kills Boromir. Aragorn, Legolas, and Gimli decide to let the Ringbearer go and instead rescue Merry and Pippin. Aragorn, Legolas, and Gimli pursue the orcs as they run across the fields of Rohan toward Saruman's fortress at Isengard. "
+    },
+    {
+        "id":3,
+        "title":"Lord of the Rings: The Return Of The King",
+        "image":{
+            "path":"returnOfTheKing.jpg",
+            "alt":"The Return Of The King"
+        },
+        "price":{
+            "oldPrice":1800,
+            "discaunt":20
+        },
+        "yearOfPublishing":"2022",
+        "author":"J.R.R Tolkien",
+        "genres":[1,2],
+        "publisher":"Bloomsbury Publishing",
+        "shortDescription":" The Return of the King covers the culmination of Frodo Baggins’s quest to destroy the One Ring coveted by the Dark Lord Sauron, and Aragorn’s defense of the kingdom of Gondor against Sauron’s army. The Lord of the Rings, taken as a single volume, is by several measures the best-selling book of all time."
+    },
+    {
+        "id":4,
+        "title":"The Hobbit",
+        "image":{
+            "path":"hobit.jpg",
+            "alt":"The Hobbit"
+        },
+        "price":{            
+            "oldPrice":1000,
+            "discaunt":0
+        },
+        "yearOfPublishing":"2020",
+        "author":"J.R.R Tolkien",
+        "genres":[1,2],
+        "publisher":"Bloomsbury Publishing",
+        "shortDescription":"Bilbo Baggins is resting at his house. Gandalf, who is a known wizard, appears and startles him. Bilbo invites him for tea. Some days later Gandalf arrives with 13 dwarves for tea. They want Bilbo to help them. The Dwarves leader Thorir tells Bilbo about a family treasure being guarded by the dragon. They want to recover the treasure."
+    },
+    {
+        "id":5,
+        "title":"The Whisperer",
+        "image":{
+            "path":"theWhisperer.jpg",
+            "alt":"The Whisperer"
+        },
+        "price":{            
+            "oldPrice":900,
+            "discaunt":10
+        },
+        "yearOfPublishing":"2020",
+        "author":"Donato Carrisi",
+        "genres":[4,5],
+        "publisher":"DK Books",
+        "shortDescription":"Six severed arms are discovered, arranged in a mysterious circle and buried in a clearing in the woods. Five of them appear to belong to missing girls between the ages of eight and eighteen. The sixth is yet to be identified. Worse still, the girls’ bodies, alive or dead, are nowhere to be found. Lead investigators Mila Vasquez, a celebrated profiler, and Goran Gavila, an eerily prescient criminologist, dive into the case. They’re confident they’ve got the right suspect in their sights until they discover no link between him and any of the kidnappings except the first. "
+    },
+    {
+        "id":6,
+        "title":"My Biography",
+        "image":{
+            "path":"sirAlex.jpg",
+            "alt":"Sir Alex Biography"
+        },
+        "price":{
+            "oldPrice":1200,
+            "discaunt":0
+        },
+        "yearOfPublishing":"2022",
+        "author":"Sir Alex Ferguson",
+        "genres":[8,9],
+        "publisher":"DK Books",
+        "shortDescription":"Sir Alex Ferguson had an incredible career, culminating in 26 seasons as manager of Manchester United, where his 13 top-flight league titles and 49 trophies remain a club and national record. These days, the leadership methods of the working-class boy from the toughest area of Glasgow are studied at Harvard University. "
+    },
+    {
+        "id":7,
+        "title":"Ayrton Senna: Portrait of a racing legend",
+        "image":{
+            "path":"ayrtonSenna.jpg",
+            "alt":"Ayrton Senna"
+        },
+        "price":{            
+            "oldPrice":1000,
+            "discaunt":30
+        },
+        "yearOfPublishing":"2018",
+        "author":"Bruce Jones",
+        "genres":[8,9],
+        "publisher":"DK Books",
+        "shortDescription":"This biography of Ayrton Senna offers an insight into an intensely private man - his life, beliefs and career. It charts his growing up, the weekend of the San Marino Grand Prix and his death, as well as charting his full racing career."
+    },
+    {
+        "id":8,
+        "title":"Dune",
+        "image":{
+            "path":"dune.jpg",
+            "alt":"Dune"
+        },
+        "price":{            
+            "oldPrice":800,
+            "discaunt":10
+        },
+        "yearOfPublishing":"2017",
+        "author":"Frank Herbert",
+        "genres":[1,2],
+        "publisher":"Candlewick Press",
+        "shortDescription":"‘Dune’ is a literary piece of science fiction that tells the story of humanity thousands of years into the future. In the novel, humanity becomes so advanced that it spreads across the known universe. With the spread of humans, noble houses are formed, with each governing a planetary system."
+    },
+    {
+        "id":9,
+        "title":"Into the Labyrinth",
+        "image":{
+            "path":"intoTheLabyrinth.jpg",
+            "alt":"Into the labyrinth"
+        },
+        "price":{
+            "oldPrice":900,
+            "discaunt":15
+        },
+        "yearOfPublishing":"2020",
+        "author":"Donato Carrisi",
+        "genres":[4,5],
+        "publisher":"Candlewick Press",
+        "shortDescription":"A young woman named Samantha Andretti wakes up in a hospital bed. Samantha was abducted when she was thirteen. She was kept prisoner for fifteen years. The man by her side, Dr. Green, believes that Samantha's memories contain the clues that will lead to the capture of her abductor. But why does she keep referring to a labyrinth?"
+    },
+    {
+        "id":10,
+        "title":"War and Peace",
+        "image":{
+            "path":"warAndPeace.jpg",
+            "alt":"War and Peace"
+        },
+        "price":{
+            "oldPrice":1800,
+            "discaunt":15
+        },
+        "yearOfPublishing":"2020",
+        "author":"Leo Tolstoy",
+        "genres":[3,6,7],
+        "publisher":"Candlewick Press",
+        "shortDescription":"War and Peace broadly focuses on Napoleon’s invasion of Russia in 1812 and follows three of the most well-known characters in literature: Pierre Bezukhov, the illegitimate son of a count who is fighting for his inheritance and yearning for spiritual fulfillment."
+    },
+    {
+        "id":11,
+        "title":"The mysterious affair at Styles",
+        "image":{
+            "path":"affairAtStyles.jpg",
+            "alt":"The mysterious affair at Styles"
+        },
+        "price":{
+            "oldPrice":600,
+            "discaunt":0
+        },
+        "yearOfPublishing":"2015",
+        "author":"Agatha Christie",
+        "genres":[4,5],
+        "publisher":"Candlewick Press",
+        "shortDescription":"Arthur Hastings is on leave from World War I when he runs into an old friend, John Cavendish. After they’ve gotten reacquainted, John invites Hastings to spend time at his family’s country house, Styles Court. He explains that there’s some tension at Styles Court these days, since his stepmother, Emily, recently married a younger man named Alfred Inglethorp."
+    },
+    {
+        "id":12,
+        "title":"The Brothers Karamazov",
+        "image":{
+            "path":"karamazov.jpg",
+            "alt":"The Brothers Karamazov"
+        },
+        "price":{
+            "oldPrice":2200,
+            "discaunt":25
+        },
+        "yearOfPublishing":"2018",
+        "author":"Fyodor Dostoevsky",
+        "genres":[3,7],
+        "publisher":"Candlewick Press",
+        "shortDescription":"The Brothers Karamazov is the last novel of the prolific Russian writer Fyodor Dostoyesvky; it is often regarded as one of the world's best novels and as Dostoyevsky's magnum opus. The titular brothers Karamazov are Dmitri, Ivan, and Alyosha, who are the sons of the town reprobate. The novel follows the circumstances leading up to the murder of the brothers' father Fyodor, and the subsequent arrest of one of them for the crime. "
+    },
+    {
+        "id":13,
+        "title":"The Match",
+        "image":{
+            "path":"harlanCoben.jpg",
+            "alt":"The Match"
+        },
+        "price":{
+            "oldPrice":800,
+            "discaunt":5
+        },
+        "yearOfPublishing":"2020",
+        "author":"Harlan Coben",
+        "genres":[4,5,10],
+        "publisher":"Tor Books",
+        "shortDescription":"Bestselling author Harlen Coben follows up The Boy from the Woods with The Match. After months away, Wilde has returned to the Ramapo Mountains of New Jersey. A failed bid at domesticity confirms what he's known all along: He belongs on his own, free from the comforts and constraints of modern life/"
+    },
+    {
+        "id":14,
+        "title":"The Bourne Ultimatum",
+        "image":{
+            "path":"bourne.jpg",
+            "alt":"The Bourne Ultimatum"
+        },
+        "price":{
+            "oldPrice":1200,
+            "discaunt":10
+        },
+        "yearOfPublishing":"2021",
+        "author":"Robert Ludlum",
+        "genres":[5,10],
+        "publisher":"Tor Books",
+        "shortDescription":"David Webb, aka Jason Bourne has to go back to work after a message in the form of a murder indicates that Carlos the Jackal has resurfaced. He is Webb's old nemesis and Webb will do anything to put him down, including be Jason Bourne again."
+    },
+    {
+        "id":15,
+        "title":"The Fall of Gondolin",
+        "image":{
+            "path":"fallOfGondolin.jpg",
+            "alt":"The Fall of Gondolin"
+        },
+        "price":{
+            "oldPrice":1500,
+            "discaunt":0
+        },
+        "yearOfPublishing":"2022",
+        "author":"J.R.R Tolkien",
+        "genres":[1,2],
+        "publisher":"Kensington Publishing Corp",
+        "shortDescription":"The story tells of the ancient hidden city of Gondolin, a Noldorin stronghold in defiance of Morgoth; the man Tuor is sent to Gondolin by the god Ulmo where he falls in love with the king Turgon's daughter, the elf Idril."
+    }
+]

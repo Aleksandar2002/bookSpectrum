@@ -28,6 +28,7 @@ html{
         font-family: 'Work Sans', sans-serif;
         background-color: $white;
         color: $purple;
+        scroll-behavior: smooth;
         .row{
             margin: 0;
             padding: 0;
@@ -61,6 +62,12 @@ html{
                         font-size: 1.1rem;
                         @include transition();
                         border-radius: 4px;
+                        &.activeLink{
+                            color: $blue;
+                            &:hover{
+                                color: $white;
+                            }
+                        }
                     }
                 }
             }
@@ -82,6 +89,10 @@ html{
             margin: 0 auto;
         }
         header{
+            position: relative;
+            z-index: 10;
+            box-shadow: 10px 0 10px $purple;
+            background-color: $white;
             .row{
                 .wrapper{
                     display: flex;
@@ -103,6 +114,7 @@ html{
                             @include flexbox();
                             justify-content: flex-end;
                             button{
+                                position: relative;
                                 color: $white;
                                 background-color: transparent;
                                 padding: 5px;
@@ -111,6 +123,19 @@ html{
                                 @include transition();
                                 &:hover{
                                     color: $purple;
+                                }
+                                span.productNumber{
+                                    background-color: $purple;
+                                    color:$white;
+                                    width: 15px;
+                                    height: 15px;
+                                    font-size: .7rem;
+                                    @include flexbox();
+                                    justify-content: center;
+                                    position: absolute;
+                                    border-radius: 50%;
+                                    top: 2px;
+                                    right: -3px;
                                 }
                             }
                         }
@@ -125,6 +150,9 @@ html{
                         &.navigation, &.search{
                             @include flexbox();
                             justify-content: center;
+                            li{
+                                margin: 0 3px;
+                            }
                             form{
                                 ::placeholder {
                                     color: $white;
@@ -169,10 +197,6 @@ html{
                     padding: 8px 0 ;
                     color: $white;
                     background-color: $blue;
-                }
-                &.main-header{
-                    // box-shadow: 1px 0px 10px $black;
-                    // background-color: $purple;
                 }
             }
         }
@@ -253,7 +277,7 @@ html{
                         height: 100%;
                         position: absolute;
                         // background-color: rgba(6, 188, 193, .1);
-                        background-color: rgba(47, 45, 46, .31);
+                        // background-color: rgba(47, 45, 46, .31);
                         background-color: rgba(97, 56, 223,.21);
                     }
                 }
@@ -373,35 +397,87 @@ html{
                 }
                 .row{
                     margin-top: 68px;
+                    padding-bottom: 46px;
                     @include flexbox();
-                    justify-content: space-around;
-                    .col{
-                        @include flexcol();
-                        background-color: $blue;
-                        color: $white;
-                        padding: 50px 40px;
-                        border-radius: 10px;
-                        @include transition();
-                        &:hover{
-                            transform: scale(1.08);
-                        }
-                        h4{
-                            font-size: 2.2rem;
-                        }
-                        p{
-                            font-size: 1.2rem;
-                            color: rgba(254, 254, 254, .8);
-                            max-width: 256px;
-                        }
-                        .bottom{
-                            @include flexbox();
-                            width: 100%;
-                            margin-top: 20px;
-                        }
-                        img{
-                            width: 160px;
-                            border-radius: 12px;
-                            height: 140px;
+                    justify-content: center;
+                    .impressions{
+                        width: 680px;
+                        height: 400px;
+                        white-space: nowrap;
+                        @include flexbox();
+                        overflow: hidden;
+                        .impression{
+                            position: relative;
+                            @include flexcol();
+                            justify-content: center;
+                            background-color: $blue;
+                            color: $white;
+                            padding: 30px 40px;
+                            border-radius: 10px;
+                            border: 1px solid $blue;
+                            min-width: 100%;
+                            height: 100%;
+                            transition: transform .5s ease-in-out,color .25s ease-in-out,background-color .25s ease-in-out;
+                            &::after ,&::before{
+                                content: '';
+                                width: 25px;
+                                height: 200px;
+                                background-color: $purple;
+                                top:29%;
+                                position: absolute;
+                            }
+                            &::after{
+                                border-radius: 0 10px 10px 0;
+                                left: -1px;
+                            }
+                            &::before{
+                                border-radius:10px 0 0 10px;
+                                right: -1px;
+                            }
+                            &:hover{
+                                background-color: $white;
+                                color: $purple;
+                            }
+                            h4{
+                                font-size: 1.1rem;
+                                opacity: .76;
+                                color: $purple;
+                            }
+                            i{
+                                position: absolute;
+                                top: 6%;
+                                left: 7%;
+                                font-size: 4rem;
+                            }
+                            p{
+                                white-space: initial;
+                                font-size: 1rem;
+                                // color: rgba(254, 254, 254, .85);
+                                max-width: 380px;
+                                margin:20px 0;
+                                &.impression-date{
+                                    position: absolute;
+                                    font-size: 1.1;
+                                    // opacity: .86;
+                                    top: 6%;
+                                    right: 4%;
+                                }
+                            }
+                            .bottom{
+                                @include flexbox();
+                                width: 100%;
+                                margin-top: 20px;
+                            }
+                            img{
+                                width: 150px;
+                                border-radius: 15px;
+                                height: 116px;
+                                margin-bottom: 15px;
+                                @include transition();
+                                &:hover{
+                                    transform: scale(1.2);
+                                }
+                            }
                         }
                     }
                 }
@@ -410,10 +486,10 @@ html{
                     position: absolute;
                     top: 45%;
                     &#next{
-                        right: 10%;
+                        right: 18%;
                     }
                     &#prev{
-                        left: 10%;
+                        left: 18%;
                     }
                     button{
                         background-color: transparent;
@@ -422,6 +498,349 @@ html{
                         &:hover{
                             color: $blue;
                             transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+            .wrapper #shop{
+                // position: relative;
+                background-color: $white;
+                padding: 78px 0 100px 0;
+                .filter{
+                    animation: fadeIn 1.2s;
+                    form{
+                        h2{
+                            font-size: 2.23rem;
+                        }
+                        h3{
+                            font-size: 1.7rem;
+                            margin-bottom: 15px;
+                        }
+                        label{
+                            font-size: .95rem;
+                        }
+                        hr.line{
+                            width: 60%;
+                            height: 2px;
+                            margin: 0;
+                            margin:15px 0 19px 0;
+                            background-color: $purple;
+                            border-radius: 1px;
+                        }
+                        .form-field{
+                            margin: 5px 0;
+                            label{
+                                width: 100px;
+                            }
+                        }
+                        // .priceRangeSlider {
+                        //     width: 400px;
+                        //     position: relative;
+                        //     margin: 15px 0 30px 0;
+                        // }
+                        // input[type=range] {
+                        //     -webkit-appearance: none;
+                        //     width: 100%;
+                        //     background: transparent; 
+                        //     position: absolute;
+                        //     left: 0;
+                        // }
+                        // input[type=range]::-webkit-slider-thumb {
+                        //     -webkit-appearance: none;
+                        //     height: 15px;
+                        //     width: 15px;
+                        //     border-radius: 50%;
+                        //     background: #36b37e;
+                        //     cursor: pointer;
+                        //     margin-top: -5px;
+                        //     position: relative;
+                        //     z-index: 1;
+                        // }
+                        
+                        // input[type=range]::-webkit-slider-runnable-track {
+                        //     width: 100%;
+                        //     height: 5px;
+                        //     background: #e8e8e8;
+                        //     border-radius: 3px;
+                        //     border: none;
+                        // }
+                        input[type="button"]{
+                            padding: 4px 15px;
+                            font-size: 1.2rem;
+                            border-radius: 4px;
+                            margin-top: 20px;
+                            color: $purple;
+                            background-color: $white;
+                            border: 1px solid $purple;
+                            @include transition();
+                            &:hover{
+                                background-color: $purple;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+                .books{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    position: relative;
+                    padding-top:110px;
+                    .sectionHeader{
+                        @include flexbox();
+                        top: 0;
+                        width: 100%;
+                        justify-content: center;
+                        position: absolute;
+                        h1{
+                            font-size: 2.6rem;
+                            margin-right: 20px;
+                            span{
+                                color: $blue;
+                            }
+                        }
+                        select{
+                            position: absolute;
+                            right: 0;
+                            padding:6px 13px;
+                            color: $white;
+                            background-color: $blue;
+                            border: 1px solid $blue;
+                            border-radius: 6px;
+                            option:disabled{
+                                color: $purple;
+                            }
+                        }
+                    }
+                    .book{
+                        position: relative;
+                        background-color: $blue;
+                        border: 1px solid $blue;
+                        box-shadow: 0 0 3px $blue;
+                        color: $white;
+                        height: 410px;
+                        border-radius: 15px;
+                        @include flexcol();
+                        padding: 25px 24px;
+                        margin: 14px;
+                        overflow: hidden;
+                        transition: .32s ease-in-out;
+                        animation: fadeIn 1.2s;
+                        &:hover .cartFav{
+                            right: 4%;
+                            opacity: 1;
+                        }
+                        &:hover{
+                            color: $blue;
+                            background-color: $white;
+                            // transform: scale(1.05);
+                            .seeMore{
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                        img{
+                            height: 250px;
+                            border-radius:7px;
+                            // transition: .32s ease-in-out;
+                        }
+                        h3{
+                            margin: 12px 0;
+                            text-align: center;
+                            font-size:1.07rem;
+                        }
+                        .bottom{
+                            @include flexbox();
+                        }
+                        p{
+                            margin:  0;
+                            margin: 0 5px;
+                            &.oldPrice{
+                                text-decoration: line-through;
+                                font-size: 1.04rem;
+                            }
+                            &.newPrice{
+                                color: $purple;
+                                font-size: 1.3rem;
+                            }
+                        }
+                        .cartFav{
+                            position: absolute;
+                            right: -14%;
+                            opacity: 0;
+                            top: 40%;
+                            transition: .32s ease-in-out;
+                            @include flexcol();
+                            button{
+                                font-size: 1.6rem;
+                                color: $purple;
+                                background-color:transparent;
+                                @include transition();
+                                &:hover{
+                                    color: $blue;
+                                }
+                            }
+                        }
+                        .discaunt{
+                            position: absolute;
+                            top: 2%;
+                            left: 2%;
+                            width: 70px;
+                            height: 70px;
+                            border-radius: 50%;
+                            background-color: $purple;
+                            color: $white;
+                            @include flexbox();
+                            justify-content: center;
+                            font-size: 1.4rem;
+                        }
+                        .seeMore{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            opacity: 0;
+                            visibility: hidden;
+                            transition: .32s ease-in-out;
+                            button{
+                                background-color: $purple;
+                                color: $white;
+                                border-radius: 4px;
+                                padding:4px 12px;
+                                font-size: 1rem;
+                                @include transition();
+                                &:hover{
+                                    background-color: $blue;
+                                }
+                            }
+                        }
+                    }
+                    p.empty{
+                        font-size: 1.5rem;
+                        margin-top: 140px;
+                        grid-column: 1/4;
+                        text-align: center;
+                        display: none;
+                    }
+                }
+                .seeMore-outer{
+                    width: 100%;
+                    height: 100%;
+                    position: fixed;
+                    z-index: 20;
+                    background-color: rgba(6, 188, 193, .9);
+                    background-color: rgba(84, 51, 182, 0.9);
+                    top: 0;
+                    @include flexbox();
+                    justify-content: center;
+                    display: none;
+                    left: 0;
+                    &.open{
+                        display: flex;
+                    }
+                    .seeMore-content{
+                        @include flexbox();
+                        position: relative;
+                        padding: 20px 40px;
+                        width: 820px;
+                        height:570px;
+                        border-radius: 10px;
+                        background-color: $white;
+                        color: $blue;
+                        &>div{
+                            @include flexcol();
+                            justify-content: flex-end;
+                            img{
+                                height: 400px;
+                                width: 276px;
+                                border-radius: 5px;
+                            }
+                            .prices{
+                                margin-top: 20px;
+                            }
+                            .discaunt{
+                                // width: 50px;
+                                // height: 20px;
+                                position: absolute;
+                                top: 10%;
+                                left: 5%;
+                                font-size: 1.2rem;
+                                @include flexbox();
+                                justify-content: center;
+                                padding: 4px 12px;
+                                color:$white;
+                                background-color: $purple;
+                                border-radius: 4px;
+                            }
+                            h3{
+                                font-size: 1.46rem;
+                                color: $purple;
+                            }
+                            p{
+                                margin: 0;
+                            }
+                            p.genres{
+                                margin-top: 20px;
+                            }
+                            p.newPrice , p.oldPrice{
+                                font-size: 1.4rem;
+                                margin: 0 5px ;
+                                display: inline;
+                            }
+                            p.newPrice{
+                                color: $purple;
+                                font-size: 1.5rem;
+                            }
+                            p.oldPrice{
+                                text-decoration: line-through;
+                            }
+                            hr.line{
+                                height: 2px;
+                                width: 200px;
+                                margin: 20px 0;
+                                background-color: $purple;
+                            }
+                            p.shortText{
+                                font-size: .9rem;
+                            }
+                            .addToCart{
+                                margin: 35px 0 0 0;
+                                select,button{
+                                    background-color: $blue;
+                                    color: $white;
+                                    padding:6px 10px;
+                                    border: 1px solid $blue;
+                                    font-size: 1.1rem;
+                                    @include transition();
+                                    border-radius: 4px;
+                                }
+                                select{
+                                    margin: 0 12px;
+                                    &:focus{
+                                        background-color: $white;
+                                        color: $blue;
+                                    }
+                                }
+                                button{
+                                    background-color: $purple;
+                                    border-color: $purple;
+                                    &:hover{
+                                        background-color: $white;
+                                        color: $purple;
+                                    }
+                                }
+                            }
+                            .closeBtn{
+                                background-color: transparent;
+                                color: $blue;
+                                position: absolute;
+                                top: 4%;
+                                right: 4%;
+                                font-size: 1.7rem;
+                                @include transition();
+                                &:hover{
+                                    color: $purple;
+                                }
+                            }
                         }
                     }
                 }
@@ -461,6 +880,12 @@ html{
                                 margin: 3px 0;
                                 a{
                                     color: $white;
+                                    &.activeLink{
+                                        color: $blue;
+                                        &:hover{
+                                            color: $purple;
+                                        }
+                                    }
                                 }
                                 &:hover a{
                                     background-color: $white;
@@ -558,7 +983,6 @@ html{
             height: 100%;
             @include flexbox();
             justify-content: center;
-            background-color: rgba(97, 56, 223, .9);
             background-color: rgba(6, 188, 193, .9);
             display: none;
             &.open{
@@ -566,8 +990,9 @@ html{
             }
             .popup-content{
                 @include flexcol();
-                width:750px;
+                width:780px;
                 min-height: 570px;
+                max-height: 90vh;
                 background-color: $white;
                 color: $purple;
                 position: relative;
@@ -579,7 +1004,6 @@ html{
                     font-size: 2.4rem;   
                 }
                 .cart{
-                    width: 100%;
                     button, select{
                         background-color: $purple;
                         color: $white;
@@ -591,16 +1015,22 @@ html{
                     }
                     .cartTable{
                         width: 100%;
+                        display: none;
+                        thead , tbody{
+                            width: 100%;
+                        }
                         tr{
+                            width: 100%;
                             td , th{
                                 border: 1px solid $purple;
                                 text-align: center;
-                                padding: 4px;
+                                padding: 5px;
+                                font-weight: 400;
                                 img{
-                                    width: 40px;
+                                    height: 100px;
                                 }
                                 select{
-                                    width: 70px;
+                                    width: 100px;
                                 }
                                 button:hover , select:focus{
                                     background-color: $white;
@@ -626,10 +1056,68 @@ html{
                             &:hover{
                                 background-color: $purple;
                                 color: $white;
-                                margin: 0 auto;
+                                margin: 14 auto 0 auto;
                             }
                         }
                     }
+                }
+                .favourites{
+                    .fav-products{
+                        display: grid;
+                        width: 100%;
+                        grid-template-columns: 1fr  1fr;
+                        .fav-product{
+                            margin: 10px;
+                            min-height: 190px;
+                            background-color: $white;
+                            border-radius: 5px ;
+                            border: 1px solid $purple;
+                            color: $purple;
+                            padding: 10px;
+                            @include flexbox();
+                            h4{
+                                font-size: 1.1rem;
+                                text-align: center;
+                                margin-bottom: 20px;
+                                height: 25px;
+                            }
+                            .fav-img{
+                                img{
+                                    height: 152px;
+                                }
+                            }
+                            .fav-footer{
+                                @include flexcol();
+                                width: 100%;
+                                p{
+                                    color: $blue;
+                                    margin: 0;
+                                    font-size: 1.05rem;
+                                }
+                            }
+                            .removeFromFavBtn{
+                                background-color: transparent;
+                                color: $purple;
+                                border: 1px solid $purple;
+                                border-radius: 3px;
+                                padding: 4px 12px ;
+                                font-size: .85rem;
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+                .cart , .favourites{
+                    display: none;
+                    width: 100%;
+                    &.open{
+                        display: block;
+                    }
+                }
+                p.empty{
+                    text-align: center;
+                    margin-top: 20px;
+                    font-size: 1.5rem;
                 }
                 button#closePopupBtn{
                     color: $purple;
@@ -648,6 +1136,7 @@ html{
         #toTop{
             position: fixed;
             bottom: 4%;
+            display: none;
             right: 3%;
             button{
                 background-color: $purple;
@@ -676,5 +1165,31 @@ html{
                 }
             }
         }
+
+    }
+}
+::-webkit-scrollbar {
+    width: 11px;
+
+}
+::-webkit-scrollbar-track {
+    box-shadow:inset 0px 0px 1px $blue; 
+    background-color: $white;
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: $purple; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $blue; 
+}
+// ANIMATIONS 
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
     }
 }

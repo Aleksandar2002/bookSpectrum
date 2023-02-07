@@ -1,0 +1,18 @@
+[
+    {
+        "text":"Home",
+        "href":"index.html"
+    },
+    {
+        "text":"Shop",
+        "href":"shop.html"
+    },
+    {
+        "text":"Contact",
+        "href":"contact.html"
+    },
+    {
+        "text":"Author",
+        "href":"author.html"
+    }
+]

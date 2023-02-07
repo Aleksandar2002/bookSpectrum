@@ -1,0 +1,18 @@
+[
+    {
+        "href":"https://github.com",
+        "icon":"<i class=\"zmdi zmdi-github\"></i>"
+    },
+    {
+        "href":"https://linkedin.com",
+        "icon":"<i class=\"zmdi zmdi-linkedin\"></i>"
+    },
+    {
+        "href":"https://twitter.com",
+        "icon":"<i class=\"zmdi zmdi-twitter\"></i>"
+    },
+    {
+        "href":"https://youtube.com",
+        "icon":"<i class=\"zmdi zmdi-youtube-play\"></i>"
+    }
+]

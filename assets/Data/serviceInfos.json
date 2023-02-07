@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "infoName":"Location",
+        "infoText":"You can see our location <a href=\"contact.html\">here</a>",
+        "icon":"<i class=\"zmdi zmdi-gps-dot\"></i>"
+    },
+    {
+        "id":2,
+        "infoName":"Payment",
+        "infoText":"You can pay with cash or credit card",
+        "icon":"<i class=\"zmdi zmdi-card\"></i>"
+    },
+    {
+        "id":3,
+        "infoName":"Work Time",
+        "infoText":"During the week: 8h-18h , weekend: 8h-14h",
+        "icon":"<i class=\"zmdi zmdi-time\"></i>"
+    },
+    {
+        "id":4,
+        "infoName":"Any questions?",
+        "infoText":"If you have any doubts, call our call center",
+        "icon":"<i class=\"zmdi zmdi-phone-end\"></i>"
+    }
+]

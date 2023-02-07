@@ -4,10 +4,10 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+        <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
         <!-- CSS -->
-        <link rel="stylesheet" href="assets/css/style.css"/>
-        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="../assets/css/style.css"/>
+        <link rel="stylesheet" href="../assets/css/responsive.css"/>
         <!-- BOOTSTRAP -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
         <!-- FONT FAMILY -->
@@ -31,23 +31,25 @@
                         <p class="email"><i class="zmdi zmdi-pin"></i> Zdravka Čelara 16, Beograd</p>
                     </div>
                     <div class="col col-lg-4 cart-fav">
-                        <button id="cartBtn"><i class="zmdi zmdi-shopping-cart"></i></button>
-                        <button id="favBtn"><i class="zmdi zmdi-favorite"></i></button>
+                        <button id="cartBtn">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                            <span class="productNumber">0</span>
+                        </button>
+                        <button id="favBtn">
+                            <i class="zmdi zmdi-favorite"></i>
+                            <span class="productNumber">0</span>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row main-header">
                 <div class="wrapper">
                     <div class="col col-lg-2 logo">
-                        <a href="index.html"><img src="assets/images/logo.png" alt="Logo"></a>
+                        <a href="../index.html"><img src="../assets/images/logo.png" alt="Logo"></a>
                     </div>
                     <div class="col col-lg-6 navigation">
                         <nav>
                             <ul class="menu">
-                                <!-- <li><a href="index.html">Home</a></li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="author.html">Author</a></li> -->
                             </ul>
                         </nav>
                     </div>
@@ -61,124 +63,53 @@
             </div>
         </header>
         <div id="main">
-            <div id="banner">
-                <div id="banner-image">
-                    <div id="banner-layer"></div>
-                </div>
-                <div id="banner-text">
-                    <h1>BookSpectrum</h1>
-                    <h3>Today a reader, tomorrow a leader</h3>
-                    <a href="">READ MORE</a>
-                </div>
-            </div>
-            <div id="company-info" class="row">
-                <div id="main-image" class="col col-lg-6">
-                    <div class="layer"></div>
-                </div>
-                <div id="info-text-secondaryImage" class="col col-lg-6">
-                    <div class="text">
-                        <h2>Who are we?</h2>
-                        <p> We are a company that sells high-quality books. We have a long tradition of 
-                            successful business with a very small number of dissatisfied customers.
-                        <p>
-                        <br/> 
-                        <p>Our goal is to satisfy all age groups, whether they are children or adults.
-                            We sell books of various genres, from science fiction to thrillers.
-                        </p>
-                        <a href="">READ MORE</a>
+            <div class="wrapper">
+                <div id="shop" class="row">
+                    <div class="filter col-lg-3">
+                        <form action="" method="POST">
+                            <h2>Filter</h2>
+                            <input type="button" name="filterBtn" id="filterBtn" value="Filter"/>
+                        </form>
                     </div>
-                    <div id="secondary-image">
-                        <div class="layer"></div>
+                    <section class="books col col-lg-9">
+                        <article class="sectionHeader">
+                            <h1><span>O</span>ur <span>P</span>roducts</h1>
+                            <select name="ddlSort" id="ddlSort">
+                                <option value="0">Chose Sorting Type</option>
+                                <option value="sortBy" disabled>Sort By:</option>
+                                <option value="priceAsc">Price Low-High</option>
+                                <option value="priceDesc">Price High-Low</option>
+                                <option value="titleAsc">Title A-Z</option>
+                                <option value="titleDesc">Title Z-A</option>
+                            </select>
+                        </article>
+                        <!-- <article class="book">
+                            <img src="../assets/images/shop/returnOfTheKing.jpg" alt="some photo"/>
+                            <h3 class="name">Druzina Prstena</h3>
+                            <div class="bottom">
+                                <p class="oldPrice">12230RSD</p>
+                                <p class="newPrice">123123</p>
+                            </div>
+                            <div class="cartFav">
+                                <button class="addToCartBtn">
+                                    <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                </button>
+                                <button class="addToFavouritesBtn">
+                                    <i class="zmdi zmdi-favorite-outline"></i>
+                                </button>
+                            </div>
+                            <div class="seeMore">
+                                <button class="seeMoreBtn">
+                                    See more...
+                                </button>
+                            </div>
+                        </article> -->
+                        <p class="empty">There is no books for your search or filter</p>
+                    </section>
+                    <div class="seeMore-outer">
+                        <div class="seeMore-content row">
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div id="services">
-                <h2>Service info</h2>
-                <hr class="line"/>
-                <div class="row service-blocks">
-                    <!-- <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Location</h4>
-                            <p>You can see our location <a href="contact.html">here</a></p>
-                        </div>
-                        <i class="zmdi zmdi-gps-dot"></i>
-                    </div>
-                    <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Payment</h4>
-                            <p>You can pay with cash or credit card</p>
-                        </div>
-                        <i class="zmdi zmdi-card"></i>
-                    </div> -->
-                </div>
-                <div class="row service-blocks">
-                    <!-- <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Work time</h4>
-                            <p>During the week: 8h-18h , weekend: 8h-14h</p>
-                        </div>
-                        <i class="zmdi zmdi-time"></i>
-                    </div>
-                    <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Any questions?</h4>
-                            <p>if you have any doubts, call our call center</p>
-                        </div>
-                        <i class="zmdi zmdi-phone-end"></i>
-                    </div> -->
-                </div>
-            </div>
-            <div id="customers-impressions">
-                <h2>Customer impressions</h2>
-                <hr class="line"/>
-                <div class="row wrapper">
-                    <div class="impressions">
-                        <!-- <div class="impression">
-                            <img src="assets/images/homePage/impressionsCustomers/person1.jpg" alt="Tiffany's photo">
-                            <p>I have been shopping at this bookstore for a long time and 
-                                I am completely satisfied with the service as well as the quality.</p>
-                            <h4>Tiffany Morgan</h4>
-                            <p class="impression-date">15.9.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div>
-                        <div class="impression">
-                            <img src="assets/images/homePage/impressionsCustomers/person2.jpg" alt="Judith's photo">
-                            <p>Every time I go to this store, even when I didn't plan to buy anything, 
-                                I return home with my hands full, My sincere recommendations.
-                            </p>
-                            <h4>Judith Turner</h4>
-                            <p class="impression-date">25.7.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div>
-                        <div class="impression">
-                            <img src="assets/images/homePage/impressionsCustomers/person3.jpg" alt="">
-                            <p>I heard about this store from my friend, my favorite genre is science fiction, 
-                                and here I found all my favorite authors.
-                            </p>
-                            <h4>Mike Baker</h4>
-                            <p class="impression-date">11.12.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div>
-                        <div class="impression"> -->
-                            <!-- <img src="assets/images/homePage/impressionsCustomers/person4.jpg" alt="">
-                            <p>I've been reading books since I was little, and I haven't found a place where 
-                                I can find everything I'm interested in until I heard about this shop.
-                            </p>
-                            <h4>Michayla Griffin</h4>
-                            <p class="impression-date">18.11.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div> -->
-                    </div>
-                </div>
-                <div id="next" class="arrows">
-                    <button id="nextBtn">
-                        <i class="zmdi zmdi-chevron-right"></i>
-                    </button>
-                </div>
-                <div id="prev" class="arrows">
-                    <button id="prevBtn">
-                        <i class="zmdi zmdi-chevron-left"></i>
-                    </button>
                 </div>
             </div>
         </div>
@@ -242,15 +173,14 @@
                         <thead>
                             <tr>
                                 <th>Image</th>
-                                <th>Name</th>
-                                <th>Price</th>
+                                <th>Title</th>
+                                <th>Current Price</th>
                                 <th>Quantity</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- <tr>
-                                <td>1</td>
                                 <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
                                 <td>Druzina prstena</td>
                                 <td>1200</td>
@@ -267,7 +197,7 @@
                     </table>
                     <p class="empty">There is no item in the cart</p>
                     <div class="cartFooter">
-                        <p>Total Price: <span id="totalPrice">0</span>$</p>
+                        <p>Total Price: <span id="totalPrice">0</span>RSD</p>
                         <p>Number of products: <span id="numberOfProducts">0</span></p>
                         <button id="buyBtn">Buy Products</button>
                     </div>
@@ -296,7 +226,7 @@
                 <i class="zmdi zmdi-chevron-up"></i>
             </button>
         </div>
-        <script src="assets/js/app.js"></script>
+        <script src="../assets/js/app.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
