@@ -1,0 +1,992 @@
+@import 'style.scss';
+@media screen and (max-width: 1406px) {
+    html{
+        body{
+            #main{
+                #services{
+                    min-height: 689px;
+                    padding: 60px;
+                    h2{
+                        font-size: 2.7rem;
+                    }
+                    .service-blocks{
+                        width: 60%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1406px) {
+    html{
+        body{
+            header{
+                .row{
+                    .wrapper{
+                        .col{
+                            &.contact-info{
+                                justify-content: flex-start;
+                                p{
+                                    margin: 0 7px;
+                                    font-size: .82rem;
+                                    i{
+                                        margin-right: 5px;
+                                        font-size: 1.1rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1250px) {
+    html{
+        body{
+            .wrapper{
+                width: 80%;
+            }
+            header{
+                position: relative;
+                z-index: 10;
+                background-color: $white;
+                .row{
+                    .wrapper{
+                        display: flex;
+                        justify-content: space-between;
+                        .col{
+                            &.logo{
+                                a{
+                                    img{
+                                        width: 76px;
+                                    }
+                                }
+                            }
+                            nav{
+                                ul{
+                                    li{
+                                        a{
+                                            font-size: .97rem;
+                                        }
+                                    }
+                                }
+                            }
+                            &.navigation, &.search{
+                                form{
+                                    input,button{
+                                        padding: 6px 10px;
+                                    }
+                                    input{
+                                        width: 220px;
+                                        font-size: .9rem;
+                                    }
+                                    button{
+                                        font-size: .9rem;
+                                        i{
+                                            font-size: 1rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #main{
+                #services{
+                    min-height: 719px;
+                    padding: 60px;
+                    h2{
+                        font-size: 2.7rem;
+                    }
+                    .service-blocks{
+                        width:67%;
+                        .service{
+                            padding: 20px;
+                            min-height: 170px;
+                            h4{
+                                font-size: 1.56rem;
+                            }
+                            p{
+                                font-size: .96rem;
+                                max-width: 97%;
+                            }
+                            i{
+                                font-size: 1.9rem;
+                                padding: 9px;
+                            }
+                        }
+                    }
+                }
+                #customers-impressions{
+                    .row{
+                        margin-top: 68px;
+                        padding-bottom: 46px;
+                    }
+                    .arrows{
+                        &#next{
+                            right: 10%;
+                        }
+                        &#prev{
+                            left: 10%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1050px) {
+    html{
+        body{
+            #main{
+                #banner{
+                    width: 100%;
+                    height: 650px;
+                    #banner-text{
+                        bottom: 25%;
+                        left: 10%;
+                        @include flexcol();
+                        align-items: flex-start;
+                        h1{
+                            font-size: 3.8rem;
+                            font-weight: 600;
+                        }
+                        h3{
+                            font-size: 2.16rem;
+                        }
+                        a{
+                            font-size: 1.04rem;
+                            padding: 6px 12px;
+                        }
+                    }
+                }
+                #company-info{
+                    #info-text-secondaryImage{
+                        .text{
+                            height: 56%;
+                            padding: 100px 40px 40px 40px;
+                            h2{
+                                font-size: 2.3rem;
+                                margin-bottom: 25px;
+                            }
+                            p{
+                                max-width: 520px;
+                                font-size: .95rem;
+                            }
+                            a{
+                                font-size: 1rem;
+                                padding: 7px 13px;
+                                margin-top: 33px;
+                            }
+                        }
+                        #secondary-image{
+                            height: 44%;
+                            width: 100%;
+                            background-image: url('../images/homePage/secondaryImage.jpg');
+                            background-position: center;
+                        }
+                    }
+                }
+                #customer-impressions{
+                    h2{
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 950px) {
+    html{
+        body{
+            hr.line{
+                width: 30%;
+            }
+            header{
+                .row{
+                    .wrapper{
+                        .col{
+                            &.contact-info{
+                                p{
+                                    margin: 0 6px;
+                                    font-size: .79rem;
+                                    i{
+                                        margin-right: 3px;
+                                        font-size: .9rem;
+                                    }
+                                }
+                            }
+                            &.cart-fav{
+                                button{
+                                    padding: 4px;
+                                    font-size: 1.3rem;
+                                    margin: 0 4px;
+                                    span.productNumber{
+                                        color:$white;
+                                        width:13px;
+                                        height: 13px;
+                                        font-size: .6rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #main{
+                #customers-impressions{
+                    min-height: 700px;
+                    padding: 70px 0;
+                    .row{
+                        margin-top: 68px;
+                        padding-bottom: 46px;
+                        .impressions{
+                            width: 470px;
+                            height: 380px;
+                            .impression{
+                                h4{
+                                    font-size: 1.1rem;
+                                    opacity: .76;
+                                    color: $purple;
+                                }
+                                i{
+                                    position: absolute;
+                                    top: 6%;
+                                    left: 7%;
+                                    font-size: 3.7rem;
+                                }
+                                p{
+                                    font-size: .94rem;
+                                    max-width: 320px;
+                                    margin:20px 0;
+                                }
+                                img{
+                                    width: 140px;
+                                    border-radius: 11px;
+                                    height: 107px;
+                                    &:hover{
+                                        transform: scale(1.16);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .arrows{
+                        font-size: 5rem;
+                        position: absolute;
+                        top: 50%;
+                        &#next{
+                            right: 10%;
+                        }
+                        &#prev{
+                            left: 10%;
+                        }
+                    }
+                }
+            }
+            #toTop{
+                bottom: 3%;
+                right: 1%;
+                button{
+                    width: 60px;
+                    height: 60px;
+                    font-size: 2.2rem;
+                }
+            }
+            footer{
+                padding: 56px 0;
+                .row{
+                    .col{
+                        .line{
+                            margin: 0 auto 20px auto;
+                            width: 120px;
+                        }
+                        margin: 6px 0;
+                        h3{
+                            font-size: 1.4rem;
+                            margin-bottom: 8px;
+                        }
+                        nav.footer-menu{
+                            ul{
+                                padding: 0;
+                                li{
+                                    margin: 2.5px 0;
+                                    a{
+                                        font-size: .98rem;
+                                    }
+                                }
+                            }
+                        }
+                        &.last{
+                            @include flexcol();
+                            justify-content: center;
+                            nav{
+                                .social-networks{
+                                    margin-top: 40px;
+                                    padding: 0;
+                                    @include flexbox();
+                                    justify-content: center;
+                                    li{
+                                        margin:  0 10px;
+                                        width: 38px;
+                                        height: 38px;
+                                        a{
+                                            font-size: 1.4rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.copyright{
+                        margin: 30px 0 0 0;
+                        .col{
+                            p{
+                                font-size: 1.1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 890px) {
+    html{
+        body{
+            #main{
+                #services{
+                    min-height: 729px;
+                    padding: 50px;
+                    h2{
+                        font-size: 2.5rem;
+                    }
+                    .service-blocks{
+                        width:78%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 820px) {
+    html{
+        body{
+            .wrapper{
+                width: 85%;
+            }
+            header{
+                .row{
+                    .wrapper{
+                        .col{
+                            &.contact-info{
+                                @include flexcol();
+                                p{
+                                    margin: 6px;
+                                    font-size: .79rem;
+                                    i{
+                                        margin-right: 3px;
+                                        font-size: .9rem;
+                                    }
+                                }
+                            }
+                            &.cart-fav{
+                                button{
+                                    padding: 4px;
+                                    font-size: 1.5rem;
+                                    margin: 0 4px;
+                                    span.productNumber{
+                                        width: 13px;
+                                        height: 13px;
+                                        font-size: .6rem;
+                                    }
+                                }
+                            }
+                            &.navigation{
+                                @include flexcol();
+                                align-items: center;
+                                position: fixed;
+                                z-index: 100;
+                                left: -300px;
+                                top: 0;
+                                width: 300px;
+                                height: 100%;
+                                transition: .4s ease-in-out;
+                                .closeNav{
+                                    display: block;
+                                }
+                                nav{
+                                    background-color: $white;
+                                    position: relative;
+                                    height: 100%;
+                                    width: 300px;
+                                    @include flexcol();
+                                    justify-content: center;
+                                    box-shadow:  0 0 2px $purple;
+                                    ul.menu{
+                                        width: 100%;
+                                        margin: 0;
+                                        @include flexcol();
+                                        justify-content: center;
+                                        padding: 0;
+                                        li{
+                                            margin: 7px 0;
+                                            width: 100%;
+                                            @include flexbox();
+                                            justify-content: center;
+                                            text-align: center;
+                                            a{
+                                                font-size: 1.2rem;
+                                            }
+                                        }
+                                    }
+                                }
+                                &.visible{
+                                    left: 0;
+                                }
+                            }
+                            &.hamburgerBtn{
+                                display: flex;
+                                align-items: center ;
+                                justify-content: flex-end;
+                            }
+                            &.navigation, &.search{
+                                form{
+                                    input,button{
+                                        padding: 6px 10px;
+                                    }
+                                    input{
+                                        width: 210px;
+                                        font-size: .9rem;
+                                    }
+                                    button{
+                                        font-size: .93rem;
+                                        i{
+                                            font-size: 1rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.secondary-header{
+                        padding: 15px 0 ;
+                    }
+                }
+            }
+            #main{
+                #banner{
+                    width: 100%;
+                    height: 650px;
+                    #banner-text{
+                        bottom: 25%;
+                        left: 10%;
+                        @include flexcol();
+                        align-items: flex-start;
+                        h1{
+                            font-size: 3.3rem;
+                            font-weight: 500;
+                        }
+                        h3{
+                            font-size: 2rem;
+                            font-weight: 400;
+                        }
+                        a{
+                            font-size: 1.04rem;
+                            padding: 6px 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    html{
+        body{
+            #main{
+                #company-info{
+                    height: auto;
+                    #main-image{
+                        height:450px;
+                        background: url('/assets/images/homePage/sec3.jpg');
+                        background-position: top;
+                        background-size: cover;
+                    }
+                    #info-text-secondaryImage{
+                        width: 100%;
+                        .text{
+                            height: 56%;
+                            padding: 100px 40px 40px 40px;
+                            h2{
+                                font-size: 2.3rem;
+                                margin-bottom: 25px;
+                            }
+                            p{
+                                max-width: 520px;
+                                font-size: .95rem;
+                            }
+                            a{
+                                font-size: 1rem;
+                                padding: 7px 13px;
+                                margin-top: 33px;
+                            }
+                        }
+                        #secondary-image{
+                            height: 400px;
+                            width: 100%;
+                            background-image: url('../images/homePage/secondaryImage.jpg');
+                            background-position: center;
+                        }
+                    }
+                }
+                #services{
+                    padding: 60px;
+                    .service-blocks{
+                        width:58%;
+                        .service{
+                            padding: 20px;
+                            min-height: 160px;
+                            h4{
+                                font-size: 1.48rem;
+                            }
+                            p{
+                                font-size: .93rem;
+                                max-width: 97%;
+                            }
+                            i{
+                                font-size: 1.8rem;
+                                padding: 9px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 660px) {
+    html{
+        body{
+            #main{
+                #customers-impressions{
+                    h2{
+                        font-size: 2.3rem;
+                    }
+                    .row{
+                        .impressions{
+                            width: 400px;
+                            height: 380px;
+                            .impression{
+                                h4{
+                                    font-size: 1rem;
+                                }
+                                i{
+                                    top: 5%;
+                                    left: 5%;
+                                    font-size: 3.2rem;
+                                }
+                                p{
+                                    font-size: .93rem;
+                                    max-width: 290px;
+                                    &.impression-date{
+                                        font-size: 1;
+                                        // opacity: .86;
+                                        top: 4%;
+                                        right: 4%;
+                                    }
+                                }
+                                img{
+                                    width: 130px;
+                                    border-radius: 10px;
+                                    height: 100px;
+                                }
+                            }
+                        }
+                    }
+                    .arrows{
+                        font-size: 4.8rem;
+                        &#next{
+                            right: 4%;
+                        }
+                        &#prev{
+                            left: 4%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 620px) {
+    html{
+        body{
+            #main{
+                #banner{
+                    width: 100%;
+                    height: 620px;
+                    #banner-text{
+                        bottom: 20%;
+                        left: 5%;
+                        h1{
+                            font-size: 3.1rem;
+                        }
+                        h3{
+                            font-size: 1.8rem;
+                            font-weight: 400;
+                        }
+                        a{
+                            font-size: 1rem;
+                            padding: 6px 12px;
+                        }
+                    }
+                }
+                #company-info{
+                    #main-image{
+                        height:400px;
+                    }
+                    #info-text-secondaryImage{
+                        width: 100%;
+                        .text{
+                            height: 56%;
+                            padding: 100px 40px 70px 40px;
+                            h2{
+                                font-size: 2.15rem;
+                                margin-bottom: 18px;
+                            }
+                            p{
+                                max-width: 500px;
+                                font-size: .91rem;
+                            }
+                            a{
+                                font-size: .96rem;
+                                padding: 6px 12px;
+                                margin-top: 30px;
+                            }
+                        }
+                        #secondary-image{
+                            height: 400px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    html{
+        body{
+            .wrapper{
+                width: 90%;
+            }
+            header{
+                .row{
+                    .wrapper{
+                        .col{
+                            &.hamburgerBtn{
+                                display: flex;
+                                align-items: center ;
+                                justify-content: center;
+                                margin: 20px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    html{
+        body{
+            hr.line{
+                width: 40%;
+            }
+            #main{
+                #banner{
+                    height: 600px;
+                    #banner-text{
+                        bottom: 15%;
+                        h1{
+                            font-size: 2.9rem;
+                        }
+                        h3{
+                            max-width: 500px;
+                            font-size: 1.6rem;
+                        }
+                        a{
+                            padding: 6px 12px;
+                        }
+                    }
+                }
+                #company-info{
+                    #main-image{
+                        height:360px;
+                    }
+                    #info-text-secondaryImage{
+                        width: 100%;
+                        .text{
+                            height: 56%;
+                            padding: 100px 40px 70px 40px;
+                            h2{
+                                font-size: 2rem;
+                                margin-bottom: 18px;
+                            }
+                            p{
+                                max-width: 500px;
+                                font-size: .9rem;
+                            }
+                            a{
+                                font-size: .93rem;
+                                padding: 6px 12px;
+                                margin-top: 30px;
+                            }
+                        }
+                        #secondary-image{
+                            height: 360px;
+                        }
+                    }
+                }
+                #services{
+                    h2{
+                        font-size: 2.2rem;
+                    }
+                    .service-blocks{
+                        width:80%;
+                        .service{
+                            padding: 20px;
+                            min-height: 160px;
+                            h4{
+                                font-size: 1.38rem;
+                            }
+                            p{
+                                font-size: .91rem;
+                                max-width: 97%;
+                            }
+                            i{
+                                font-size: 1.7rem;
+                                padding: 9px;
+                            }
+                        }
+                    }
+                }
+                #customers-impressions{
+                    h2{
+                        font-size: 2rem;
+                    }
+                    .row{
+                        .impressions{
+                            width: 300px;
+                            height: 380px;
+                            .impression{
+                                &::after ,&::before{
+                                        content: '';
+                                        width: 18px;
+                                        height: 150px;
+                                        top:35%;
+                                }
+                                h4{
+                                    font-size: .95rem;
+                                }
+                                i{
+                                    top: 4%;
+                                    left: 4%;
+                                    font-size: 2.8rem;
+                                }
+                                p{
+                                    font-size: .89rem;
+                                    max-width: 270px;
+                                    &.impression-date{
+                                        font-size: .94;
+                                        top: 3%;
+                                        right: 3%;
+                                    }
+                                }
+                                img{
+                                    width: 110px;
+                                    border-radius: 8px;
+                                    height: 85px;
+                                }
+                            }
+                        }
+                    }
+                    .arrows{
+                        font-size: 4.6rem;
+                        &#next{
+                            right: 3%;
+                        }
+                        &#prev{
+                            left: 3%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 390px) {
+    html{
+        body{
+            header{
+                .row{
+                    .wrapper{
+                        width: 96%;
+                        .col{
+                            &.contact-info{
+                                p{
+                                    margin: 5px;
+                                    font-size: .75rem;
+                                    i{
+                                        margin-right: 2px;
+                                        font-size: .8rem;
+                                    }
+                                }
+                            }
+                            &.cart-fav{
+                                button{
+                                    padding: 3px;
+                                    font-size: 1.4rem;
+                                    margin: 0 4px;
+                                    span.productNumber{
+                                        width: 13px;
+                                        height: 13px;
+                                        font-size: .6rem;
+                                    }
+                                }
+                            }
+                            &.logo{
+                                a{
+                                    img{
+                                        width: 64px;
+                                    }
+                                }
+                            }
+                            &.navigation, &.search{
+                                nav{
+                                    ul.menu{
+                                        li{
+                                            a{
+                                                font-size: 1.04rem;
+                                            }
+                                        }
+                                    }
+                                }
+                                form{
+                                    input,button{
+                                        padding: 6px 10px;
+                                    }
+                                    input{
+                                        width: 200px;
+                                    }
+                                    button{
+                                        i{
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.secondary-header{
+                        padding: 8px 0 ;
+                        color: $white;
+                        background-color: $blue;
+                    }
+                }
+            }
+            #main{
+                #banner{
+                    height: 600px;
+                    #banner-text{
+                        bottom: 20%;
+                        h1{
+                            font-size: 2.1rem;
+                        }
+                        h3{
+                            max-width: 280px;
+                            font-size: 1.3rem;
+                        }
+                        a{
+                            padding: 6px 12px;
+                        }
+                    }
+                }
+                #services{
+                    h2{
+                        font-size: 2.1rem;
+                    }
+                    .service-blocks{
+                        width:95%;
+                        .service{
+                            padding: 20px;
+                            min-height: 170px;
+                            h4{
+                                font-size: 1.35rem;
+                            }
+                            p{
+                                font-size: .91rem;
+                                max-width: 97%;
+                            }
+                            i{
+                                font-size: 1.7rem;
+                                padding: 9px;
+                            }
+                        }
+                    }
+                }
+                #customers-impressions{
+                    h2{
+                        font-size: 1.8rem;
+                    }
+                    .row{
+                        .impressions{
+                            width: 270px;
+                            height: 360px;
+                            .impression{
+                                &::after ,&::before{
+                                        content: '';
+                                        width: 14px;
+                                        height: 130px;
+                                        top:35%;
+                                }
+                                h4{
+                                    font-size: .9rem;
+                                }
+                                i{
+                                    top: 3%;
+                                    left: 3%;
+                                    font-size: 2.4rem;
+                                }
+                                p{
+                                    font-size: .8rem;
+                                    max-width: 270px;
+                                    &.impression-date{
+                                        font-size: .9;
+                                        top: 3%;
+                                        right: 3%;
+                                    }
+                                }
+                                img{
+                                    width: 100px;
+                                    border-radius: 6px;
+                                    height: 78px;
+                                }
+                            }
+                        }
+                    }
+                    .arrows{
+                        font-size: 4rem;
+                        &#next{
+                            right: 2%;
+                        }
+                        &#prev{
+                            left: 2%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

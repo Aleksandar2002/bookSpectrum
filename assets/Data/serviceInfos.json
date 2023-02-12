@@ -19,8 +19,8 @@
     },
     {
         "id":4,
-        "infoName":"Any questions?",
-        "infoText":"If you have any doubts, call our call center",
+        "infoName":"Questions",
+        "infoText":"Have any doubts? Call our call center",
         "icon":"<i class=\"zmdi zmdi-phone-end\"></i>"
     }
 ]

@@ -5,13 +5,15 @@ let currentPage;
 $(document).ready(function() {
     // TAKE CURRENT PAGE 
     let path = window.location.pathname;
-    if(path[path.length-1] !== 'l') {
-        currentPage = 'index'
+    if(path[path.length-1] !== 'l' || path.includes('index')) {
+        currentPage = 'index';
     }else{
         currentPage = path.substring(1).split('.')[0];
     }
+
     BASEURL = currentPage == 'index' ? 'assets/' : '../assets/';
-    currentPage = currentPage == 'index'? currentPage : currentPage.split('/')[1]; 
+
+    currentPage = currentPage == 'index'? currentPage : currentPage.split('/')[currentPage.split('/').length - 1]; 
 
     let filterOrSearchIndicator = '';
 
@@ -76,7 +78,7 @@ $(document).ready(function() {
                 }
             })
             function returnInfoStructureString(info){
-                return `<div class="col col-lg-5 service">
+                return `<div class="col col-lg-5 col-md-5 col-sm-12 col-12 service">
                             <div class="text">
                                 <h4>${info.infoName}</h4>
                                 <p>${info.infoText}</p>
@@ -307,6 +309,195 @@ $(document).ready(function() {
             return 0;
         }
     }
+    if(currentPage === 'contact'){
+        $('input').val = '';
+        let ddlDay = document.querySelector('#day');
+
+        ddlDay.innerHTML += createDateSelect(1,31);
+        document.querySelector('#month').innerHTML += createSelectOptions(13);
+        document.querySelector('#year').innerHTML += createDateSelect(1960 , 2005);
+        
+        let ddlMonth = document.querySelector('#month');
+        ddlMonth.addEventListener('change',()=>{
+            let month = ddlMonth.options[ddlMonth.selectedIndex].value;
+            let days ='';
+
+            switch(month){
+                case '1' :case '3': case '5':case '7' :case'8':case'10' : case '12':{
+                    days = createDateSelect(1,31); 
+                    break;
+                }
+                case "4" : case'6' :case '9' :case'11' :{
+                    days = createDateSelect(1,30); 
+                    break;
+                }
+                case "2":{
+                    days = createDateSelect(1,29);
+                }
+            }
+            ddlDay.innerHTML = '<option value="0">Day</option>'+days;
+        })
+
+        let textInputs = document.querySelectorAll('.contactForm input[type="text"],.contactForm input[type="password"]');
+        textInputs.forEach(input=>{
+            let label = input.parentElement.querySelector('label');
+            input.addEventListener('focus', ()=>{
+                label.classList.add('focused');
+            })
+            input.addEventListener('blur', ()=>{
+                if(!input.value){
+                    label.classList.remove('focused');
+                }
+            })
+        })
+
+        textInputs.forEach(input => {
+            input.addEventListener('input', ()=>{
+                let inputValue = input.value;
+                let regExp;
+                let inputName = input.getAttribute('name')
+
+                switch(inputName){
+                    case 'fName':{
+                        regExp = /^[A-Z][a-z]{2,10}$/;
+                        checkInputValue(input , regExp ,inputName);
+                        break;
+                    }
+                    case 'lName':{
+                        regExp = /^[A-Z][a-z]{2,10}$/;
+                        checkInputValue(input , regExp, inputName);
+                        break;
+                    }
+                    case 'email':{
+                        regExp = /^[a-z0-9.-]{4,20}@(gmail.com|yahoo.com)$/;
+                        checkInputValue(input , regExp , inputName);
+                        break;
+                    }
+                    case 'password': case 'confirmPass':{
+                        regExp = /^[A-z0-9@#$-.]{8,20}$/;
+                        if(inputName=='password'){
+                            if((!regExp.test(inputValue) || !/[A-Z]/.test(inputValue) ||  !/[a-z]/.test(inputValue)&& !/[0-9]{4,20}/.test(inputValue))){
+                                slideDownErrorParagraph('password');
+                            }else{
+                                slideUpErrorParagraph('password');
+                            }
+                        }
+                        if($('#confirmPass').val() != $('#password').val()){
+                            slideDownErrorParagraph('confirmPass');
+                        }else{
+                            slideUpErrorParagraph('confirmPass');
+                        }
+                        break;
+                    }
+                }
+            })
+        })
+        
+        $('#submitBtn').click(function(e){
+            e.preventDefault();
+            // CHECK IF SOME TEXT FIELD IS EMPTY
+            if(checkIfTextFieldsAreEmpty()){
+                slideDownErrorParagraph('submitError');
+            }else{
+                slideUpErrorParagraph('submitError');
+            }
+            // CHECK IF THE USER SELECT ALL PART OF DATE OF BIRTH
+            let dateOfBirthSelects = document.querySelectorAll('#day , #month, #year');
+            dateOfBirthSelects.forEach(select=>{
+                if(select.options[select.selectedIndex].value == 0){
+                    slideDownErrorParagraph('dateOfBirth');
+                }else{
+                    slideUpErrorParagraph('dateOfBirth');
+                }
+            })
+            // ASK IF GENDER IS CHECKED
+            let gender = document.querySelector('input[name="gender"]:checked');
+            if(!gender){
+                slideDownErrorParagraph('gender');
+            }else{
+                slideUpErrorParagraph('gender');
+            }
+            // ASK IF TERMS ARE ACCEPTED
+            let terms = document.querySelector('#terms:checked');
+            if(!terms){
+                slideDownErrorParagraph('terms');
+            }else{
+                slideUpErrorParagraph('terms')
+            }
+            
+            let textarea = document.querySelector('textarea[name="message"]');
+            let textReg= /^[A-Z][A-z0-9.-/\s]{8,40}$/;
+            if(!textReg.test(textarea.value)){
+                slideDownErrorParagraph('message')
+            } else{  
+                slideUpErrorParagraph('message')
+            }
+
+            // IF THERE IS ANY ERROR MESSAGE DONT SEND A FORM
+            let errorParagraphs = Array.from($('p.error'));
+            if(errorParagraphs.some(p => p.classList.contains('visible'))){
+                return;
+            }else{
+                let popup = document.querySelector('#submitedForm');
+                openPopup(popup);
+            }
+        })
+
+        $('#submitedForm .closeBtn').click(function(){
+            let popup = document.querySelector('#submitedForm');
+            closePopup(popup);
+            document.querySelector('.contactForm form').reset();
+        })
+
+        function checkIfTextFieldsAreEmpty(){
+            let inputs = Array.from($('.contactForm input[type="text"], .contactForm input[type="password"],textarea'));
+
+            if(inputs.some(input => input.value == '')){
+                return true;
+            }
+            return false;
+        }
+        // Hide or show password value on btn hide click
+        $('.hideShowBtn').click(function(e){
+            e.preventDefault();
+            let input =  this.previousElementSibling;
+            if(input.getAttribute('type')== 'password'){
+                showOrHidePassword(input , this , 'text', 'zmdi zmdi-eye-off');
+                return;
+            }
+            showOrHidePassword(input , this , 'password', 'zmdi zmdi-eye');
+        })
+        function showOrHidePassword(input , btn , type , iconClass){
+            input.setAttribute('type', type);
+            btn.innerHTML = (`<i class="${iconClass}"></i>`);
+        }
+        function slideDownErrorParagraph(name){
+            $('p.'+name).addClass("visible");
+            $('p.'+name).slideDown('slow');
+
+        }
+        function slideUpErrorParagraph(name){
+            $('p.'+name).removeClass("visible");
+            $('p.'+name).slideUp('slow');
+        }
+        function testRegularExpression(value, reg){
+            return reg.test(value) ? true : false;
+        }
+        function checkInputValue(input , reg , name){
+            if(!testRegularExpression(input.value, reg)){
+                slideDownErrorParagraph(name);
+            }else{
+                slideUpErrorParagraph(name);
+            }
+        }
+        function createDateSelect(start , end){
+            let html = ``;
+            for(let i=start ; i<=end ; i++){
+                html+= `<option value="${i}">${i}</option>`;
+            }
+            return html;
+        }
+    }
 
     // CREATE NAV LINKS FROM JSON DATA
     waitForPromiseAndRunFunctionWithJsonData('navigation.json',createNavLinks);
@@ -321,6 +512,9 @@ $(document).ready(function() {
             let favouritesDiv = document.querySelector('.favourites');
             let cartDiv = document.querySelector('.cart');
 
+            if(!checkIfPageIsShop()){
+                return;
+            }
             if(btn.getAttribute('id') === 'cartBtn'){
                 cartDiv.classList.add('open');
                 favouritesDiv.classList.remove('open')
@@ -374,14 +568,46 @@ $(document).ready(function() {
             $('#toTop').css('display', 'none');
         }
     })
-
     $('#toTop button').click(()=>{
         $(window).scrollTop(0);
     })
 
+    // hamburger btn event
+    let hamburgerBtn = document.querySelector('.hamburgerBtn button');
+    hamburgerBtn.addEventListener('click', ()=>{
+        hamburgerBtnAnimation(hamburgerBtn);
+        let navigation = document.querySelector('header .navigation');
+
+        if(navigation.classList.contains('visible')){
+            navigation.classList.remove('visible');
+        }else{
+            navigation.classList.add('visible');
+        }
+    })
+    function hamburgerBtnAnimation(btn){
+        let middleDiv = btn.children[1];
+        let firstDiv = btn.children[0];
+        let lastDiv = btn.children[2];
+
+        if(!middleDiv.classList.contains('fadeOut')){
+            middleDiv.classList.add('fadeOut');
+            lastDiv.classList.add('rotate1');
+            firstDiv.classList.add('rotate2');
+            
+        }else{
+            middleDiv.classList.remove('fadeOut');
+            lastDiv.classList.remove('rotate1');
+            firstDiv.classList.remove('rotate2');
+        }
+    }
+    $('.navigation .closeNav').click(function(){
+        let navigation = document.querySelector('header .navigation');
+        navigation.classList.remove('visible');
+        hamburgerBtnAnimation(document.querySelector('.hamburgerBtn button'));
+    })
     function checkIfPageIsShop(){
         if(currentPage !== 'shop'){
-            window.location.pathname = currentPage === 'index'? 'pages/shop.html':'shop.html';
+            window.location.pathname = 'pages/shop.html';
             return false;
         }
         return true;
@@ -626,6 +852,7 @@ function addCartorFavouriteBooksToLocalStorage(itemName , parentElement){
 }
 function loadBooksInCartOrFavouritesFromLocalStorage(itemName){
     let cartOrFavouriteBooks = JSON.parse(localStorage.getItem(itemName));
+
     if(cartOrFavouriteBooks){
         if(itemName.toLowerCase().includes('cart')){
             cartOrFavouriteBooks.forEach(book=>{

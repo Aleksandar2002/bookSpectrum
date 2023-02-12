@@ -25,12 +25,12 @@
         <header>
             <div class="row secondary-header">
                 <div class="wrapper">
-                    <div class="col col-lg-8 contact-info">
+                    <div class="col col-xxl-9 col-xl-10 col-lg-10 col-md-11 col-sm-9 col-10 contact-info">
                         <p class="phone-num"><i class="zmdi zmdi-smartphone-iphone"></i> +381/63/2424/523</p>
                         <p class="email"><i class="zmdi zmdi-email"></i> aleksandar.kovacevic.27.21@ict.edu.rs</p>
                         <p class="email"><i class="zmdi zmdi-pin"></i> Zdravka Čelara 16, Beograd</p>
                     </div>
-                    <div class="col col-lg-4 cart-fav">
+                    <div class="col col-xxl-3 col-xl-2 col-lg-2 col-md-1 col-sm-3 col-2 cart-fav">
                         <button id="cartBtn">
                             <i class="zmdi zmdi-shopping-cart"></i>
                             <span class="productNumber">0</span>
@@ -43,21 +43,29 @@
                 </div>
             </div>
             <div class="row main-header">
-                <div class="wrapper">
-                    <div class="col col-lg-2 logo">
-                        <a href="../index.html"><img src="../assets/images/logo.png" alt="Logo"></a>
+                <div class="wrapper flex-wrap">
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-2 logo">
+                        <a href="../index.html"><img src="../assets/images/logo.png" alt="Logo"/></a>
                     </div>
-                    <div class="col col-lg-6 navigation">
+                    <div class="col col-lg-6 col-md-3 navigation">
                         <nav>
                             <ul class="menu">
                             </ul>
                         </nav>
+                        <button class="closeNav"><i class="zmdi zmdi-close"></i></button>
                     </div>
-                    <div class="col col-lg-4 search">
+                    <div class="col col-lg-4 col-md-6 col-sm-6 col-10 search">
                         <form action="" method="GET">
                             <input type="text" name="txbSearch" id="searchTxb" placeholder="Search for books..."/>
                             <button id="searchBtn"><i class="zmdi zmdi-search"></i></button>
                         </form>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-12 hamburgerBtn">
+                        <button>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -65,13 +73,13 @@
         <div id="main">
             <div class="wrapper">
                 <div id="shop" class="row">
-                    <div class="filter col-lg-3">
+                    <div class="filter col-lg-2">
                         <form action="" method="POST">
                             <h2>Filter</h2>
                             <input type="button" name="filterBtn" id="filterBtn" value="Filter"/>
                         </form>
                     </div>
-                    <section class="books col col-lg-9">
+                    <section class="books col col-lg-10">
                         <article class="sectionHeader">
                             <h1><span>O</span>ur <span>P</span>roducts</h1>
                             <select name="ddlSort" id="ddlSort">
@@ -83,27 +91,6 @@
                                 <option value="titleDesc">Title Z-A</option>
                             </select>
                         </article>
-                        <!-- <article class="book">
-                            <img src="../assets/images/shop/returnOfTheKing.jpg" alt="some photo"/>
-                            <h3 class="name">Druzina Prstena</h3>
-                            <div class="bottom">
-                                <p class="oldPrice">12230RSD</p>
-                                <p class="newPrice">123123</p>
-                            </div>
-                            <div class="cartFav">
-                                <button class="addToCartBtn">
-                                    <i class="zmdi zmdi-shopping-cart-plus"></i>
-                                </button>
-                                <button class="addToFavouritesBtn">
-                                    <i class="zmdi zmdi-favorite-outline"></i>
-                                </button>
-                            </div>
-                            <div class="seeMore">
-                                <button class="seeMoreBtn">
-                                    See more...
-                                </button>
-                            </div>
-                        </article> -->
                         <p class="empty">There is no books for your search or filter</p>
                     </section>
                     <div class="seeMore-outer">
@@ -115,7 +102,7 @@
         </div>
         <footer>
             <div class="row wrapper">
-                <div class="col col-lg-4">
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
                     <h3>Navigation links</h3>
                     <hr class="line"/>
                     <nav class="footer-menu">
@@ -127,7 +114,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col col-lg-4">
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
                     <h3>Useful links</h3>
                     <hr class="line"/>
                     <nav class="footer-menu">
@@ -139,7 +126,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col col-lg-4 last">
+                <div class="col col-lg-4 col-md-12 col-sm-12 col-12 last">
                     <div id="newsletter">
                         <h3>Newsletter</h3>
                         <hr class="line"/>
@@ -173,14 +160,15 @@
                         <thead>
                             <tr>
                                 <th>Image</th>
-                                <th>Title</th>
-                                <th>Current Price</th>
+                                <th>Name</th>
+                                <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- <tr>
+                                <td>1</td>
                                 <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
                                 <td>Druzina prstena</td>
                                 <td>1200</td>
@@ -197,7 +185,7 @@
                     </table>
                     <p class="empty">There is no item in the cart</p>
                     <div class="cartFooter">
-                        <p>Total Price: <span id="totalPrice">0</span>RSD</p>
+                        <p>Total Price: <span id="totalPrice">0</span>$</p>
                         <p>Number of products: <span id="numberOfProducts">0</span></p>
                         <button id="buyBtn">Buy Products</button>
                     </div>

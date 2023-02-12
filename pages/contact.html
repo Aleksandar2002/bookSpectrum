@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/style.css"/>
+        <link rel="stylesheet" href="../assets/css/responsive.css"/>
+        <!-- BOOTSTRAP -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+        <!-- FONT FAMILY -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- MATERIAL -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"/>
+        <title>BookSpectrum</title>
+        
+    </head>
+    <body>
+        <header>
+            <div class="row secondary-header">
+                <div class="wrapper">
+                    <div class="col col-xxl-9 col-xl-10 col-lg-10 col-md-11 col-sm-9 col-10 contact-info">
+                        <p class="phone-num"><i class="zmdi zmdi-smartphone-iphone"></i> +381/63/2424/523</p>
+                        <p class="email"><i class="zmdi zmdi-email"></i> aleksandar.kovacevic.27.21@ict.edu.rs</p>
+                        <p class="email"><i class="zmdi zmdi-pin"></i> Zdravka Čelara 16, Beograd</p>
+                    </div>
+                    <div class="col col-xxl-3 col-xl-2 col-lg-2 col-md-1 col-sm-3 col-2 cart-fav">
+                        <button id="cartBtn">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                            <span class="productNumber">0</span>
+                        </button>
+                        <button id="favBtn">
+                            <i class="zmdi zmdi-favorite"></i>
+                            <span class="productNumber">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row main-header">
+                <div class="wrapper flex-wrap">
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-2 logo">
+                        <a href="../index.html"><img src="../assets/images/logo.png" alt="Logo"/></a>
+                    </div>
+                    <div class="col col-lg-6 col-md-3 navigation">
+                        <nav>
+                            <ul class="menu">
+                            </ul>
+                        </nav>
+                        <button class="closeNav"><i class="zmdi zmdi-close"></i></button>
+                    </div>
+                    <div class="col col-lg-4 col-md-6 col-sm-6 col-10 search">
+                        <form action="" method="GET">
+                            <input type="text" name="txbSearch" id="searchTxb" placeholder="Search for books..."/>
+                            <button id="searchBtn"><i class="zmdi zmdi-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-12 hamburgerBtn">
+                        <button>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="main">
+            <div id="banner">
+                <div id="banner-image" class="contactBanner">
+                    <div id="banner-layer"></div>
+                </div>
+                <div id="banner-text">
+                    <h1>BookSpectrum</h1>
+                    <h3 class="lh-base my-2">If you have any message for us ,<br/> just fill out the form below</h3>
+                    <a href="#contactForm">FILL OUT</a>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form action="" method="POST" id="contactForm">
+                    <h2>Contact Form</h2>
+                    <hr class="line">
+                    <div class="formRow">
+                        <div class="formField">
+                            <label for="fName">First name</label>
+                            <input type="text" name="fName" id="fName"/>
+                        </div>
+                        <div class="formField">                            
+                            <label for="lName">Last name</label>
+                            <input type="text" name="lName" id="lName"/>
+                        </div>
+                    </div>
+                    <p class="error fName">Wrong format of first name, example: John</p>
+                    <p class="error lName">Wrong format of last name, example: Doe</p>
+                    <div class="formRow">
+                        <div class="formField email">                            
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email"/>
+                        </div>
+                    </div>
+                    <p class="error email">Wrong format of email, example john123@gmail.com (or yahoo.com)</p>
+                    <div class="formRow">
+                        <div class="formField">                            
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password"/>
+                            <button class="hideShowBtn"><i class="zmdi zmdi-eye"></i></button>
+                        </div>
+                        <div class="formField">                            
+                            <label for="confirmPass">Confirm password</label>
+                            <input type="password" name="confirmPass" id="confirmPass"/>
+                            <button class="hideShowBtn"><i class="zmdi zmdi-eye"></i></button>
+                        </div>
+                    </div>
+                    <p class="error password">Wrong password format, must contain 4 numbers ,one small letter, and one big letter and min number of characters is 8</p>
+                    <p class="error confirmPass">Value of fields password and confirm password are not the same</p>
+                    <label class="outerLabel">Date of Birth</label>
+                    <div class="formRow">
+                        <div class="formField">
+                            <select name="year" id="year">
+                                <option value="0">Year</option>
+                            </select>
+                        </div>
+                        <div class="formField">
+                            <select name="month" id="month">
+                                <option value="0">Month</option>
+                            </select>
+                        </div>
+                        <div class="formField">
+                            <select name="day" id="day">
+                                <option value="0">Day</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="error dateOfBirth">Please select your date of birth</p>
+                    <label class="outerLabel">Gender</label>
+                    <div class="formRow">
+                        <div class="formField d-flex align-items-center justify-content-start">                        
+                            <input type="radio" name="gender" id="m" value="m"/>
+                            <p>Male</p>
+                        </div>
+                        <div class="formField d-flex align-items-center justify-content-start">                        
+                            <input type="radio" name="gender" id="f" value="f"/>
+                            <p>Female</p>
+                        </div>
+                    </div>
+                    <p class="error gender">Please select one gender</p>
+                    <label class="outerLabel">Message</label>
+                    <div class="formRow">
+                        <div class="formField messageField">
+                            <textarea name="message" id="message" cols="30" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <p class="error message">Message need to have atleast 8 characters, need to start with capital letter and can contain letters , numbers and symbols [. , - , / , space]</p>
+                    <div class="formRow ">
+                        <div class="formField terms d-flex align-items-center justify-content-start">                        
+                            <input type="checkbox" name="terms" id="terms" value="yes"/>
+                            <p>Do you agree with the terms of service</p>
+                        </div>
+                    </div>
+                    <p class="error terms">You need to accept the terms if you want to send a message</p>
+                    <div class="btns">
+                        <input type="submit" name="submitBtn" id="submitBtn" value="Send"/>
+                        <input type="reset" name="resetBtn" id="resetBtn" value="Reset"/>
+                    </div>
+                    <p class="error submitError">Some fields are empty, Please fill them to send a message</p>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="row wrapper">
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
+                    <h3>Navigation links</h3>
+                    <hr class="line"/>
+                    <nav class="footer-menu">
+                        <ul class="menu">
+                            <!-- <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="author.html">Author</a></li> -->
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
+                    <h3>Useful links</h3>
+                    <hr class="line"/>
+                    <nav class="footer-menu">
+                        <ul class="menu">
+                            <li><a href="documentation.pdf">Documentation</a></li>
+                            <li><a href="sitemap.xml">Sitemap</a></li>
+                            <li><a href="rss.xml">RSS feed</a></li>
+                            <li><a href="main.js">Main.js</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col col-lg-4 col-md-12 col-sm-12 col-12 last">
+                    <div id="newsletter">
+                        <h3>Newsletter</h3>
+                        <hr class="line"/>
+                        <div id="subscribe">
+                            <input type="text" name="txbNewsletter" id="txbNewsletter" placeholder="Enter mail for newsletter"/>
+                            <button id="newletterBtn"><i class="zmdi zmdi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="social-networks">
+                            <!-- <li><a href="https://github.com"><i class="zmdi zmdi-github"></i></a></li>
+                            <li><a href="https://linkedin.com"><i class="zmdi zmdi-linkedin"></i></a></li>
+                            <li><a href="https://twitter.com"><i class="zmdi zmdi-twitter"></i></a></li>
+                            <li><a href="https://youtube.com"><i class="zmdi zmdi-youtube-play"></i></a></li> -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <hr class="line"/>
+            <div class="row copyright">
+                <div class="col col-lg-12">
+                    <p>Copyright @ BookSpectrum 2023</p>
+                </div>
+            </div>
+        </footer>
+        <div class="popupCartFav">
+            <div class="popup-content">
+                <div class="cart">
+                    <h2>Cart</h2>
+                    <table class="cartTable">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>1</td>
+                                <td><img src="assets/images/shop/druzinaPrstena.jpg" alt="Product"/></td>
+                                <td>Druzina prstena</td>
+                                <td>1200</td>
+                                <td>
+                                    <select name="quantity" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td><button class="deleteCartProduct">Delete</button></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <p class="empty">There is no item in the cart</p>
+                    <div class="cartFooter">
+                        <p>Total Price: <span id="totalPrice">0</span>$</p>
+                        <p>Number of products: <span id="numberOfProducts">0</span></p>
+                        <button id="buyBtn">Buy Products</button>
+                    </div>
+                </div>
+                <div class="favourites">
+                    <h2>Favourites</h2>
+                    <div class="fav-products">
+                        <!-- <div class="fav-product">
+                            <h4>Product name</h4>
+                            <div class="fav-footer">
+                                <img src="assets/images/shop/druzinaPrstena.jpg" alt="some photo"/>
+                                <p>Price</p>
+                            </div>
+                            <button class="removeFromFavBtn">Remove</button>
+                        </div> -->
+                    </div>
+                    <p class="empty">There is no favourite products</p>
+                </div>
+                <button id="closePopupBtn"><i class="zmdi zmdi-close"></i></button>
+            </div>
+        </div>
+        <div id="submitedForm">
+            <div class="content">
+                <h4>Your form data has been successfully submitted</h4>
+                <button class="closeBtn"><i class="zmdi zmdi-close"></i></button>
+            </div>
+        </div>
+        <div id="toTop">
+            <button>    
+                <i class="zmdi zmdi-chevron-up"></i>
+                <i class="zmdi zmdi-chevron-up"></i>
+                <i class="zmdi zmdi-chevron-up"></i>
+            </button>
+        </div>
+        <script src="../assets/js/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

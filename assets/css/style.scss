@@ -100,13 +100,14 @@ html{
                     .col{
                         &.contact-info{
                             @include flexbox();
+                            justify-content: flex-start;
                             p{
                                 display: inline;
-                                margin: 0 7px;
+                                margin: 0 10px;
                                 font-size: .86rem;
                                 i{
                                     margin-right: 5px;
-                                    font-size: 1.1rem;
+                                    font-size: .9rem;
                                 }
                             }
                         }
@@ -150,6 +151,18 @@ html{
                         &.navigation, &.search{
                             @include flexbox();
                             justify-content: center;
+                            .closeNav{
+                                display: none;
+                                color: $purple;
+                                font-size: 1.6rem;
+                                background-color: transparent;
+                                position: absolute;
+                                top: 1%;
+                                width: 30px;
+                                height: 30px;
+                                right: 3%;
+
+                            }
                             li{
                                 margin: 0 3px;
                             }
@@ -157,6 +170,7 @@ html{
                                 ::placeholder {
                                     color: $white;
                                     opacity: .8;
+                                    font-weight: 300;
                                 }
                                 @include flexbox();
                                 justify-content: center;
@@ -191,6 +205,37 @@ html{
                         &.search{
                             justify-content: flex-end;
                         }
+                        &.hamburgerBtn{
+                            display: none;
+                            button{
+                                padding: 7px 10px;
+                                border-radius: 5px;
+                                background-color: $white;
+                                border: 1px solid $purple;
+                                width: 40px;
+                                height: 40px;
+                                cursor: pointer;
+                                div{
+                                    width: 100%;
+                                    background-color: $purple;
+                                    margin: 4px 0;
+                                    height: 2px;
+                                    border-radius: 3px;
+                                    transition: .4s ease-in-out;
+                                    &.fadeOut{
+                                        transform: translateX(-100px);
+                                        opacity: 0;
+                                    }
+                                    &.rotate1{
+                                        transform: translateY(-6px) rotate(-45deg);
+                                    }
+                                    &.rotate2{
+                                        transform: translateY(6px) rotate(45deg);
+
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 &.secondary-header{
@@ -211,6 +256,10 @@ html{
                     background-position: bottom;
                     background-repeat: no-repeat;
                     background-size: cover;
+                    &.contactBanner{
+                        background: url('../images/contact/cont3.jpg');
+                        background-position: left;
+                    }
                     #banner-layer{
                         width: 100%;
                         height: 100%;
@@ -344,7 +393,7 @@ html{
                     font-size: 2.7rem;
                 }
                 .service-blocks{
-                    width: 50%;
+                    width:55%;
                     @include flexbox();
                     justify-content: space-around;
                     .service{
@@ -639,7 +688,8 @@ html{
                             }
                         }
                         img{
-                            height: 250px;
+                            height: 260px;
+                            width: 180px;
                             border-radius:7px;
                             // transition: .32s ease-in-out;
                         }
@@ -845,6 +895,129 @@ html{
                     }
                 }
             }
+            .contactForm{
+                padding: 90px 0;
+                @include flexcol();
+                form{
+                    h2{
+                        font-size: 2.1rem;
+                        text-align: center;
+                    }
+                    hr.line{
+                        height: 3px;
+                        margin: 15px auto 40px auto;
+                        width: 40%;
+                        background-color: $purple;
+                    }
+                    width: 40%;
+                    border-radius: 5px;
+                    border: 1px solid $purple;
+                    padding: 40px 70px;
+                    .formRow{
+                        width: 100%;
+                        padding: 0;
+                        margin: 15px 0;
+                        @include flexbox();
+                        .formField{
+                            position: relative;
+                            padding: 10px;
+                            width: 50%;
+                            label{
+                                position: absolute;
+                                top: 30%;
+                                margin-left: 12px;
+                                font-size: .9rem;
+                                cursor: text;
+                                @include transition();
+                                &.focused{
+                                    top: -25%;
+                                }
+                            }
+                            input{
+                                color: $purple;
+                                height: 100%;
+                                padding:7px  15px;
+                                border-bottom: 1px solid $purple;
+                                border: 1px solid $purple;
+                                border-radius: 7px;
+                                font-size: .94rem;
+                            }
+                            select{
+                                padding: 4px 12px;
+                                color: $purple;
+                                background-color: $white;
+                                border: 1px solid $purple;
+                                border-radius: 5px;
+                            }
+                            textarea{
+                                color: $purple;
+                                width: 100%;
+                                border: 1px solid $purple;
+                                padding: 10px ;
+                                border-radius: 7px;
+                                outline: none;
+                            }
+                            input[type="text"], input[type="password"]{
+                                margin: 0;
+                                width: 100%;
+                            }
+
+                            &.email , &.terms , &.messageField{
+                                width: 100%;
+                            }
+                            button{
+                                position: absolute;
+                                right: 7%;
+                                top: 30%;
+                                background-color: transparent;
+                                color: #6138df;
+                                font-size: 1.1rem;
+                                @include transition();
+                                &:hover{
+                                    color: $blue;
+                                }
+                            }
+                            p{
+                                margin: 0 10px;
+                                margin-bottom: 0
+                            }
+                        }
+                    }
+                    p.error{
+                        display: none;
+                        color: $blue;
+                        // &.visible{
+                        //     display: block;
+                        // }
+                    }
+                    .outerLabel{
+                        font-size: 1.14rem;
+                        margin-top: 25px;
+                        margin-left:8px;
+                    }
+                    .btns{
+                        @include flexbox();
+                        justify-content: center;
+                        width: 100%;
+                        margin-top: 30px;
+                        margin-bottom: 20px;
+                        input{
+                            color: $white;
+                            background-color: $purple;
+                            margin: 0 10px;
+                            border-radius: 4px;
+                            padding: 4px 15px;
+                            border: 1px solid $purple;
+                            @include transition();
+                            font-size: 1.1rem;
+                            &:hover{
+                                color:$purple;
+                                background-color: $white;
+                            }
+                        }
+                    }
+                }
+            }
         }
         footer{
             color: $white;
@@ -870,7 +1043,7 @@ html{
                     h3{
                         font-size: 1.5rem;
                         margin-bottom: 10px;
-                        text-align: center
+                        text-align: center;
                     }
                     nav.footer-menu{
                         ul{
@@ -1162,6 +1335,50 @@ html{
                     background-color: $white;
                     color: $purple;
 
+                }
+            }
+        }
+        #submitedForm{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            height: 100%;
+            @include flexbox();
+            justify-content: center;
+            background-color: rgba(6, 188, 193, .9);
+            display: none;
+            &.open{
+                display: flex;
+            }
+            .content{
+                @include flexcol();
+                justify-content: center;
+                width:600px;
+                min-height: 350px;
+                max-height: 90vh;
+                background-color: $white;
+                color: $purple;
+                position: relative;
+                border-radius: 7px;
+                padding: 30px;
+                h4{
+                    text-align: center;
+                    font-size: 1.5rem;   
+                    line-height: 2rem;
+                    font-weight: 400;
+                }
+                button.closeBtn{
+                    color: $purple;
+                    background-color: transparent;
+                    position: absolute;
+                    top: 4%;
+                    right: 5%;
+                    font-size: 1.5rem;
+                    @include transition();
+                    &:hover{
+                        color: $blue;
+                    }
                 }
             }
         }

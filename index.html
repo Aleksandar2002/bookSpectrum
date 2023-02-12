@@ -25,57 +25,72 @@
         <header>
             <div class="row secondary-header">
                 <div class="wrapper">
-                    <div class="col col-lg-8 contact-info">
+                    <div class="col col-xxl-9 col-xl-10 col-lg-10 col-md-11 col-sm-9 col-10 contact-info">
                         <p class="phone-num"><i class="zmdi zmdi-smartphone-iphone"></i> +381/63/2424/523</p>
                         <p class="email"><i class="zmdi zmdi-email"></i> aleksandar.kovacevic.27.21@ict.edu.rs</p>
                         <p class="email"><i class="zmdi zmdi-pin"></i> Zdravka Čelara 16, Beograd</p>
                     </div>
-                    <div class="col col-lg-4 cart-fav">
-                        <button id="cartBtn"><i class="zmdi zmdi-shopping-cart"></i></button>
-                        <button id="favBtn"><i class="zmdi zmdi-favorite"></i></button>
+                    <div class="col col-xxl-3 col-xl-2 col-lg-2 col-md-1 col-sm-3 col-2 cart-fav">
+                        <button id="cartBtn">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                            <span class="productNumber">0</span>
+                        </button>
+                        <button id="favBtn">
+                            <i class="zmdi zmdi-favorite"></i>
+                            <span class="productNumber">0</span>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="row main-header">
-                <div class="wrapper">
-                    <div class="col col-lg-2 logo">
-                        <a href="index.html"><img src="assets/images/logo.png" alt="Logo"></a>
+                <div class="wrapper flex-wrap">
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-2 logo">
+                        <a href="index.html"><img src="assets/images/logo.png" alt="Logo"/></a>
                     </div>
-                    <div class="col col-lg-6 navigation">
+                    <div class="col col-lg-6 col-md-3 navigation">
                         <nav>
                             <ul class="menu">
-                                <!-- <li><a href="index.html">Home</a></li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="author.html">Author</a></li> -->
                             </ul>
                         </nav>
+                        <button class="closeNav"><i class="zmdi zmdi-close"></i></button>
                     </div>
-                    <div class="col col-lg-4 search">
+                    <div class="col col-lg-4 col-md-6 col-sm-6 col-10 search">
                         <form action="" method="GET">
                             <input type="text" name="txbSearch" id="searchTxb" placeholder="Search for books..."/>
                             <button id="searchBtn"><i class="zmdi zmdi-search"></i></button>
                         </form>
                     </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-12 hamburgerBtn">
+                        <button>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </button>
+                    </div>
+                    <!-- <div class="navigationPopup">
+                        <nav>
+                            <ul class="menu"></ul>
+                        </nav>
+                    </div> -->
                 </div>
             </div>
         </header>
         <div id="main">
             <div id="banner">
-                <div id="banner-image">
+                <div id="banner-image" class="homeBanner">
                     <div id="banner-layer"></div>
                 </div>
                 <div id="banner-text">
                     <h1>BookSpectrum</h1>
                     <h3>Today a reader, tomorrow a leader</h3>
-                    <a href="">READ MORE</a>
+                    <a href="#company-info">READ MORE</a>
                 </div>
             </div>
             <div id="company-info" class="row">
-                <div id="main-image" class="col col-lg-6">
+                <div id="main-image" class="col col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="layer"></div>
                 </div>
-                <div id="info-text-secondaryImage" class="col col-lg-6">
+                <div id="info-text-secondaryImage" class="col col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="text">
                         <h2>Who are we?</h2>
                         <p> We are a company that sells high-quality books. We have a long tradition of 
@@ -96,36 +111,8 @@
                 <h2>Service info</h2>
                 <hr class="line"/>
                 <div class="row service-blocks">
-                    <!-- <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Location</h4>
-                            <p>You can see our location <a href="contact.html">here</a></p>
-                        </div>
-                        <i class="zmdi zmdi-gps-dot"></i>
-                    </div>
-                    <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Payment</h4>
-                            <p>You can pay with cash or credit card</p>
-                        </div>
-                        <i class="zmdi zmdi-card"></i>
-                    </div> -->
                 </div>
                 <div class="row service-blocks">
-                    <!-- <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Work time</h4>
-                            <p>During the week: 8h-18h , weekend: 8h-14h</p>
-                        </div>
-                        <i class="zmdi zmdi-time"></i>
-                    </div>
-                    <div class="col col-lg-5 service">
-                        <div class="text">
-                            <h4>Any questions?</h4>
-                            <p>if you have any doubts, call our call center</p>
-                        </div>
-                        <i class="zmdi zmdi-phone-end"></i>
-                    </div> -->
                 </div>
             </div>
             <div id="customers-impressions">
@@ -133,41 +120,6 @@
                 <hr class="line"/>
                 <div class="row wrapper">
                     <div class="impressions">
-                        <!-- <div class="impression">
-                            <img src="assets/images/homePage/impressionsCustomers/person1.jpg" alt="Tiffany's photo">
-                            <p>I have been shopping at this bookstore for a long time and 
-                                I am completely satisfied with the service as well as the quality.</p>
-                            <h4>Tiffany Morgan</h4>
-                            <p class="impression-date">15.9.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div>
-                        <div class="impression">
-                            <img src="assets/images/homePage/impressionsCustomers/person2.jpg" alt="Judith's photo">
-                            <p>Every time I go to this store, even when I didn't plan to buy anything, 
-                                I return home with my hands full, My sincere recommendations.
-                            </p>
-                            <h4>Judith Turner</h4>
-                            <p class="impression-date">25.7.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div>
-                        <div class="impression">
-                            <img src="assets/images/homePage/impressionsCustomers/person3.jpg" alt="">
-                            <p>I heard about this store from my friend, my favorite genre is science fiction, 
-                                and here I found all my favorite authors.
-                            </p>
-                            <h4>Mike Baker</h4>
-                            <p class="impression-date">11.12.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div>
-                        <div class="impression"> -->
-                            <!-- <img src="assets/images/homePage/impressionsCustomers/person4.jpg" alt="">
-                            <p>I've been reading books since I was little, and I haven't found a place where 
-                                I can find everything I'm interested in until I heard about this shop.
-                            </p>
-                            <h4>Michayla Griffin</h4>
-                            <p class="impression-date">18.11.2022</p>
-                            <i class="zmdi zmdi-quote"></i>
-                        </div> -->
                     </div>
                 </div>
                 <div id="next" class="arrows">
@@ -184,7 +136,7 @@
         </div>
         <footer>
             <div class="row wrapper">
-                <div class="col col-lg-4">
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
                     <h3>Navigation links</h3>
                     <hr class="line"/>
                     <nav class="footer-menu">
@@ -196,7 +148,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col col-lg-4">
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
                     <h3>Useful links</h3>
                     <hr class="line"/>
                     <nav class="footer-menu">
@@ -208,7 +160,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col col-lg-4 last">
+                <div class="col col-lg-4 col-md-12 col-sm-12 col-12 last">
                     <div id="newsletter">
                         <h3>Newsletter</h3>
                         <hr class="line"/>
