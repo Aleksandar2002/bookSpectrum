@@ -4,6 +4,8 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="BookSpectrum is a bookstore that offers customers books of various genres adapted to all customers."/>
+        <meta name="keywords" content="Books , Office , store , Company, Cheap, online shopping , Various genres"/> 
         <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
         <!-- CSS -->
         <link rel="stylesheet" href="../assets/css/style.css"/>
@@ -73,14 +75,15 @@
         <div id="main">
             <div class="wrapper">
                 <div id="shop" class="row">
-                    <div class="filter col-lg-2">
+                    <div class="filter col-xxl-3 col-xl-2 col-lg-3 col-md-5 col-sm-6">
                         <form action="" method="POST">
                             <h2>Filter</h2>
                             <input type="button" name="filterBtn" id="filterBtn" value="Filter"/>
                         </form>
                     </div>
-                    <section class="books col col-lg-10">
+                    <section class="books col col-xxl-9 col-xl-10 col-lg-9 col-md-12">
                         <article class="sectionHeader">
+                            <button id="showHideFilter"><i class="zmdi zmdi-filter-list"></i></button>
                             <h1><span>O</span>ur <span>P</span>roducts</h1>
                             <select name="ddlSort" id="ddlSort">
                                 <option value="0">Chose Sorting Type</option>
@@ -160,7 +163,7 @@
                         <thead>
                             <tr>
                                 <th>Image</th>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Delete</th>
@@ -185,7 +188,7 @@
                     </table>
                     <p class="empty">There is no item in the cart</p>
                     <div class="cartFooter">
-                        <p>Total Price: <span id="totalPrice">0</span>$</p>
+                        <p>Total Price: <span id="totalPrice">0</span>RSD</p>
                         <p>Number of products: <span id="numberOfProducts">0</span></p>
                         <button id="buyBtn">Buy Products</button>
                     </div>

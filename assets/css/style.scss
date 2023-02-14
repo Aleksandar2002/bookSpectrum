@@ -557,6 +557,11 @@ html{
                 padding: 78px 0 100px 0;
                 .filter{
                     animation: fadeIn 1.2s;
+                    &.visible{
+                        left: 0%;
+                        opacity: 1;
+                        box-shadow: 0 0 2px $purple;
+                    }
                     form{
                         h2{
                             font-size: 2.23rem;
@@ -582,37 +587,7 @@ html{
                                 width: 100px;
                             }
                         }
-                        // .priceRangeSlider {
-                        //     width: 400px;
-                        //     position: relative;
-                        //     margin: 15px 0 30px 0;
-                        // }
-                        // input[type=range] {
-                        //     -webkit-appearance: none;
-                        //     width: 100%;
-                        //     background: transparent; 
-                        //     position: absolute;
-                        //     left: 0;
-                        // }
-                        // input[type=range]::-webkit-slider-thumb {
-                        //     -webkit-appearance: none;
-                        //     height: 15px;
-                        //     width: 15px;
-                        //     border-radius: 50%;
-                        //     background: #36b37e;
-                        //     cursor: pointer;
-                        //     margin-top: -5px;
-                        //     position: relative;
-                        //     z-index: 1;
-                        // }
                         
-                        // input[type=range]::-webkit-slider-runnable-track {
-                        //     width: 100%;
-                        //     height: 5px;
-                        //     background: #e8e8e8;
-                        //     border-radius: 3px;
-                        //     border: none;
-                        // }
                         input[type="button"]{
                             padding: 4px 15px;
                             font-size: 1.2rem;
@@ -625,6 +600,27 @@ html{
                             &:hover{
                                 background-color: $purple;
                                 color: $white;
+                            }
+                        }
+                        .priceRange{
+                            @include flexcol();
+                            align-items: flex-start;
+                            width: 100%;
+                            margin: 20px 0 30px 0;
+                            ::placeholder {
+                                color:$purple;
+                            }
+                            input{
+                                border-bottom: 1px solid $purple ;
+                                color: $purple;
+                                font-size: 1rem;
+                                padding: 4px 7px;
+                                width: 80%;
+                                margin: 7px 0;
+                            }
+                            p.error{
+                                display: none;
+                                color: $blue;
                             }
                         }
                     }
@@ -647,6 +643,27 @@ html{
                                 color: $blue;
                             }
                         }
+                        #showHideFilter{
+                            @include flexbox();
+                            justify-content: center;
+                            position: absolute;
+                            left: 0;
+                            background-color: $purple;
+                            color: $white;
+                            border: 1px solid $purple;
+                            border-radius: 5px;
+                            padding: 6px 15px;
+                            font-size: 1.3rem;
+                            @include transition();
+                            display: none;
+                            i{
+                                font-size: 1.5rem;
+                            }
+                            &:hover{
+                                background-color: $white;
+                                color: $purple;
+                            }
+                        }
                         select{
                             position: absolute;
                             right: 0;
@@ -666,7 +683,7 @@ html{
                         border: 1px solid $blue;
                         box-shadow: 0 0 3px $blue;
                         color: $white;
-                        height: 410px;
+                        height: 435px;
                         border-radius: 15px;
                         @include flexcol();
                         padding: 25px 24px;
@@ -696,6 +713,7 @@ html{
                         h3{
                             margin: 12px 0;
                             text-align: center;
+                            font-weight: 400;
                             font-size:1.07rem;
                         }
                         .bottom{
@@ -704,6 +722,7 @@ html{
                         p{
                             margin:  0;
                             margin: 0 5px;
+                            font-weight: 400;
                             &.oldPrice{
                                 text-decoration: line-through;
                                 font-size: 1.04rem;
@@ -1018,6 +1037,40 @@ html{
                     }
                 }
             }
+            .author{
+                padding: 100px 0;
+                .col{
+                    @include flexcol();
+                    justify-content: center;
+                    img{
+                        height: 400px;
+                        border-radius: 15px;
+                    }
+                    h2{
+                        margin-bottom: 30px;
+                        font-size: 1.7rem;
+                    }
+                    p{
+                        max-width: 500px;
+                        opacity: .85;
+                    }
+                    a{
+                        background-color: $blue;
+                        color: $white;
+                        box-shadow: 0 0 2px $blue;
+                        border: 1px solid $blue;
+                        margin-top: 20px;
+                        font-size: 1.2rem;
+                        padding: 6px 15px;
+                        border-radius: 5px;
+                        @include transition();
+                        &:hover{
+                            background-color: $white;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
         }
         footer{
             color: $white;
@@ -1200,7 +1253,8 @@ html{
                                 padding: 5px;
                                 font-weight: 400;
                                 img{
-                                    height: 100px;
+                                    height: 89px;
+                                    width: 70px;
                                 }
                                 select{
                                     width: 100px;
@@ -1219,12 +1273,12 @@ html{
                                 color: $blue;
                             }
                             &:first-of-type{
-                                margin-top: 30px;
+                                margin-top: 20px;
                             }
                         }
                         #buyBtn{
                             background-color: $white;
-                            margin-top: 14px;
+                            margin-top: 10px;
                             color: $purple;
                             &:hover{
                                 background-color: $purple;
@@ -1256,6 +1310,7 @@ html{
                             }
                             .fav-img{
                                 img{
+                                    width: 108px;
                                     height: 152px;
                                 }
                             }

@@ -854,6 +854,13 @@ html body #main .wrapper #shop .filter {
           animation: fadeIn 1.2s;
 }
 
+html body #main .wrapper #shop .filter.visible {
+  left: 0%;
+  opacity: 1;
+  -webkit-box-shadow: 0 0 2px #6138df;
+          box-shadow: 0 0 2px #6138df;
+}
+
 html body #main .wrapper #shop .filter form h2 {
   font-size: 2.23rem;
 }
@@ -901,6 +908,57 @@ html body #main .wrapper #shop .filter form input[type="button"]:hover {
   color: #fefefe;
 }
 
+html body #main .wrapper #shop .filter form .priceRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  margin: 20px 0 30px 0;
+}
+
+html body #main .wrapper #shop .filter form .priceRange ::-webkit-input-placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange :-ms-input-placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange ::-ms-input-placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange ::placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange input {
+  border-bottom: 1px solid #6138df;
+  color: #6138df;
+  font-size: 1rem;
+  padding: 4px 7px;
+  width: 80%;
+  margin: 7px 0;
+}
+
+html body #main .wrapper #shop .filter form .priceRange p.error {
+  display: none;
+  color: #06BCC1;
+}
+
 html body #main .wrapper #shop .books {
   display: -ms-grid;
   display: grid;
@@ -937,6 +995,41 @@ html body #main .wrapper #shop .books .sectionHeader h1 span {
   color: #06BCC1;
 }
 
+html body #main .wrapper #shop .books .sectionHeader #showHideFilter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 0;
+  background-color: #6138df;
+  color: #fefefe;
+  border: 1px solid #6138df;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 1.3rem;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+  display: none;
+}
+
+html body #main .wrapper #shop .books .sectionHeader #showHideFilter i {
+  font-size: 1.5rem;
+}
+
+html body #main .wrapper #shop .books .sectionHeader #showHideFilter:hover {
+  background-color: #fefefe;
+  color: #6138df;
+}
+
 html body #main .wrapper #shop .books .sectionHeader select {
   position: absolute;
   right: 0;
@@ -958,7 +1051,7 @@ html body #main .wrapper #shop .books .book {
   -webkit-box-shadow: 0 0 3px #06BCC1;
           box-shadow: 0 0 3px #06BCC1;
   color: #fefefe;
-  height: 410px;
+  height: 435px;
   border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1006,6 +1099,7 @@ html body #main .wrapper #shop .books .book img {
 html body #main .wrapper #shop .books .book h3 {
   margin: 12px 0;
   text-align: center;
+  font-weight: 400;
   font-size: 1.07rem;
 }
 
@@ -1024,6 +1118,7 @@ html body #main .wrapper #shop .books .book .bottom {
 html body #main .wrapper #shop .books .book p {
   margin: 0;
   margin: 0 5px;
+  font-weight: 400;
 }
 
 html body #main .wrapper #shop .books .book p.oldPrice {
@@ -1492,6 +1587,63 @@ html body #main .contactForm form .btns input:hover {
   background-color: #fefefe;
 }
 
+html body #main .author {
+  padding: 100px 0;
+}
+
+html body #main .author .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body #main .author .col img {
+  height: 400px;
+  border-radius: 15px;
+}
+
+html body #main .author .col h2 {
+  margin-bottom: 30px;
+  font-size: 1.7rem;
+}
+
+html body #main .author .col p {
+  max-width: 500px;
+  opacity: .85;
+}
+
+html body #main .author .col a {
+  background-color: #06BCC1;
+  color: #fefefe;
+  -webkit-box-shadow: 0 0 2px #06BCC1;
+          box-shadow: 0 0 2px #06BCC1;
+  border: 1px solid #06BCC1;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  padding: 6px 15px;
+  border-radius: 5px;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+}
+
+html body #main .author .col a:hover {
+  background-color: #fefefe;
+  color: #06BCC1;
+}
+
 html body footer {
   color: #fefefe;
   background-image: -webkit-gradient(linear, right top, left top, from(#06BCC1), color-stop(#6138df), to(#6138df));
@@ -1820,7 +1972,8 @@ html body .popupCartFav .popup-content .cart .cartTable tr td, html body .popupC
 }
 
 html body .popupCartFav .popup-content .cart .cartTable tr td img, html body .popupCartFav .popup-content .cart .cartTable tr th img {
-  height: 100px;
+  height: 89px;
+  width: 70px;
 }
 
 html body .popupCartFav .popup-content .cart .cartTable tr td select, html body .popupCartFav .popup-content .cart .cartTable tr th select {
@@ -1853,12 +2006,12 @@ html body .popupCartFav .popup-content .cart .cartFooter p span {
 }
 
 html body .popupCartFav .popup-content .cart .cartFooter p:first-of-type {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 html body .popupCartFav .popup-content .cart .cartFooter #buyBtn {
   background-color: #fefefe;
-  margin-top: 14px;
+  margin-top: 10px;
   color: #6138df;
 }
 
@@ -1903,6 +2056,7 @@ html body .popupCartFav .popup-content .favourites .fav-products .fav-product h4
 }
 
 html body .popupCartFav .popup-content .favourites .fav-products .fav-product .fav-img img {
+  width: 108px;
   height: 152px;
 }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <chanel>
+        <title>Latest news and discounts</title>
+        <description>Official and latest company news</description>
+        <link>https://aleksandar2002.github.io/bookSpectrum/index.html</link>
+        <item>
+            <title>The New cooperation with a new publisher was established</title>
+            <description>A few days ago we signed a contract with the publisher "HarperCollins books" for 4 years, we will receive books of various genres from them</description>
+            <link>https://aleksandar2002.github.io/bookSpectrum/index.html</link>
+        </item>
+        <item>
+            <title>Online discount</title>
+            <description>If you order our products through our website, you get a 15% discount. </description>
+            <link>https://aleksandar2002.github.io/bookSpectrum/pages/shop.html</link>
+        </item>
+        <item>
+            <title>Free delivery</title>
+            <description>If your bill is more than $40 you get free delivery whatever is your location.</description>
+            <link>https://aleksandar2002.github.io/bookSpectrum/pages/index.html</link>
+        </item>
+    </chanel>
+</rss>

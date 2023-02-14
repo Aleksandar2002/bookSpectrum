@@ -134,6 +134,201 @@
                         }
                     }
                 }
+                .wrapper #shop{
+                    padding: 78px 0 100px 0;
+                    .books{
+                        grid-template-columns: 1fr 1fr;
+                        .sectionHeader{
+                            justify-content: center;
+                            position: absolute;
+                            h1{
+                                font-size: 2.6rem;
+                                margin-right: 70px;
+                                span{
+                                    color: $blue;
+                                }
+                            }
+                            select{
+                                padding:6px 13px;
+                                color: $white;
+                                background-color: $blue;
+                                border: 1px solid $blue;
+                                border-radius: 6px;
+                                font-size: .94rem;
+                                option:disabled{
+                                    color: $purple;
+                                }
+                            }
+                        }
+                        .book{
+                            height: 400px;
+                            padding: 25px 24px;
+                            &:hover .cartFav{
+                                right: 1.5%;
+                            }
+                            img{
+                                height: 249px;
+                                width: 167px;
+                            }
+                            .cartFav{
+                                position: absolute;
+                                right: -14%;
+                                opacity: 0;
+                                top: 40%;
+                                transition: .32s ease-in-out;
+                                @include flexcol();
+                                button{
+                                    font-size: 1.6rem;
+                                    color: $purple;
+                                    background-color:transparent;
+                                    @include transition();
+                                    &:hover{
+                                        color: $blue;
+                                    }
+                                }
+                            }
+                            .discaunt{
+                                position: absolute;
+                                top: 2%;
+                                left: 15%;
+                                width: 70px;
+                                height: 70px;
+                                font-size: 1.37rem;
+                            }
+                        }
+                    }
+                    .seeMore-outer{
+                        width: 100%;
+                        height: 100%;
+                        position: fixed;
+                        z-index: 20;
+                        background-color: rgba(6, 188, 193, .9);
+                        background-color: rgba(84, 51, 182, 0.9);
+                        top: 0;
+                        @include flexbox();
+                        justify-content: center;
+                        display: none;
+                        left: 0;
+                        &.open{
+                            display: flex;
+                        }
+                        .seeMore-content{
+                            @include flexbox();
+                            position: relative;
+                            padding: 20px 40px;
+                            width: 820px;
+                            height:570px;
+                            border-radius: 10px;
+                            background-color: $white;
+                            color: $blue;
+                            &>div{
+                                @include flexcol();
+                                justify-content: flex-end;
+                                img{
+                                    height: 400px;
+                                    width: 276px;
+                                    border-radius: 5px;
+                                }
+                                .prices{
+                                    margin-top: 20px;
+                                }
+                                .discaunt{
+                                    // width: 50px;
+                                    // height: 20px;
+                                    position: absolute;
+                                    top: 10%;
+                                    left: 5%;
+                                    font-size: 1.2rem;
+                                    @include flexbox();
+                                    justify-content: center;
+                                    padding: 4px 12px;
+                                    color:$white;
+                                    background-color: $purple;
+                                    border-radius: 4px;
+                                }
+                                h3{
+                                    font-size: 1.46rem;
+                                    color: $purple;
+                                }
+                                p{
+                                    margin: 0;
+                                }
+                                p.genres{
+                                    margin-top: 20px;
+                                }
+                                p.newPrice , p.oldPrice{
+                                    font-size: 1.4rem;
+                                    margin: 0 5px ;
+                                    display: inline;
+                                }
+                                p.newPrice{
+                                    color: $purple;
+                                    font-size: 1.5rem;
+                                }
+                                p.oldPrice{
+                                    text-decoration: line-through;
+                                }
+                                hr.line{
+                                    height: 2px;
+                                    width: 200px;
+                                    margin: 20px 0;
+                                    background-color: $purple;
+                                }
+                                p.shortText{
+                                    font-size: .9rem;
+                                }
+                                .addToCart{
+                                    margin: 35px 0 0 0;
+                                    select,button{
+                                        background-color: $blue;
+                                        color: $white;
+                                        padding:6px 10px;
+                                        border: 1px solid $blue;
+                                        font-size: 1.1rem;
+                                        @include transition();
+                                        border-radius: 4px;
+                                    }
+                                    select{
+                                        margin: 0 12px;
+                                        &:focus{
+                                            background-color: $white;
+                                            color: $blue;
+                                        }
+                                    }
+                                    button{
+                                        background-color: $purple;
+                                        border-color: $purple;
+                                        &:hover{
+                                            background-color: $white;
+                                            color: $purple;
+                                        }
+                                    }
+                                }
+                                .closeBtn{
+                                    background-color: transparent;
+                                    color: $blue;
+                                    position: absolute;
+                                    top: 4%;
+                                    right: 4%;
+                                    font-size: 1.7rem;
+                                    @include transition();
+                                    &:hover{
+                                        color: $purple;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .contactForm{
+                    padding: 90px 0;
+                    form{
+                        h2{
+                            font-size: 2rem;
+                        }
+                        width: 60%;
+                    }
+                }
             }
         }
     }
@@ -193,6 +388,213 @@
                 #customer-impressions{
                     h2{
                         font-size: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    html{
+        body{
+            #main{
+                .wrapper #shop{
+                    padding: 78px 0 100px 0;
+                    .filter{
+                        animation: fadeIn 1.2s;
+                        padding: 20px 40px;
+                        position: absolute;
+                        margin-top: 100px;
+                        left: -300px;
+                        opacity: 0;
+                        transition: .4s ease-in-out;
+                        background-color: $white;
+                        z-index: 120;
+                        display: none;
+                    }
+                    .books{
+                        .sectionHeader{
+                            justify-content: center;
+                            #showHideFilter{
+                                display: flex;
+                            }
+                            h1{
+                                font-size: 2.6rem;
+                                margin-right: 70px;
+                                span{
+                                    color: $blue;
+                                }
+                            }
+                            select{
+                                padding:6px 13px;
+                                color: $white;
+                                background-color: $blue;
+                                border: 1px solid $blue;
+                                border-radius: 6px;
+                                font-size: .94rem;
+                                option:disabled{
+                                    color: $purple;
+                                }
+                            }
+                        }
+                        .book{
+                            height: 400px;
+                            padding: 25px 24px;
+                            &:hover .cartFav{
+                                right: 1.5%;
+                            }
+                            img{
+                                height: 249px;
+                                width: 167px;
+                            }
+                            .cartFav{
+                                position: absolute;
+                                right: -14%;
+                                opacity: 0;
+                                top: 40%;
+                                transition: .32s ease-in-out;
+                                @include flexcol();
+                                button{
+                                    font-size: 1.6rem;
+                                    color: $purple;
+                                    background-color:transparent;
+                                    @include transition();
+                                    &:hover{
+                                        color: $blue;
+                                    }
+                                }
+                            }
+                            .discaunt{
+                                position: absolute;
+                                top: 2%;
+                                left: 15%;
+                                width: 70px;
+                                height: 70px;
+                                font-size: 1.37rem;
+                            }
+                        }
+                    }
+                    .seeMore-outer{
+                        width: 100%;
+                        height: 100%;
+                        position: fixed;
+                        z-index: 20;
+                        background-color: rgba(6, 188, 193, .9);
+                        background-color: rgba(84, 51, 182, 0.9);
+                        top: 0;
+                        @include flexbox();
+                        justify-content: center;
+                        display: none;
+                        left: 0;
+                        &.open{
+                            display: flex;
+                        }
+                        .seeMore-content{
+                            @include flexbox();
+                            position: relative;
+                            padding: 20px 40px;
+                            width: 820px;
+                            height:570px;
+                            border-radius: 10px;
+                            background-color: $white;
+                            color: $blue;
+                            &>div{
+                                @include flexcol();
+                                justify-content: flex-end;
+                                img{
+                                    height: 400px;
+                                    width: 276px;
+                                    border-radius: 5px;
+                                }
+                                .prices{
+                                    margin-top: 20px;
+                                }
+                                .discaunt{
+                                    // width: 50px;
+                                    // height: 20px;
+                                    position: absolute;
+                                    top: 10%;
+                                    left: 5%;
+                                    font-size: 1.2rem;
+                                    @include flexbox();
+                                    justify-content: center;
+                                    padding: 4px 12px;
+                                    color:$white;
+                                    background-color: $purple;
+                                    border-radius: 4px;
+                                }
+                                h3{
+                                    font-size: 1.46rem;
+                                    color: $purple;
+                                }
+                                p{
+                                    margin: 0;
+                                }
+                                p.genres{
+                                    margin-top: 20px;
+                                }
+                                p.newPrice , p.oldPrice{
+                                    font-size: 1.4rem;
+                                    margin: 0 5px ;
+                                    display: inline;
+                                }
+                                p.newPrice{
+                                    color: $purple;
+                                    font-size: 1.5rem;
+                                }
+                                p.oldPrice{
+                                    text-decoration: line-through;
+                                }
+                                hr.line{
+                                    height: 2px;
+                                    width: 200px;
+                                    margin: 20px 0;
+                                    background-color: $purple;
+                                }
+                                p.shortText{
+                                    font-size: .9rem;
+                                }
+                                .addToCart{
+                                    margin: 35px 0 0 0;
+                                    select,button{
+                                        background-color: $blue;
+                                        color: $white;
+                                        padding:6px 10px;
+                                        border: 1px solid $blue;
+                                        font-size: 1.1rem;
+                                        @include transition();
+                                        border-radius: 4px;
+                                    }
+                                    select{
+                                        margin: 0 12px;
+                                        &:focus{
+                                            background-color: $white;
+                                            color: $blue;
+                                        }
+                                    }
+                                    button{
+                                        background-color: $purple;
+                                        border-color: $purple;
+                                        &:hover{
+                                            background-color: $white;
+                                            color: $purple;
+                                        }
+                                    }
+                                }
+                                .closeBtn{
+                                    background-color: transparent;
+                                    color: $blue;
+                                    position: absolute;
+                                    top: 4%;
+                                    right: 4%;
+                                    font-size: 1.7rem;
+                                    @include transition();
+                                    &:hover{
+                                        color: $purple;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -500,6 +902,15 @@
                         }
                     }
                 }
+                .contactForm{
+                    padding: 90px 0;
+                    form{
+                        h2{
+                            font-size: 2rem;
+                        }
+                        width: 80%;
+                    }
+                }
             }
         }
     }
@@ -561,6 +972,229 @@
                                 font-size: 1.8rem;
                                 padding: 9px;
                             }
+                        }
+                    }
+                }
+                .wrapper #shop{
+                    .books{
+                        .sectionHeader{
+                            #showHideFilter{
+                                padding: 5px 12px;
+                                font-size: 1.2rem;
+                                i{
+                                    font-size: 1.3rem;
+                                }
+                            }
+                            h1{
+                                font-size: 2.2rem;
+                                margin-right: 70px;
+                            }
+                            select{
+                                padding:4px 11px;
+                                font-size: .92rem;
+                                width: 150px;
+                                option:disabled{
+                                    color: $purple;
+                                }
+                            }
+                        }
+                        .book{
+                            height: 370px;
+                            padding: 25px 24px;
+                            margin: 20px;
+                            &:hover .cartFav{
+                                right: 1.5%;
+                            }
+                            img{
+                                height: 219px;
+                                width: 147px;
+                            }
+                            h3{
+                                margin: 10px 0;
+                                font-size:1.04rem;
+                            }
+                            p{
+                                &.oldPrice{
+                                    text-decoration: line-through;
+                                    font-size: .96rem;
+                                }
+                                &.newPrice{
+                                    color: $purple;
+                                    font-size: 1.1rem;
+                                }
+                            }
+                            .cartFav{
+                                top: 40%;
+                                button{
+                                    font-size: 1.5rem;
+                                }
+                            }
+                            .discaunt{
+                                width: 56px;
+                                height: 56px;
+                                font-size: 1.17rem;
+                            }
+                        }
+                    }
+                    .seeMore-outer{
+                        .seeMore-content{
+                            padding: 15px 33px;
+                            width: 820px;
+                            height:600px;
+                            &>div{
+                                img{
+                                    height: 350px;
+                                    width: 236px;
+                                }
+                                .prices{
+                                    margin-top: 16px;
+                                }
+                                .discaunt{
+                                    position: absolute;
+                                    top: 12%;
+                                    left: 5%;
+                                    font-size: 1.1rem;
+                                    padding: 4px 12px;
+                                }
+                                h3{
+                                    font-size: 1.36rem;
+                                    color: $purple;
+                                }
+                                p{
+                                    margin: 0;
+                                }
+                                p.genres{
+                                    margin-top: 15px;
+                                }
+                                p.newPrice , p.oldPrice{
+                                    font-size: 1.2rem;
+                                    margin: 0 4px ;
+                                }
+                                p.newPrice{
+                                    font-size: 1.4rem;
+                                }
+                                hr.line{
+                                    height: 2px;
+                                    width: 180px;
+                                    margin: 17px 0;
+                                }
+                                p.shortText{
+                                    font-size: .87rem;
+                                }
+                                .addToCart{
+                                    margin: 27px 0 0 0;
+                                    select,button{
+                                        padding:6px 10px;
+                                        font-size: 1rem;
+                                    }
+                                    select{
+                                        margin: 0 10px;
+                                    }
+                                }
+                                .closeBtn{
+                                    background-color: transparent;
+                                    color: $blue;
+                                    position: absolute;
+                                    top: 4%;
+                                    right: 4%;
+                                    font-size: 1.6rem;
+                                    @include transition();
+                                    &:hover{
+                                        color: $purple;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .popupCartFav{
+                top: 0;
+                z-index: 100;
+                height: 100%;
+                .popup-content{
+                    min-height: 570px;
+                    max-height: 95vh;
+                    h2{
+                        margin-bottom: 25px;
+                        font-size: 2.2rem;   
+                    }
+                    .cart{
+                        button, select{
+                            font-size: .8rem;
+                            padding: 5px 10px;
+                        }
+                        .cartTable{
+                            tr{
+                                td , th{
+                                    padding:4px;
+                                    &.title{
+                                        font-size: .94rem;
+                                    }
+                                    & .price{
+                                        font-size: .92rem;
+                                    }
+                                    img{
+                                        height: 70px;
+                                        width: 50px;
+                                    }
+                                    select{
+                                        width: 50px;
+                                    }
+                                }
+                            }
+                        }
+                        .cartFooter{
+                            @include flexcol();
+                            p{
+                                &:first-of-type{
+                                    margin-top: 15px;
+                                }
+                            }
+                            #buyBtn{
+                                margin-top: 8px;
+                            }
+                        }
+                    }
+                    .favourites{
+                        h2{
+                            font-size: 2rem;
+                        }
+                        .fav-products{
+                            grid-template-columns:  1fr 1fr;
+                            .fav-product{
+                                min-height: 150px;
+                                padding: 10px;
+                                h4{
+                                    font-size: .89rem;
+                                    text-align: center;
+                                    margin-bottom: 15px;
+                                    height: 20px;
+                                }
+                                .fav-img{
+                                    img{
+                                        width: 66px;
+                                        height: 92px;
+                                    }
+                                }
+                                .fav-footer{
+                                    p{
+                                        font-size: .95rem;
+                                    }
+                                }
+                                .removeFromFavBtn{
+                                    padding: 4px 12px ;
+                                    font-size: .85rem;
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .cart , .favourites{
+                        display: none;
+                        width: 100%;
+                        &.open{
+                            display: block;
                         }
                     }
                 }
@@ -672,6 +1306,74 @@
                         }
                     }
                 }
+                .contactForm{
+                    padding: 70px 0;
+                    form{
+                        h2{
+                            font-size: 2rem;
+                        }
+                        width: 90%;
+                        .formRow{
+                            flex-wrap: wrap;
+                            .formField{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .popupCartFav{
+                top: 0;
+                z-index: 100;
+                height: 100%;
+                .popup-content{
+                    width:780px;
+                    min-height: 570px;
+                    max-height: 90vh;
+                    padding: 30px;
+                    h2{
+                        text-align: center;
+                        margin-bottom: 40px;
+                        font-size: 2.4rem;   
+                    }
+                    .favourites{
+                        .fav-products{
+                            grid-template-columns:  1fr;
+                            .fav-product{
+                                min-height: 110px;
+                                padding: 10px;
+                                h4{
+                                    font-size: .89rem;
+                                    text-align: center;
+                                    margin-bottom: 15px;
+                                    height: 20px;
+                                }
+                                .fav-img{
+                                    img{
+                                        height: 92px;
+                                    }
+                                }
+                                .fav-footer{
+                                    p{
+                                        font-size: .95rem;
+                                    }
+                                }
+                                .removeFromFavBtn{
+                                    padding: 4px 12px ;
+                                    font-size: .85rem;
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .cart , .favourites{
+                        display: none;
+                        width: 100%;
+                        &.open{
+                            display: block;
+                        }
+                    }
+                }
             }
         }
     }
@@ -691,6 +1393,144 @@
                                 align-items: center ;
                                 justify-content: center;
                                 margin: 20px 0;
+                            }
+                        }
+                    }
+                }
+            }
+            #main{
+                .wrapper #shop{
+                    .filter{
+                        margin-top: 140px;
+                    }
+                    .books{
+                        justify-content: center;
+                        grid-template-columns: 360px;
+                        padding-top:140px;
+                        .sectionHeader{
+                            #showHideFilter{
+                                top: 80px;
+                                left: 20%;
+                            }
+                            h1{
+                                margin-right: 0px;
+                                margin-bottom: 20px;
+                            }
+                            select{
+                                top: 80px;
+                                right: 20%;
+                                padding:4px 11px;
+                                font-size: .92rem;
+                                width: 150px;
+                            }
+                        }
+                        .book{
+                            height: 370px;
+                            padding: 25px 24px;
+                            margin: 20px;
+                            &:hover .cartFav{
+                                right: 1.5%;
+                            }
+                            img{
+                                height: 219px;
+                                width: 147px;
+                            }
+                            h3{
+                                margin: 10px 0;
+                                font-size:1.04rem;
+                            }
+                            p{
+                                &.oldPrice{
+                                    font-size: .96rem;
+                                }
+                                &.newPrice{
+                                    color: $purple;
+                                    font-size: 1.1rem;
+                                }
+                            }
+                            .cartFav{
+                                top: 40%;
+                                button{
+                                    font-size: 1.5rem;
+                                }
+                            }
+                            .discaunt{
+                                width: 56px;
+                                height: 56px;
+                                font-size: 1.17rem;
+                            }
+                        }
+                    }
+                    .seeMore-outer{
+                        .seeMore-content{
+                            @include flexcol();
+                            justify-content: flex-start;
+                            padding: 32px 26px;
+                            width: 820px;
+                            height:auto;
+                            &>div{
+                                img{
+                                    height: 240px;
+                                    width: 170px;
+                                }
+                                .prices{
+                                    margin-top: 12px;
+                                    margin-bottom: 20px;
+                                }
+                                .discaunt{
+                                    position: absolute;
+                                    top: 5%;
+                                    left: 25%;
+                                    font-size: 1rem;
+                                    padding: 4px 8px;
+                                }
+                                h3{
+                                    font-size: 1.16rem;
+                                    color: $purple;
+                                }
+                                p{
+                                    font-size: .84rem;
+                                }
+                                p.genres{
+                                    margin-top: 12px;
+                                }
+                                p.newPrice , p.oldPrice{
+                                    font-size: 1.1rem;
+                                    margin: 0 4px ;
+                                }
+                                p.newPrice{
+                                    font-size: 1.2rem;
+                                }
+                                hr.line{
+                                    height: 2px;
+                                    width: 160px;
+                                    margin: 13px 0;
+                                }
+                                p.shortText{
+                                    font-size: .82rem;
+                                }
+                                .addToCart{
+                                    margin: 20px 0 0 0;
+                                    select,button{
+                                        padding:4px 8px;
+                                        font-size: .9rem;
+                                    }
+                                    select{
+                                        margin: 0 10px;
+                                    }
+                                }
+                                .closeBtn{
+                                    background-color: transparent;
+                                    color: $blue;
+                                    position: absolute;
+                                    top: 4%;
+                                    right: 4%;
+                                    font-size: 1.5rem;
+                                    @include transition();
+                                    &:hover{
+                                        color: $purple;
+                                    }
+                                }
                             }
                         }
                     }
@@ -820,6 +1660,77 @@
                         }
                         &#prev{
                             left: 3%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and(max-width: 450px) {
+    html{
+        body{
+            #main{
+                .contactForm{
+                    form{
+                        padding: 40px 20px;
+                        h2{
+                            font-size: 2rem;
+                        }
+                        width: 90%;
+                        .formRow{
+                            flex-wrap: wrap;
+                            .formField{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .popupCartFav{
+                top: 0;
+                z-index: 100;
+                height: 100%;
+                .popup-content{
+                    width:auto;
+                    min-height: 570px;
+                    max-height: 100vh;
+                    padding: 20px 0;
+                    .cart{
+                        button, select{
+                            font-size: .76rem;
+                            padding: 3px 8px;
+                        }
+                        .cartTable{
+                            tr{
+                                td , th{
+                                    padding:3px;
+                                    &.title{
+                                        font-size: .9rem;
+                                    }
+                                    & .price{
+                                        font-size: .9rem;
+                                    }
+                                    img{
+                                        height: 65px;
+                                        width: 45px;
+                                    }
+                                    select{
+                                        width: 45px;
+                                    }
+                                }
+                            }
+                        }
+                        .cartFooter{
+                            @include flexcol();
+                            p{
+                                &:first-of-type{
+                                    margin-top: 15px;
+                                }
+                            }
+                            #buyBtn{
+                                margin-top: 8px;
+                            }
                         }
                     }
                 }
@@ -983,6 +1894,21 @@
                         }
                         &#prev{
                             left: 2%;
+                        }
+                    }
+                }
+                .wrapper #shop{
+                    .books{
+                        grid-template-columns: 310px;
+                        padding-top:150px;
+                        .sectionHeader{
+                            #showHideFilter{
+                                left: 10%;
+                            }
+                            select{
+                                top: 80px;
+                                right: 10%;
+                            }
                         }
                     }
                 }

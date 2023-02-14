@@ -98,12 +98,14 @@ $(document).ready(function() {
         filterBtn.addEventListener('click',()=>{
             let checkedGenreCheckboxs = Array.from(document.querySelectorAll('input[name^="chbGenre"]:checked'));
             let checkedDiscauntCheckboxs = document.querySelector('input[name^="chbDiscaunt"]:checked');
+            let maxPrice = +document.querySelector('.priceRange input[name="maxPrice"]').value;
+            let minPrice = +document.querySelector('.priceRange input[name="minPrice"]').value;
             
             let currentlyVisibleBooks = JSON.parse(localStorage.getItem('currentlyVisibleBooks'));
             let filterArr = currentlyVisibleBooks;
             filterOrSearchIndicator = '';
 
-            if(checkedGenreCheckboxs.length||checkedDiscauntCheckboxs){
+            if(checkedGenreCheckboxs.length||checkedDiscauntCheckboxs || maxPrice || minPrice){
                 // FILTER BY GENRES 
                 if(checkedGenreCheckboxs.length){
                     filterArr = currentlyVisibleBooks.filter(book => {
@@ -124,11 +126,49 @@ $(document).ready(function() {
                         return false;
                     })
                 }
+
+                if(maxPrice || minPrice){
+                    if(maxPrice > minPrice && maxPrice>1 && maxPrice <= 5000 && minPrice >= 0 && minPrice < 5000){
+
+                        $('.priceRange p.error').slideUp('slow');
+    
+                        filterArr = filterArr.filter(book => {
+                            let currentPrice = book.price.oldPrice;
+                            if(book.price.discaunt){
+                                currentPrice = getNewBookPrice(book);
+                            }
+                            if(currentPrice < maxPrice && currentPrice > minPrice){
+                                return true;
+                            }
+                            return false;
+                        })
+                    }else{
+                        $('.priceRange p.error').slideDown('slow');
+                    }
+                }
                 // FILTER BY PRICE
                 filterOrSearchIndicator = 'f';
             }
-            createBookArticles(filterArr)
+
+            $('.books p.empty').css('display', 'none');
+            if(filterArr.length == 0){
+                $('.books p.empty').slideDown('slow');
+            }
             
+            createBookArticles(filterArr);
+            $('.filter').removeClass('visible');
+        })
+        // Show filter btn
+        $('#showHideFilter').click(function(){
+            let filter = document.querySelector('.filter');
+            filter.style.display = 'flex';
+            setTimeout(() => {
+                if(filter.classList.contains('visible')){
+                    filter.classList.remove('visible');
+                }else{
+                    filter.classList.add('visible');
+                }
+            }, 1);
         })
 
         // SORT DDL EVENT LISTENER
@@ -168,34 +208,37 @@ $(document).ready(function() {
         function createBookArticles(booksArray){
             let html='';
             deleteAllBookArticles();
-            booksArray.forEach((book,index)=>{
-                html += `
-                <article class="book">
-                <img src="${BASEURL}images/shop/${book.image.path}" alt="${book.image.alt}"/>
-                <h3 class="title">${book.title}</h3>
-                <div class="bottom">
-                ${createPriceParagraphs(book)}
-                <div class="cartFav">
-                    <button class="addToCartBtn" onclick="addToCartOrFavourites(event)">
-                        <i class="zmdi zmdi-shopping-cart-plus"></i>
-                    </button>
-                    <button class="addToFavouritesBtn" onclick="addToCartOrFavourites(event)">
-                        <i class="zmdi zmdi-favorite-outline"></i>
-                    </button>
-                </div>
-                <div class="seeMore">
-                    <button class="seeMoreBtn" onclick="seeMoreAboutBook(${book.id})">
-                        See more...
-                    </button>
-                </div>
-            </article>` ;
-        })
+            if(booksArray.length){                
+                booksArray.forEach((book,index)=>{
+                    html += `
+                    <article class="book">
+                    <img src="${BASEURL}images/shop/${book.image.path}" alt="${book.image.alt}"/>
+                    <h3 class="title">${book.title}</h3>
+                    <div class="bottom">
+                    ${createPriceParagraphs(book)}
+                    <div class="cartFav">
+                        <button class="addToCartBtn" onclick="addToCartOrFavourites(event)">
+                            <i class="zmdi zmdi-shopping-cart-plus"></i>
+                        </button>
+                        <button class="addToFavouritesBtn" onclick="addToCartOrFavourites(event)">
+                            <i class="zmdi zmdi-favorite-outline"></i>
+                        </button>
+                    </div>
+                    <div class="seeMore">
+                        <button class="seeMoreBtn" onclick="seeMoreAboutBook(${book.id})">
+                            See more...
+                        </button>
+                    </div>
+                    </article>` ;
+                })
 
-        $(html).insertAfter('.sectionHeader');
-        checkIfIsFilterOrSearch(booksArray)
+                $(html).insertAfter('.sectionHeader');
+                checkIfIsFilterOrSearch(booksArray)
+        
+                disableCartBtnsForBooksThatAreInCartOrFavourites('booksInCart', '.addToCartBtn');
+                disableCartBtnsForBooksThatAreInCartOrFavourites('favouriteBooks', '.addToFavouritesBtn');
+            }
 
-        disableCartBtnsForBooksThatAreInCartOrFavourites('booksInCart', '.addToCartBtn');
-        disableCartBtnsForBooksThatAreInCartOrFavourites('favouriteBooks', '.addToFavouritesBtn');
         }
         function checkIfIsFilterOrSearch(books){
             if(filterOrSearchIndicator === 'f'){
@@ -225,7 +268,7 @@ $(document).ready(function() {
             let discauntCheckboxes = createDiscauntCheckboxesForFilter();
             addToFilterFormBeforeSubmitBtn(discauntCheckboxes)
             
-            let priceSlider = createPriceRangeSlider();
+            let priceSlider = createPriceRange();
             addToFilterFormBeforeSubmitBtn(priceSlider);
         }
         function createGenresCheckboxesForFilter(genresArray){
@@ -251,10 +294,11 @@ $(document).ready(function() {
             }
             return html;
         }
-        function createPriceRangeSlider(){
-            return `<hr class="line"/><h3>Price: </h3><div class="priceRangeSlider">
-                <input type="range" class="min-price" value="100" min="10" max="500" step="10">
-                <input type="range" class="max-price" value="250" min="10" max="500" step="10">
+        function createPriceRange(){
+            return `<hr class="line"/><h3>Price: </h3><div class="priceRange">
+                <input type="number" name="minPrice" min="0" max="5000" step="100" placeholder="Min price"/>
+                <input type="number" name="maxPrice" min="1" max="5000" step="100" placeholder="Max price"/>
+                <p class="error">Invalid price format , max is 5000RSD</p>
             </div><hr class="line"/>`
         }
         function addToFilterFormBeforeSubmitBtn(element){
@@ -545,17 +589,24 @@ $(document).ready(function() {
             return;
         }
         let searchValue = document.querySelector('#searchTxb').value;
+        let allBooks = JSON.parse(localStorage.getItem('allBooks'));
+        $('.books p.empty').slideUp('slow');
         
         if(searchValue){
-            let allBooks = JSON.parse(localStorage.getItem('allBooks'));
 
             let booksThatSatisfyTheCondition = allBooks.filter(book=>{
                 if(book.title.toLowerCase().includes(searchValue.toLowerCase())){
                     return book;
                 }
             })
+            if(booksThatSatisfyTheCondition.length == 0){
+                $('.books p.empty').slideDown('slow');
+            }
             createBookArticles(booksThatSatisfyTheCondition)
-            // localStorage.setItem('currentlyVisibleBooks' , JSON.stringify(booksThatSatisfyTheCondition));
+            
+            localStorage.setItem('currentlyVisibleBooks' , JSON.stringify(booksThatSatisfyTheCondition));
+        }else{
+            createBookArticles(allBooks);
         }
     })
 
@@ -630,28 +681,22 @@ function seeMoreAboutBook(bookId){
     let seeMoreContent = document.querySelector('.seeMore-content');
 
     let html = `
-    <div class="image col col-lg-6">
+    <div class="image col col-lg-6 col-md-6 col-sm-6 col-12">
         <img src="../assets/images/shop/${clickedBook.image.path}" alt="${clickedBook.image.alt}"/>
         <div class="prices">
         ${createPriceParagraphs(clickedBook)}`
     
     html +=`</div>
         </div>
-        <div class="text col col-lg-6">
-            <h3>${clickedBook.title}</h3>
+        <div class="text col col-lg-6 col-md-6 col-sm-6 col-12">
+            <h3 class="title">${clickedBook.title}</h3>
             <p class="genres">Genre: ${getBookGenres(clickedBook.genres)}</p>
             <p class="author">Author: ${clickedBook.author}</p>
         <p class="publisher">Publisher: ${clickedBook.publisher}</p>
         <hr class="line"/>
         <p class="shortText">${clickedBook.shortDescription}</p>
-        <div class="addToCart">
-            <select name="bookQuantity" id="bookQuantity">
-                <option value="0">Quantity</option>`;
-        html += createSelectOptions(10);
-        html+=`</select>
-                <button class="addToCartBtn">Add to cart</button>
-            </div>
             <button class="closeBtn" onclick="closeBookPopup(event)"><i class="zmdi zmdi-close"></i></button>`
+
     seeMoreContent.innerHTML = html;
 }
 function getCurrentlyOpenedBook(bookId){
@@ -685,46 +730,54 @@ function addToCartOrFavourites(e){
         addBookToFavourites(chosenBookObj);
     }
 }
-function addBookToCart(chosenBookObj){
+function addBookToCart(chosenBookObj ){
     $('.cartTable').css('display', 'block');
     $('.cart .empty').css('display', 'none');
 
     
     let cartTBody = document.querySelector('.cartTable tbody');
+    let cartElements = document.querySelectorAll('.cartTable tr');
 
-    let html = `
-    <tr>
-    <td><img src="${BASEURL}images/shop/${chosenBookObj.image.path}" alt="${chosenBookObj.image.alt}"/></td>
-    <td class="title">${chosenBookObj.title}</td><td>
-    <span class="price">${ takeCurrentBookPrice(chosenBookObj)}</span>RSD</td><td>
-        <select name="quantity" id="quantity" onchange="updateCartInterface()">
-        ${createSelectOptions(20)}</select>
-    </td>
-    <td><button class="deleteCartProduct" onclick="deleteFromCartOrFavourites(event , 'tr' , 'c')">Delete</button></td>
-    </tr>`;
-
-    cartTBody.innerHTML += html;
-    updateCartInterface();
+    if(cartElements !== null && cartElements.length<5 && cartElements.length> 0){
+        let html = `
+        <tr>
+        <td><img src="${BASEURL}images/shop/${chosenBookObj.image.path}" alt="${chosenBookObj.image.alt}"/></td>
+        <td class="title">${chosenBookObj.title}</td><td>
+        <span class="price">${ takeCurrentBookPrice(chosenBookObj)}</span>RSD</td><td>
+            <select name="quantity" id="quantity" onchange="updateCartInterface()">
+            ${createSelectOptions(20)}</select>
+        </td>
+        <td><button class="deleteCartProduct" onclick="deleteFromCartOrFavourites(event , 'tr' , 'c')">Delete</button></td>
+        </tr>`;
+    
+        cartTBody.innerHTML += html;
+        // document.querySelector('tr select#quantity').value = quantity;
+        updateCartInterface();
+    }
 }
 function addBookToFavourites(chosenBookObj){
     $('.favourites .empty').css('display', 'none');
 
-    let html = `
-    <div class="fav-product">
-        <div class="fav-img">
-        <img src="${BASEURL}images/shop/${chosenBookObj.image.path}" alt="${chosenBookObj.image.alt}"/>
-        </div>
-        <div class="fav-footer">
-            <h4 class="title">${chosenBookObj.title}</h4>
-            <p>${takeCurrentBookPrice(chosenBookObj)}RSD</p>
-            <button class="removeFromFavBtn" onclick="deleteFromCartOrFavourites(event , '.fav-product' , 'f')">Remove</button>
-        </div>
-    </div>`;
-
-    document.querySelector('.fav-products').innerHTML += html;
+    let favElements = document.querySelectorAll('.fav-product');
+    if(favElements.length<4){
+        let html = `
+        <div class="fav-product">
+            <div class="fav-img">
+            <img src="${BASEURL}images/shop/${chosenBookObj.image.path}" alt="${chosenBookObj.image.alt}"/>
+            </div>
+            <div class="fav-footer">
+                <h4 class="title">${chosenBookObj.title}</h4>
+                <p>${takeCurrentBookPrice(chosenBookObj)}RSD</p>
+                <button class="removeFromFavBtn" onclick="deleteFromCartOrFavourites(event , '.fav-product' , 'f')">Remove</button>
+            </div>
+        </div>`;
     
-    addCartorFavouriteBooksToLocalStorage('favouriteBooks', '.fav-product h4');
-    changeProductsNumberInSpan(document.querySelectorAll('.fav-product').length ,'#favBtn')
+        document.querySelector('.fav-products').innerHTML += html;
+        
+        addCartorFavouriteBooksToLocalStorage('favouriteBooks', '.fav-product h4');
+        changeProductsNumberInSpan(document.querySelectorAll('.fav-product').length ,'#favBtn')
+    }
+
 }
 function updateCartInterface(){    
     let totalPrice = getTotalPrice();
@@ -796,19 +849,31 @@ function deleteFromCartOrFavourites(e , parent , btnType){
 }
 function enableCartBtnsForBooksThatAreInCartOrFavourites(bookTitle , btnClass){
     let titles = Array.from(document.querySelectorAll('.book h3.title'));
-    
-    let wantedBook = titles.find(title => bookTitle == title.textContent);
-    let wantedBtn =wantedBook.closest('.book').querySelector(btnClass);
-    wantedBtn.removeAttribute('disabled');
+
+    if(titles!== null && titles.length> 0){
+
+        let wantedBook = titles.find(title => bookTitle == title.textContent);
+        let wantedBtn =wantedBook.closest('.book').querySelector(btnClass);
+        wantedBtn.removeAttribute('disabled');
+    }
 }
 function disableCartBtnsForBooksThatAreInCartOrFavourites(itemName , btnClass){
     let booksInCart = JSON.parse(localStorage.getItem(itemName));
-    if(booksInCart){
+
+    if(booksInCart!== null && booksInCart.length>0){
+
         let booksArticles = Array.from(document.querySelectorAll('.book'));
-        booksInCart.forEach(book=>{
-            let wantedBook = booksArticles.find(article => article.querySelector('.title').textContent == book.title);
-            wantedBook.querySelector(btnClass).setAttribute('disabled','disabled');
-        })
+        
+        if(booksArticles!== null && booksArticles.length>0){
+
+            booksInCart.forEach(book=>{
+                let wantedBook = booksArticles.find(article => article.querySelector('.title').textContent == book.title);
+                if(wantedBook){
+                    wantedBook.querySelector(btnClass).setAttribute('disabled','disabled');
+                }
+            })
+
+        }
     }
 }
 
@@ -852,8 +917,8 @@ function addCartorFavouriteBooksToLocalStorage(itemName , parentElement){
 }
 function loadBooksInCartOrFavouritesFromLocalStorage(itemName){
     let cartOrFavouriteBooks = JSON.parse(localStorage.getItem(itemName));
+    if(cartOrFavouriteBooks !== null && cartOrFavouriteBooks.length){
 
-    if(cartOrFavouriteBooks){
         if(itemName.toLowerCase().includes('cart')){
             cartOrFavouriteBooks.forEach(book=>{
                 addBookToCart(book);

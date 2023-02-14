@@ -854,6 +854,13 @@ html body #main .wrapper #shop .filter {
           animation: fadeIn 1.2s;
 }
 
+html body #main .wrapper #shop .filter.visible {
+  left: 0%;
+  opacity: 1;
+  -webkit-box-shadow: 0 0 2px #6138df;
+          box-shadow: 0 0 2px #6138df;
+}
+
 html body #main .wrapper #shop .filter form h2 {
   font-size: 2.23rem;
 }
@@ -937,6 +944,41 @@ html body #main .wrapper #shop .books .sectionHeader h1 span {
   color: #06BCC1;
 }
 
+html body #main .wrapper #shop .books .sectionHeader #showHideFilter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 0;
+  background-color: #6138df;
+  color: #fefefe;
+  border: 1px solid #6138df;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 1.3rem;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+  display: none;
+}
+
+html body #main .wrapper #shop .books .sectionHeader #showHideFilter i {
+  font-size: 1.5rem;
+}
+
+html body #main .wrapper #shop .books .sectionHeader #showHideFilter:hover {
+  background-color: #fefefe;
+  color: #6138df;
+}
+
 html body #main .wrapper #shop .books .sectionHeader select {
   position: absolute;
   right: 0;
@@ -958,7 +1000,7 @@ html body #main .wrapper #shop .books .book {
   -webkit-box-shadow: 0 0 3px #06BCC1;
           box-shadow: 0 0 3px #06BCC1;
   color: #fefefe;
-  height: 410px;
+  height: 435px;
   border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1006,6 +1048,7 @@ html body #main .wrapper #shop .books .book img {
 html body #main .wrapper #shop .books .book h3 {
   margin: 12px 0;
   text-align: center;
+  font-weight: 400;
   font-size: 1.07rem;
 }
 
@@ -1024,6 +1067,7 @@ html body #main .wrapper #shop .books .book .bottom {
 html body #main .wrapper #shop .books .book p {
   margin: 0;
   margin: 0 5px;
+  font-weight: 400;
 }
 
 html body #main .wrapper #shop .books .book p.oldPrice {
@@ -1820,7 +1864,8 @@ html body .popupCartFav .popup-content .cart .cartTable tr td, html body .popupC
 }
 
 html body .popupCartFav .popup-content .cart .cartTable tr td img, html body .popupCartFav .popup-content .cart .cartTable tr th img {
-  height: 100px;
+  height: 89px;
+  width: 70px;
 }
 
 html body .popupCartFav .popup-content .cart .cartTable tr td select, html body .popupCartFav .popup-content .cart .cartTable tr th select {
@@ -1853,12 +1898,12 @@ html body .popupCartFav .popup-content .cart .cartFooter p span {
 }
 
 html body .popupCartFav .popup-content .cart .cartFooter p:first-of-type {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 html body .popupCartFav .popup-content .cart .cartFooter #buyBtn {
   background-color: #fefefe;
-  margin-top: 14px;
+  margin-top: 10px;
   color: #6138df;
 }
 
@@ -1903,6 +1948,7 @@ html body .popupCartFav .popup-content .favourites .fav-products .fav-product h4
 }
 
 html body .popupCartFav .popup-content .favourites .fav-products .fav-product .fav-img img {
+  width: 108px;
   height: 152px;
 }
 
@@ -2234,6 +2280,262 @@ html body #submitedForm .content button.closeBtn:hover {
   html body #main #customers-impressions .arrows#prev {
     left: 10%;
   }
+  html body #main .wrapper #shop {
+    padding: 78px 0 100px 0;
+  }
+  html body #main .wrapper #shop .books {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  html body #main .wrapper #shop .books .sectionHeader {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+  }
+  html body #main .wrapper #shop .books .sectionHeader h1 {
+    font-size: 2.6rem;
+    margin-right: 70px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader h1 span {
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select {
+    padding: 6px 13px;
+    color: #fefefe;
+    background-color: #06BCC1;
+    border: 1px solid #06BCC1;
+    border-radius: 6px;
+    font-size: .94rem;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select option:disabled {
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .books .book {
+    height: 400px;
+    padding: 25px 24px;
+  }
+  html body #main .wrapper #shop .books .book:hover .cartFav {
+    right: 1.5%;
+  }
+  html body #main .wrapper #shop .books .book img {
+    height: 249px;
+    width: 167px;
+  }
+  html body #main .wrapper #shop .books .book .cartFav {
+    position: absolute;
+    right: -14%;
+    opacity: 0;
+    top: 40%;
+    -webkit-transition: .32s ease-in-out;
+    transition: .32s ease-in-out;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button {
+    font-size: 1.6rem;
+    color: #6138df;
+    background-color: transparent;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button:hover {
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .books .book .discaunt {
+    position: absolute;
+    top: 2%;
+    left: 15%;
+    width: 70px;
+    height: 70px;
+    font-size: 1.37rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    background-color: rgba(6, 188, 193, 0.9);
+    background-color: rgba(84, 51, 182, 0.9);
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: none;
+    left: 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer.open {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    padding: 20px 40px;
+    width: 820px;
+    height: 570px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div img {
+    height: 400px;
+    width: 276px;
+    border-radius: 5px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .prices {
+    margin-top: 20px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .discaunt {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 4px 12px;
+    color: #fefefe;
+    background-color: #6138df;
+    border-radius: 4px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div h3 {
+    font-size: 1.46rem;
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p {
+    margin: 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.genres {
+    margin-top: 20px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.oldPrice {
+    font-size: 1.4rem;
+    margin: 0 5px;
+    display: inline;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice {
+    color: #6138df;
+    font-size: 1.5rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.oldPrice {
+    text-decoration: line-through;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div hr.line {
+    height: 2px;
+    width: 200px;
+    margin: 20px 0;
+    background-color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.shortText {
+    font-size: .9rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart {
+    margin: 35px 0 0 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button {
+    background-color: #06BCC1;
+    color: #fefefe;
+    padding: 6px 10px;
+    border: 1px solid #06BCC1;
+    font-size: 1.1rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+    border-radius: 4px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select {
+    margin: 0 12px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select:focus {
+    background-color: #fefefe;
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button {
+    background-color: #6138df;
+    border-color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button:hover {
+    background-color: #fefefe;
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn {
+    background-color: transparent;
+    color: #06BCC1;
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    font-size: 1.7rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn:hover {
+    color: #6138df;
+  }
+  html body #main .contactForm {
+    padding: 90px 0;
+  }
+  html body #main .contactForm form {
+    width: 60%;
+  }
+  html body #main .contactForm form h2 {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 1050px) {
@@ -2297,6 +2599,270 @@ html body #submitedForm .content button.closeBtn:hover {
   }
   html body #main #customer-impressions h2 {
     font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  html body #main .wrapper #shop {
+    padding: 78px 0 100px 0;
+  }
+  html body #main .wrapper #shop .filter {
+    -webkit-animation: fadeIn 1.2s;
+            animation: fadeIn 1.2s;
+    padding: 20px 40px;
+    position: absolute;
+    margin-top: 100px;
+    left: -300px;
+    opacity: 0;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+    background-color: #fefefe;
+    z-index: 120;
+    display: none;
+  }
+  html body #main .wrapper #shop .books .sectionHeader {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  html body #main .wrapper #shop .books .sectionHeader #showHideFilter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  html body #main .wrapper #shop .books .sectionHeader h1 {
+    font-size: 2.6rem;
+    margin-right: 70px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader h1 span {
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select {
+    padding: 6px 13px;
+    color: #fefefe;
+    background-color: #06BCC1;
+    border: 1px solid #06BCC1;
+    border-radius: 6px;
+    font-size: .94rem;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select option:disabled {
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .books .book {
+    height: 400px;
+    padding: 25px 24px;
+  }
+  html body #main .wrapper #shop .books .book:hover .cartFav {
+    right: 1.5%;
+  }
+  html body #main .wrapper #shop .books .book img {
+    height: 249px;
+    width: 167px;
+  }
+  html body #main .wrapper #shop .books .book .cartFav {
+    position: absolute;
+    right: -14%;
+    opacity: 0;
+    top: 40%;
+    -webkit-transition: .32s ease-in-out;
+    transition: .32s ease-in-out;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button {
+    font-size: 1.6rem;
+    color: #6138df;
+    background-color: transparent;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button:hover {
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .books .book .discaunt {
+    position: absolute;
+    top: 2%;
+    left: 15%;
+    width: 70px;
+    height: 70px;
+    font-size: 1.37rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    background-color: rgba(6, 188, 193, 0.9);
+    background-color: rgba(84, 51, 182, 0.9);
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: none;
+    left: 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer.open {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    padding: 20px 40px;
+    width: 820px;
+    height: 570px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div img {
+    height: 400px;
+    width: 276px;
+    border-radius: 5px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .prices {
+    margin-top: 20px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .discaunt {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 4px 12px;
+    color: #fefefe;
+    background-color: #6138df;
+    border-radius: 4px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div h3 {
+    font-size: 1.46rem;
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p {
+    margin: 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.genres {
+    margin-top: 20px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.oldPrice {
+    font-size: 1.4rem;
+    margin: 0 5px;
+    display: inline;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice {
+    color: #6138df;
+    font-size: 1.5rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.oldPrice {
+    text-decoration: line-through;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div hr.line {
+    height: 2px;
+    width: 200px;
+    margin: 20px 0;
+    background-color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.shortText {
+    font-size: .9rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart {
+    margin: 35px 0 0 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button {
+    background-color: #06BCC1;
+    color: #fefefe;
+    padding: 6px 10px;
+    border: 1px solid #06BCC1;
+    font-size: 1.1rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+    border-radius: 4px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select {
+    margin: 0 12px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select:focus {
+    background-color: #fefefe;
+    color: #06BCC1;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button {
+    background-color: #6138df;
+    border-color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button:hover {
+    background-color: #fefefe;
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn {
+    background-color: transparent;
+    color: #06BCC1;
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    font-size: 1.7rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn:hover {
+    color: #6138df;
   }
 }
 
@@ -2661,6 +3227,15 @@ html body #submitedForm .content button.closeBtn:hover {
     font-size: 1.04rem;
     padding: 6px 12px;
   }
+  html body #main .contactForm {
+    padding: 90px 0;
+  }
+  html body #main .contactForm form {
+    width: 80%;
+  }
+  html body #main .contactForm form h2 {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -2719,6 +3294,217 @@ html body #submitedForm .content button.closeBtn:hover {
   html body #main #services .service-blocks .service i {
     font-size: 1.8rem;
     padding: 9px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader #showHideFilter {
+    padding: 5px 12px;
+    font-size: 1.2rem;
+  }
+  html body #main .wrapper #shop .books .sectionHeader #showHideFilter i {
+    font-size: 1.3rem;
+  }
+  html body #main .wrapper #shop .books .sectionHeader h1 {
+    font-size: 2.2rem;
+    margin-right: 70px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select {
+    padding: 4px 11px;
+    font-size: .92rem;
+    width: 150px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select option:disabled {
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .books .book {
+    height: 370px;
+    padding: 25px 24px;
+    margin: 20px;
+  }
+  html body #main .wrapper #shop .books .book:hover .cartFav {
+    right: 1.5%;
+  }
+  html body #main .wrapper #shop .books .book img {
+    height: 219px;
+    width: 147px;
+  }
+  html body #main .wrapper #shop .books .book h3 {
+    margin: 10px 0;
+    font-size: 1.04rem;
+  }
+  html body #main .wrapper #shop .books .book p.oldPrice {
+    text-decoration: line-through;
+    font-size: .96rem;
+  }
+  html body #main .wrapper #shop .books .book p.newPrice {
+    color: #6138df;
+    font-size: 1.1rem;
+  }
+  html body #main .wrapper #shop .books .book .cartFav {
+    top: 40%;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button {
+    font-size: 1.5rem;
+  }
+  html body #main .wrapper #shop .books .book .discaunt {
+    width: 56px;
+    height: 56px;
+    font-size: 1.17rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content {
+    padding: 15px 33px;
+    width: 820px;
+    height: 600px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div img {
+    height: 350px;
+    width: 236px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .prices {
+    margin-top: 16px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .discaunt {
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    font-size: 1.1rem;
+    padding: 4px 12px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div h3 {
+    font-size: 1.36rem;
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p {
+    margin: 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.genres {
+    margin-top: 15px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.oldPrice {
+    font-size: 1.2rem;
+    margin: 0 4px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice {
+    font-size: 1.4rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div hr.line {
+    height: 2px;
+    width: 180px;
+    margin: 17px 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.shortText {
+    font-size: .87rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart {
+    margin: 27px 0 0 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button {
+    padding: 6px 10px;
+    font-size: 1rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select {
+    margin: 0 10px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn {
+    background-color: transparent;
+    color: #06BCC1;
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    font-size: 1.6rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn:hover {
+    color: #6138df;
+  }
+  html body .popupCartFav {
+    top: 0;
+    z-index: 100;
+    height: 100%;
+  }
+  html body .popupCartFav .popup-content {
+    min-height: 570px;
+    max-height: 95vh;
+  }
+  html body .popupCartFav .popup-content h2 {
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+  }
+  html body .popupCartFav .popup-content .cart button, html body .popupCartFav .popup-content .cart select {
+    font-size: .8rem;
+    padding: 5px 10px;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td, html body .popupCartFav .popup-content .cart .cartTable tr th {
+    padding: 4px;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td.title, html body .popupCartFav .popup-content .cart .cartTable tr th.title {
+    font-size: .94rem;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td .price, html body .popupCartFav .popup-content .cart .cartTable tr th .price {
+    font-size: .92rem;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td img, html body .popupCartFav .popup-content .cart .cartTable tr th img {
+    height: 70px;
+    width: 50px;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td select, html body .popupCartFav .popup-content .cart .cartTable tr th select {
+    width: 50px;
+  }
+  html body .popupCartFav .popup-content .cart .cartFooter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  html body .popupCartFav .popup-content .cart .cartFooter p:first-of-type {
+    margin-top: 15px;
+  }
+  html body .popupCartFav .popup-content .cart .cartFooter #buyBtn {
+    margin-top: 8px;
+  }
+  html body .popupCartFav .popup-content .favourites h2 {
+    font-size: 2rem;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product {
+    min-height: 150px;
+    padding: 10px;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product h4 {
+    font-size: .89rem;
+    text-align: center;
+    margin-bottom: 15px;
+    height: 20px;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product .fav-img img {
+    width: 66px;
+    height: 92px;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product .fav-footer p {
+    font-size: .95rem;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product .removeFromFavBtn {
+    padding: 4px 12px;
+    font-size: .85rem;
+    margin-top: 10px;
+  }
+  html body .popupCartFav .popup-content .cart, html body .popupCartFav .popup-content .favourites {
+    display: none;
+    width: 100%;
+  }
+  html body .popupCartFav .popup-content .cart.open, html body .popupCartFav .popup-content .favourites.open {
+    display: block;
   }
 }
 
@@ -2809,6 +3595,70 @@ html body #submitedForm .content button.closeBtn:hover {
   html body #main #company-info #info-text-secondaryImage #secondary-image {
     height: 400px;
   }
+  html body #main .contactForm {
+    padding: 70px 0;
+  }
+  html body #main .contactForm form {
+    width: 90%;
+  }
+  html body #main .contactForm form h2 {
+    font-size: 2rem;
+  }
+  html body #main .contactForm form .formRow {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  html body #main .contactForm form .formRow .formField {
+    width: 100%;
+  }
+  html body .popupCartFav {
+    top: 0;
+    z-index: 100;
+    height: 100%;
+  }
+  html body .popupCartFav .popup-content {
+    width: 780px;
+    min-height: 570px;
+    max-height: 90vh;
+    padding: 30px;
+  }
+  html body .popupCartFav .popup-content h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product {
+    min-height: 110px;
+    padding: 10px;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product h4 {
+    font-size: .89rem;
+    text-align: center;
+    margin-bottom: 15px;
+    height: 20px;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product .fav-img img {
+    height: 92px;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product .fav-footer p {
+    font-size: .95rem;
+  }
+  html body .popupCartFav .popup-content .favourites .fav-products .fav-product .removeFromFavBtn {
+    padding: 4px 12px;
+    font-size: .85rem;
+    margin-top: 10px;
+  }
+  html body .popupCartFav .popup-content .cart, html body .popupCartFav .popup-content .favourites {
+    display: none;
+    width: 100%;
+  }
+  html body .popupCartFav .popup-content .cart.open, html body .popupCartFav .popup-content .favourites.open {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -2826,6 +3676,150 @@ html body #submitedForm .content button.closeBtn:hover {
         -ms-flex-pack: center;
             justify-content: center;
     margin: 20px 0;
+  }
+  html body #main .wrapper #shop .filter {
+    margin-top: 140px;
+  }
+  html body #main .wrapper #shop .books {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-grid-columns: 360px;
+        grid-template-columns: 360px;
+    padding-top: 140px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader #showHideFilter {
+    top: 80px;
+    left: 20%;
+  }
+  html body #main .wrapper #shop .books .sectionHeader h1 {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select {
+    top: 80px;
+    right: 20%;
+    padding: 4px 11px;
+    font-size: .92rem;
+    width: 150px;
+  }
+  html body #main .wrapper #shop .books .book {
+    height: 370px;
+    padding: 25px 24px;
+    margin: 20px;
+  }
+  html body #main .wrapper #shop .books .book:hover .cartFav {
+    right: 1.5%;
+  }
+  html body #main .wrapper #shop .books .book img {
+    height: 219px;
+    width: 147px;
+  }
+  html body #main .wrapper #shop .books .book h3 {
+    margin: 10px 0;
+    font-size: 1.04rem;
+  }
+  html body #main .wrapper #shop .books .book p.oldPrice {
+    font-size: .96rem;
+  }
+  html body #main .wrapper #shop .books .book p.newPrice {
+    color: #6138df;
+    font-size: 1.1rem;
+  }
+  html body #main .wrapper #shop .books .book .cartFav {
+    top: 40%;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button {
+    font-size: 1.5rem;
+  }
+  html body #main .wrapper #shop .books .book .discaunt {
+    width: 56px;
+    height: 56px;
+    font-size: 1.17rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding: 32px 26px;
+    width: 820px;
+    height: auto;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div img {
+    height: 240px;
+    width: 170px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .prices {
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .discaunt {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    font-size: 1rem;
+    padding: 4px 8px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div h3 {
+    font-size: 1.16rem;
+    color: #6138df;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p {
+    font-size: .84rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.genres {
+    margin-top: 12px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.oldPrice {
+    font-size: 1.1rem;
+    margin: 0 4px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.newPrice {
+    font-size: 1.2rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div hr.line {
+    height: 2px;
+    width: 160px;
+    margin: 13px 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div p.shortText {
+    font-size: .82rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart {
+    margin: 20px 0 0 0;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select, html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart button {
+    padding: 4px 8px;
+    font-size: .9rem;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .addToCart select {
+    margin: 0 10px;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn {
+    background-color: transparent;
+    color: #06BCC1;
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    font-size: 1.5rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn:hover {
+    color: #6138df;
   }
 }
 
@@ -2939,6 +3933,75 @@ html body #submitedForm .content button.closeBtn:hover {
   }
   html body #main #customers-impressions .arrows#prev {
     left: 3%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  html body #main .contactForm form {
+    padding: 40px 20px;
+    width: 90%;
+  }
+  html body #main .contactForm form h2 {
+    font-size: 2rem;
+  }
+  html body #main .contactForm form .formRow {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  html body #main .contactForm form .formRow .formField {
+    width: 100%;
+  }
+  html body .popupCartFav {
+    top: 0;
+    z-index: 100;
+    height: 100%;
+  }
+  html body .popupCartFav .popup-content {
+    width: auto;
+    min-height: 570px;
+    max-height: 100vh;
+    padding: 20px 0;
+  }
+  html body .popupCartFav .popup-content .cart button, html body .popupCartFav .popup-content .cart select {
+    font-size: .76rem;
+    padding: 3px 8px;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td, html body .popupCartFav .popup-content .cart .cartTable tr th {
+    padding: 3px;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td.title, html body .popupCartFav .popup-content .cart .cartTable tr th.title {
+    font-size: .9rem;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td .price, html body .popupCartFav .popup-content .cart .cartTable tr th .price {
+    font-size: .9rem;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td img, html body .popupCartFav .popup-content .cart .cartTable tr th img {
+    height: 65px;
+    width: 45px;
+  }
+  html body .popupCartFav .popup-content .cart .cartTable tr td select, html body .popupCartFav .popup-content .cart .cartTable tr th select {
+    width: 45px;
+  }
+  html body .popupCartFav .popup-content .cart .cartFooter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  html body .popupCartFav .popup-content .cart .cartFooter p:first-of-type {
+    margin-top: 15px;
+  }
+  html body .popupCartFav .popup-content .cart .cartFooter #buyBtn {
+    margin-top: 8px;
   }
 }
 
@@ -3061,6 +4124,18 @@ html body #submitedForm .content button.closeBtn:hover {
   }
   html body #main #customers-impressions .arrows#prev {
     left: 2%;
+  }
+  html body #main .wrapper #shop .books {
+    -ms-grid-columns: 310px;
+        grid-template-columns: 310px;
+    padding-top: 150px;
+  }
+  html body #main .wrapper #shop .books .sectionHeader #showHideFilter {
+    left: 10%;
+  }
+  html body #main .wrapper #shop .books .sectionHeader select {
+    top: 80px;
+    right: 10%;
   }
 }
 /*# sourceMappingURL=responsive.css.map */
