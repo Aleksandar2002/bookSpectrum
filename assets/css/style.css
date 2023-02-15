@@ -545,7 +545,7 @@ html body #main #company-info #info-text-secondaryImage .text a:hover {
 html body #main #company-info #info-text-secondaryImage #secondary-image {
   height: 40%;
   width: 100%;
-  background-image: url("../images/homePage/secondaryImage2.jpg");
+  background-image: url("../images/homePage/secondaryImage.jpg");
   background-position: center;
 }
 
@@ -1301,6 +1301,10 @@ html body #main .wrapper #shop .seeMore-outer .seeMore-content > div img {
 
 html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .prices {
   margin-top: 20px;
+}
+
+html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .author {
+  padding: 4px;
 }
 
 html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .discaunt {
@@ -2248,6 +2252,47 @@ html body #submitedForm .content button.closeBtn {
 
 html body #submitedForm .content button.closeBtn:hover {
   color: #06BCC1;
+}
+
+html body .preloader {
+  width: 100%;
+  top: 0;
+  z-index: 200;
+  position: fixed;
+  height: 100%;
+  background-color: rgba(6, 188, 193, 0.9);
+  background-color: #fefefe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .preloader .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .preloader .content img {
+  width: 250px;
 }
 
 ::-webkit-scrollbar {

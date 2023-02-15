@@ -908,6 +908,57 @@ html body #main .wrapper #shop .filter form input[type="button"]:hover {
   color: #fefefe;
 }
 
+html body #main .wrapper #shop .filter form .priceRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  margin: 20px 0 30px 0;
+}
+
+html body #main .wrapper #shop .filter form .priceRange ::-webkit-input-placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange :-ms-input-placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange ::-ms-input-placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange ::placeholder {
+  color: #6138df;
+}
+
+html body #main .wrapper #shop .filter form .priceRange input {
+  border-bottom: 1px solid #6138df;
+  color: #6138df;
+  font-size: 1rem;
+  padding: 4px 7px;
+  width: 80%;
+  margin: 7px 0;
+}
+
+html body #main .wrapper #shop .filter form .priceRange p.error {
+  display: none;
+  color: #06BCC1;
+}
+
 html body #main .wrapper #shop .books {
   display: -ms-grid;
   display: grid;
@@ -1252,6 +1303,10 @@ html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .prices {
   margin-top: 20px;
 }
 
+html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .author {
+  padding: 4px;
+}
+
 html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .discaunt {
   position: absolute;
   top: 10%;
@@ -1534,6 +1589,63 @@ html body #main .contactForm form .btns input {
 html body #main .contactForm form .btns input:hover {
   color: #6138df;
   background-color: #fefefe;
+}
+
+html body #main .author {
+  padding: 100px 0;
+}
+
+html body #main .author .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body #main .author .col img {
+  height: 400px;
+  border-radius: 15px;
+}
+
+html body #main .author .col h2 {
+  margin-bottom: 30px;
+  font-size: 1.7rem;
+}
+
+html body #main .author .col p {
+  max-width: 500px;
+  opacity: .85;
+}
+
+html body #main .author .col a {
+  background-color: #06BCC1;
+  color: #fefefe;
+  -webkit-box-shadow: 0 0 2px #06BCC1;
+          box-shadow: 0 0 2px #06BCC1;
+  border: 1px solid #06BCC1;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  padding: 6px 15px;
+  border-radius: 5px;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+}
+
+html body #main .author .col a:hover {
+  background-color: #fefefe;
+  color: #06BCC1;
 }
 
 html body footer {
@@ -2142,6 +2254,47 @@ html body #submitedForm .content button.closeBtn:hover {
   color: #06BCC1;
 }
 
+html body .preloader {
+  width: 100%;
+  top: 0;
+  z-index: 200;
+  position: fixed;
+  height: 100%;
+  background-color: rgba(6, 188, 193, 0.9);
+  background-color: #fefefe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .preloader .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .preloader .content img {
+  width: 250px;
+}
+
 ::-webkit-scrollbar {
   width: 11px;
 }
@@ -2594,7 +2747,6 @@ html body #submitedForm .content button.closeBtn:hover {
   html body #main #company-info #info-text-secondaryImage #secondary-image {
     height: 44%;
     width: 100%;
-    background-image: url("../images/homePage/secondaryImage.jpg");
     background-position: center;
   }
   html body #main #customer-impressions h2 {
@@ -3271,7 +3423,6 @@ html body #submitedForm .content button.closeBtn:hover {
   html body #main #company-info #info-text-secondaryImage #secondary-image {
     height: 400px;
     width: 100%;
-    background-image: url("../images/homePage/secondaryImage.jpg");
     background-position: center;
   }
   html body #main #services {
