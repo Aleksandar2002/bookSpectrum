@@ -661,7 +661,11 @@ $(document).ready(function() {
     })
     function checkIfPageIsShop(){
         if(currentPage !== 'shop'){
-            window.location.pathname = 'pages/shop.html';
+            if(currentPage !== 'index'){
+                window.location = 'shop.html';
+            }else{
+                window.location = 'pages/shop.html'
+            }
             return false;
         }
         return true;
