@@ -3016,6 +3016,29 @@ html body .preloader .content img {
   html body #main .wrapper #shop .seeMore-outer .seeMore-content > div .closeBtn:hover {
     color: #6138df;
   }
+  html body #main .author .col {
+    margin: 30px 0;
+  }
+  html body #main .author .col img {
+    height: 350px;
+    border-radius: 12px;
+  }
+  html body #main .author .col h2 {
+    font-size: 1.5rem;
+  }
+  html body #main .author .col p {
+    max-width: 500px;
+    opacity: .85;
+  }
+  html body #main .author .col a {
+    font-size: 1.1rem;
+    -webkit-transition: .23s ease-in-out;
+    transition: .23s ease-in-out;
+  }
+  html body #main .author .col a:hover {
+    background-color: #fefefe;
+    color: #06BCC1;
+  }
 }
 
 @media screen and (max-width: 950px) {
@@ -3396,7 +3419,6 @@ html body .preloader .content img {
   }
   html body #main #company-info #main-image {
     height: 450px;
-    background: url("/assets/images/homePage/sec3.jpg");
     background-position: top;
     background-size: cover;
   }

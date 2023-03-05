@@ -1456,6 +1456,47 @@ html{
                 }
             }
         }
+        .buyFromCartMessage{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 1000;
+            height: 100%;
+            background-color: rgba(97, 56, 223,.21);
+            @include flexbox();
+            justify-content: center;
+            display: none;
+            &.visible{
+                display: flex;
+            }
+            .content{
+                @include flexbox();
+                justify-content: center;
+                color: $white;
+                width: 600px;
+                height: 400px;
+                background-color: $purple;
+                position: relative;
+                h4{
+                    text-align: center;
+                    font-size: 1.5rem;   
+                    line-height: 2rem;
+                    font-weight: 400;
+                }
+                button.closePopupMessage{
+                    color: $white;
+                    background-color: transparent;
+                    position: absolute;
+                    top: 4%;
+                    right: 5%;
+                    font-size: 1.5rem;
+                    @include transition();
+                    &:hover{
+                        color: $blue;
+                    }
+                }
+            }
+        }
 
     }
 }

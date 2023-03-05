@@ -202,7 +202,29 @@ $(document).ready(function() {
             }
             createBookArticles(books);
         })
+
+        // CLOSE CART POPUP
+        const closePopupBtn = document.querySelector('#closePopupBtn');
+        closePopupBtn.addEventListener('click', () =>{
+            closePopup(popupCart);
+        });
         
+        let buyBtn = document.querySelector('#buyBtn');
+        buyBtn.addEventListener('click', () =>{
+            let booksInCart = JSON.parse(localStorage.getItem('booksInCart'));
+            if(booksInCart){
+                $('.buyFromCartMessage').addClass('visible');
+                // deleteFromLocalStorage('booksInCart');
+                booksInCart.forEach(book=>{
+                    enableCartBtnsForBooksThatAreInCartOrFavourites(book.title , '.addToCartBtn');
+                })
+                $('tbody tr').remove();
+                updateCartInterface();
+            }
+        });
+        $('.closePopupMessage').click(function(){
+            $('.buyFromCartMessage').removeClass('visible');
+        })
         // CREATE BOOK ARTICLES WHEN THE PAGE IS LOADED
         function createBookArticlesOnPageLoading(booksArray){
             addToLocalStorage('allBooks' ,JSON.stringify(booksArray));
@@ -573,11 +595,6 @@ $(document).ready(function() {
             openPopup(popupCart);
         });
     })
-
-    const closePopupBtn = document.querySelector('#closePopupBtn');
-    closePopupBtn.addEventListener('click', () =>{
-        closePopup(popupCart);
-    });
 
     // LOAD BOOKS FROM LOCAL STORAGE THAT ARE IN CART OR FAVOURITES WHEN THE PAGE LOADS 
     loadBooksInCartOrFavouritesFromLocalStorage('booksInCart');

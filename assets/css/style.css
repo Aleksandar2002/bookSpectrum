@@ -2295,6 +2295,76 @@ html body .preloader .content img {
   width: 250px;
 }
 
+html body .buyFromCartMessage {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  height: 100%;
+  background-color: rgba(97, 56, 223, 0.21);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+}
+
+html body .buyFromCartMessage.visible {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .buyFromCartMessage .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fefefe;
+  width: 600px;
+  height: 400px;
+  background-color: #6138df;
+  position: relative;
+}
+
+html body .buyFromCartMessage .content h4 {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+html body .buyFromCartMessage .content button.closePopupMessage {
+  color: #fefefe;
+  background-color: transparent;
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  font-size: 1.5rem;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+}
+
+html body .buyFromCartMessage .content button.closePopupMessage:hover {
+  color: #06BCC1;
+}
+
 ::-webkit-scrollbar {
   width: 11px;
 }
