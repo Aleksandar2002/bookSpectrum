@@ -99,7 +99,7 @@ $(document).ready(function() {
         // LOAD BOOKS FROM LOCAL STORAGE THAT ARE IN CART OR FAVOURITES WHEN THE PAGE LOADS 
         loadBooksInCartOrFavouritesFromLocalStorage('booksInCart');
         loadBooksInCartOrFavouritesFromLocalStorage('favouriteBooks');
-        
+
         // FILTER BTN EVENT LISTENER
         let filterBtn = document.querySelector('#filterBtn');
         filterBtn.addEventListener('click',()=>{
@@ -809,7 +809,7 @@ function updateCartInterface(){
 
     if(!totalQuantity){
         $('.cartTable').hide();
-        $('.empty').show();
+        $('.cart .empty').show();
     }
 
     changeProductsNumberInSpan(totalQuantity , '#cartBtn');
