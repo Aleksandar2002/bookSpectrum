@@ -96,6 +96,10 @@ $(document).ready(function() {
         waitForPromiseAndRunFunctionWithJsonData('books.json', createBookArticlesOnPageLoading);
         waitForPromiseAndRunFunctionWithJsonData('genres.json' , createFilterConditions);
 
+        // LOAD BOOKS FROM LOCAL STORAGE THAT ARE IN CART OR FAVOURITES WHEN THE PAGE LOADS 
+        loadBooksInCartOrFavouritesFromLocalStorage('booksInCart');
+        loadBooksInCartOrFavouritesFromLocalStorage('favouriteBooks');
+        
         // FILTER BTN EVENT LISTENER
         let filterBtn = document.querySelector('#filterBtn');
         filterBtn.addEventListener('click',()=>{
@@ -595,10 +599,6 @@ $(document).ready(function() {
             openPopup(popupCart);
         });
     })
-
-    // LOAD BOOKS FROM LOCAL STORAGE THAT ARE IN CART OR FAVOURITES WHEN THE PAGE LOADS 
-    loadBooksInCartOrFavouritesFromLocalStorage('booksInCart');
-    loadBooksInCartOrFavouritesFromLocalStorage('favouriteBooks');
 
     // SEARCH BTN EVENT LISTENER ON CLICK 
     let searchBtn = document.querySelector('#searchBtn');
