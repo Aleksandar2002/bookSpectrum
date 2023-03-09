@@ -203,6 +203,10 @@ $(document).ready(function() {
                     sortByTitle( books, 'd');
                     break;
                 }
+                case 'new':{
+                    sortByDate(books);
+                    break;
+                }
             }
             createBookArticles(books);
         })
@@ -229,6 +233,11 @@ $(document).ready(function() {
         $('.closePopupMessage').click(function(){
             $('.buyFromCartMessage').removeClass('visible');
         })
+
+        $('.addToCartMessagePopup button').click(function(){
+            closePopup(document.querySelector('.addToCartMessagePopup'));
+        })
+
         // CREATE BOOK ARTICLES WHEN THE PAGE IS LOADED
         function createBookArticlesOnPageLoading(booksArray){
             addToLocalStorage('allBooks' ,JSON.stringify(booksArray));
@@ -362,6 +371,17 @@ $(document).ready(function() {
                         return sortAsc(aTitle , bTitle)
                     }else{
                         return sortDesc(aTitle , bTitle);
+                    }
+            });
+        }
+        function sortByDate( array){
+            return array.sort((a,b)=>{
+                    let aDate = a.dateOfPublishing;
+                    let bDate = b.dateOfPublishing;
+                    if(aDate > bDate){
+                        return -1;
+                    }else{
+                        return 1;
                     }
             });
         }
@@ -745,18 +765,34 @@ function makeFirstLetterUpercase(someString){
 // FUNCTION FOR CART OR FAVOURITES
 function addToCartOrFavourites(e){
     let clickedBtn = e.target.closest('button');
-    clickedBtn.setAttribute('disabled', 'disabled');
+    clickedBtn.classList.add('clicked');
+    // clickedBtn.setAttribute('disabled', 'disabled');
     let chosenBookObj = getChosenBook(clickedBtn);
+    let popup = document.querySelector('.addToCartMessagePopup');
 
     if(clickedBtn.classList.contains('addToCartBtn')){  
-        addBookToCart(chosenBookObj);
+        let bool = checkIfBookIsInCart(chosenBookObj);
+        if(bool){
+            popup.querySelector('h2').textContent = 'Book is already in the cart'
+        }else{
+            popup.querySelector('h2').textContent = 'Book is added to the cart'
+            addBookToCart(chosenBookObj);
+        }
     }else{
-        addBookToFavourites(chosenBookObj);
+        let bool = checkIfBookIsInFavourites(chosenBookObj);
+        if(bool){
+            popup.querySelector('h2').textContent = 'Book is already in the favourites';
+        }else{
+            popup.querySelector('h2').textContent = 'Book is added to the favourites';
+            addBookToFavourites(chosenBookObj);
+        }
     }
+    openPopup(popup)
 }
 function addBookToCart(chosenBookObj ){
     $('.cartTable').css('display', 'block');
     $('.cart .empty').css('display', 'none');
+    $('.cartFooter p').show();
 
     
     let cartTBody = document.querySelector('.cartTable tbody');
@@ -764,18 +800,22 @@ function addBookToCart(chosenBookObj ){
 
     if(cartElements !== null && cartElements.length<5 && cartElements.length> 0){
         let html = `
-        <tr>
+        <tr">
         <td><img src="${BASEURL}images/shop/${chosenBookObj.image.path}" alt="${chosenBookObj.image.alt}"/></td>
         <td class="title">${chosenBookObj.title}</td><td>
         <span class="price">${ takeCurrentBookPrice(chosenBookObj)}</span>RSD</td><td>
-            <select name="quantity" id="quantity" onchange="updateCartInterface()">
+            <select name="quantity${chosenBookObj.id}" data-id="${chosenBookObj.id}" onchange="updateCartInterface()">
             ${createSelectOptions(20)}</select>
         </td>
         <td><button class="deleteCartProduct" onclick="deleteFromCartOrFavourites(event , 'tr' , 'c')">Delete</button></td>
         </tr>`;
-    
+
         cartTBody.innerHTML += html;
-        // document.querySelector('tr select#quantity').value = quantity;
+        if(chosenBookObj.quantity){
+            
+            let options = Array.from(document.querySelectorAll(`select[data-id="${chosenBookObj.id}"] option`));
+            options.find(opt=> opt.value == chosenBookObj.quantity).setAttribute('selected' ,'selected');
+        }
         updateCartInterface();
     }
 }
@@ -797,8 +837,7 @@ function addBookToFavourites(chosenBookObj){
         </div>`;
     
         document.querySelector('.fav-products').innerHTML += html;
-        
-        addCartorFavouriteBooksToLocalStorage('favouriteBooks', '.fav-product h4');
+        addCartorFavouriteBooksToLocalStorage('favouriteBooks', '.fav-product h4' , 'f');
         changeProductsNumberInSpan(document.querySelectorAll('.fav-product').length ,'#favBtn')
     }
 
@@ -810,13 +849,14 @@ function updateCartInterface(){
     if(!totalQuantity){
         $('.cartTable').hide();
         $('.cart .empty').show();
+        $('.cartFooter p').hide();
     }
 
     changeProductsNumberInSpan(totalQuantity , '#cartBtn');
 
     $('span#totalPrice').html(totalPrice);
     $('span#numberOfProducts').html(totalQuantity);
-    addCartorFavouriteBooksToLocalStorage('booksInCart' , '.cartTable tbody td');
+    addCartorFavouriteBooksToLocalStorage('booksInCart' , '.cartTable tbody td' , 'c');
 }
 function changeProductsNumberInSpan(quantity , parent){
     let span = document.querySelector(parent+' span.productNumber');
@@ -857,7 +897,7 @@ function deleteFromCartOrFavourites(e , parent , btnType){
 
     if(btnType == 'c'){
 
-        addCartorFavouriteBooksToLocalStorage('booksInCart' , '.cartTable tbody td');
+        addCartorFavouriteBooksToLocalStorage('booksInCart' , '.cartTable tbody td' , 'c');
         updateCartInterface();
         enableCartBtnsForBooksThatAreInCartOrFavourites(bookTitle , '.addToCartBtn');
 
@@ -868,7 +908,7 @@ function deleteFromCartOrFavourites(e , parent , btnType){
             $('.favourites .empty').css('display', 'block');
         }
         changeProductsNumberInSpan(document.querySelectorAll('.fav-product').length ,'#favBtn')
-        addCartorFavouriteBooksToLocalStorage('favouriteBooks', '.fav-product h4');
+        addCartorFavouriteBooksToLocalStorage('favouriteBooks', '.fav-product h4' , 'f');
     }
 }
 function enableCartBtnsForBooksThatAreInCartOrFavourites(bookTitle , btnClass){
@@ -878,7 +918,7 @@ function enableCartBtnsForBooksThatAreInCartOrFavourites(bookTitle , btnClass){
 
         let wantedBook = titles.find(title => bookTitle == title.textContent);
         let wantedBtn =wantedBook.closest('.book').querySelector(btnClass);
-        wantedBtn.removeAttribute('disabled');
+        wantedBtn.classList.remove('clicked');
     }
 }
 function disableCartBtnsForBooksThatAreInCartOrFavourites(itemName , btnClass){
@@ -893,12 +933,34 @@ function disableCartBtnsForBooksThatAreInCartOrFavourites(itemName , btnClass){
             booksInCart.forEach(book=>{
                 let wantedBook = booksArticles.find(article => article.querySelector('.title').textContent == book.title);
                 if(wantedBook){
-                    wantedBook.querySelector(btnClass).setAttribute('disabled','disabled');
+                    wantedBook.querySelector(btnClass).classList.add('clicked');
                 }
             })
 
         }
     }
+}
+function checkIfBookIsInCart(book){
+    let booksInCart = JSON.parse(localStorage.getItem('booksInCart'));
+    if(booksInCart){
+        return booksInCart.some(cartBook => {
+            if(cartBook.id == book.id){
+                return true;
+            }
+        });
+    }
+    return false;
+}
+function checkIfBookIsInFavourites(book){
+    let favouriteBooks = JSON.parse(localStorage.getItem('favouriteBooks'));
+    if(favouriteBooks){
+        return favouriteBooks.some(favBook => {
+            if(favBook.id == book.id){
+                return true;
+            }
+        });
+    }
+    return false;
 }
 
 // POPUP FUNCTIONS
@@ -923,15 +985,24 @@ function addToLocalStorage(itemName, itemValue){
 function deleteFromLocalStorage(itemName){
     localStorage.removeItem(itemName);
 }
-function addCartorFavouriteBooksToLocalStorage(itemName , parentElement){
+function addCartorFavouriteBooksToLocalStorage(itemName , parentElement , type){
     let titlesOfBooksInCartOrFavourites = document.querySelectorAll(parentElement+'.title');
 
     let booksObjArray = [];
     let allBooks = JSON.parse(localStorage.getItem('allBooks'));
-
-    titlesOfBooksInCartOrFavourites.forEach(title=>{
-        booksObjArray.push(allBooks.find(book=> book.title == title.textContent));
-    })
+    if(type == 'f'){
+        titlesOfBooksInCartOrFavourites.forEach(title=>{
+            booksObjArray.push(allBooks.find(book=> book.title == title.textContent));
+        })
+    }else{
+        titlesOfBooksInCartOrFavourites.forEach(title=>{
+            let bookObj  = allBooks.find(book=> book.title == title.textContent);
+            bookObj.quantity = document.querySelector(`select[data-id="${bookObj.id}"]`).value;
+            // console.log(document.querySelector(`select[data-id="${bookObj.id}"]`).value);
+            // bookObj
+            booksObjArray.push(bookObj);
+        })
+    }
     
     if(booksObjArray.length){
         addToLocalStorage(itemName,JSON.stringify(booksObjArray));
@@ -942,7 +1013,6 @@ function addCartorFavouriteBooksToLocalStorage(itemName , parentElement){
 function loadBooksInCartOrFavouritesFromLocalStorage(itemName){
     let cartOrFavouriteBooks = JSON.parse(localStorage.getItem(itemName));
     if(cartOrFavouriteBooks !== null && cartOrFavouriteBooks.length){
-
         if(itemName.toLowerCase().includes('cart')){
             cartOrFavouriteBooks.forEach(book=>{
                 addBookToCart(book);

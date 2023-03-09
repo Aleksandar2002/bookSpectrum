@@ -164,19 +164,15 @@
                             height: 400px;
                             padding: 25px 24px;
                             &:hover .cartFav{
-                                right: 1.5%;
+                                top: 0;
                             }
                             img{
                                 height: 249px;
                                 width: 167px;
                             }
                             .cartFav{
-                                position: absolute;
-                                right: -14%;
-                                opacity: 0;
-                                top: 40%;
-                                transition: .32s ease-in-out;
-                                @include flexcol();
+                                top: -15%;
+                                left: 75%;
                                 button{
                                     font-size: 1.6rem;
                                     color: $purple;
@@ -184,6 +180,9 @@
                                     @include transition();
                                     &:hover{
                                         color: $blue;
+                                    }
+                                    &.clicked{
+                                        color: $black;
                                     }
                                 }
                             }
@@ -439,20 +438,11 @@
                         .book{
                             height: 400px;
                             padding: 25px 24px;
-                            &:hover .cartFav{
-                                right: 1.5%;
-                            }
                             img{
                                 height: 249px;
                                 width: 167px;
                             }
                             .cartFav{
-                                position: absolute;
-                                right: -14%;
-                                opacity: 0;
-                                top: 40%;
-                                transition: .32s ease-in-out;
-                                @include flexcol();
                                 button{
                                     font-size: 1.6rem;
                                     color: $purple;
@@ -1024,7 +1014,7 @@
                             padding: 25px 24px;
                             margin: 20px;
                             &:hover .cartFav{
-                                right: 1.5%;
+                                // right: 1.5%;
                             }
                             img{
                                 height: 219px;
@@ -1045,7 +1035,6 @@
                                 }
                             }
                             .cartFav{
-                                top: 40%;
                                 button{
                                     font-size: 1.5rem;
                                 }
@@ -1450,7 +1439,7 @@
                             padding: 25px 24px;
                             margin: 20px;
                             &:hover .cartFav{
-                                right: 1.5%;
+                                // right: 1.5%;
                             }
                             img{
                                 height: 219px;
@@ -1470,7 +1459,7 @@
                                 }
                             }
                             .cartFav{
-                                top: 40%;
+                                // top: 40%;
                                 button{
                                     font-size: 1.5rem;
                                 }

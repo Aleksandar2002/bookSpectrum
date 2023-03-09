@@ -1066,7 +1066,7 @@ html body #main .wrapper #shop .books .book {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 25px 24px;
+  padding: 35px 24px;
   margin: 14px;
   overflow: hidden;
   -webkit-transition: .32s ease-in-out;
@@ -1076,7 +1076,7 @@ html body #main .wrapper #shop .books .book {
 }
 
 html body #main .wrapper #shop .books .book:hover .cartFav {
-  right: 4%;
+  top: 0px;
   opacity: 1;
 }
 
@@ -1133,18 +1133,14 @@ html body #main .wrapper #shop .books .book p.newPrice {
 
 html body #main .wrapper #shop .books .book .cartFav {
   position: absolute;
-  right: -14%;
+  left: 55%;
   opacity: 0;
-  top: 40%;
+  top: -10%;
   -webkit-transition: .32s ease-in-out;
   transition: .32s ease-in-out;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1156,6 +1152,7 @@ html body #main .wrapper #shop .books .book .cartFav {
 html body #main .wrapper #shop .books .book .cartFav button {
   font-size: 1.6rem;
   color: #6138df;
+  margin: 0 6px;
   background-color: transparent;
   -webkit-transition: .23s ease-in-out;
   transition: .23s ease-in-out;
@@ -2295,6 +2292,146 @@ html body .preloader .content img {
   width: 250px;
 }
 
+html body .buyFromCartMessage {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  height: 100%;
+  background-color: rgba(97, 56, 223, 0.21);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+}
+
+html body .buyFromCartMessage.visible {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .buyFromCartMessage .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fefefe;
+  width: 600px;
+  height: 400px;
+  background-color: #6138df;
+  position: relative;
+}
+
+html body .buyFromCartMessage .content h4 {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+html body .buyFromCartMessage .content button.closePopupMessage {
+  color: #fefefe;
+  background-color: transparent;
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  font-size: 1.5rem;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+}
+
+html body .buyFromCartMessage .content button.closePopupMessage:hover {
+  color: #06BCC1;
+}
+
+html body .addToCartMessagePopup {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(97, 56, 223, 0.3);
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+  color: #fefefe;
+}
+
+html body .addToCartMessagePopup.open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body .addToCartMessagePopup .content {
+  background-color: #6138df;
+  position: relative;
+  width: 550px;
+  padding: 20px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 10px;
+}
+
+html body .addToCartMessagePopup .content h2 {
+  font-size: 1.8rem;
+}
+
+html body .addToCartMessagePopup .content button {
+  font-size: 2rem;
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  color: #06BCC1;
+  background-color: transparent;
+  -webkit-transition: .23s ease-in-out;
+  transition: .23s ease-in-out;
+}
+
+html body .addToCartMessagePopup .content button:hover {
+  color: #6138df;
+}
+
 ::-webkit-scrollbar {
   width: 11px;
 }
@@ -2469,32 +2606,15 @@ html body .preloader .content img {
     padding: 25px 24px;
   }
   html body #main .wrapper #shop .books .book:hover .cartFav {
-    right: 1.5%;
+    top: 0;
   }
   html body #main .wrapper #shop .books .book img {
     height: 249px;
     width: 167px;
   }
   html body #main .wrapper #shop .books .book .cartFav {
-    position: absolute;
-    right: -14%;
-    opacity: 0;
-    top: 40%;
-    -webkit-transition: .32s ease-in-out;
-    transition: .32s ease-in-out;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    top: -15%;
+    left: 75%;
   }
   html body #main .wrapper #shop .books .book .cartFav button {
     font-size: 1.6rem;
@@ -2505,6 +2625,9 @@ html body .preloader .content img {
   }
   html body #main .wrapper #shop .books .book .cartFav button:hover {
     color: #06BCC1;
+  }
+  html body #main .wrapper #shop .books .book .cartFav button.clicked {
+    color: #2F2D2E;
   }
   html body #main .wrapper #shop .books .book .discaunt {
     position: absolute;
@@ -2804,33 +2927,9 @@ html body .preloader .content img {
     height: 400px;
     padding: 25px 24px;
   }
-  html body #main .wrapper #shop .books .book:hover .cartFav {
-    right: 1.5%;
-  }
   html body #main .wrapper #shop .books .book img {
     height: 249px;
     width: 167px;
-  }
-  html body #main .wrapper #shop .books .book .cartFav {
-    position: absolute;
-    right: -14%;
-    opacity: 0;
-    top: 40%;
-    -webkit-transition: .32s ease-in-out;
-    transition: .32s ease-in-out;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   html body #main .wrapper #shop .books .book .cartFav button {
     font-size: 1.6rem;
@@ -3492,9 +3591,6 @@ html body .preloader .content img {
     padding: 25px 24px;
     margin: 20px;
   }
-  html body #main .wrapper #shop .books .book:hover .cartFav {
-    right: 1.5%;
-  }
   html body #main .wrapper #shop .books .book img {
     height: 219px;
     width: 147px;
@@ -3510,9 +3606,6 @@ html body .preloader .content img {
   html body #main .wrapper #shop .books .book p.newPrice {
     color: #6138df;
     font-size: 1.1rem;
-  }
-  html body #main .wrapper #shop .books .book .cartFav {
-    top: 40%;
   }
   html body #main .wrapper #shop .books .book .cartFav button {
     font-size: 1.5rem;
@@ -3881,9 +3974,6 @@ html body .preloader .content img {
     padding: 25px 24px;
     margin: 20px;
   }
-  html body #main .wrapper #shop .books .book:hover .cartFav {
-    right: 1.5%;
-  }
   html body #main .wrapper #shop .books .book img {
     height: 219px;
     width: 147px;
@@ -3898,9 +3988,6 @@ html body .preloader .content img {
   html body #main .wrapper #shop .books .book p.newPrice {
     color: #6138df;
     font-size: 1.1rem;
-  }
-  html body #main .wrapper #shop .books .book .cartFav {
-    top: 40%;
   }
   html body #main .wrapper #shop .books .book .cartFav button {
     font-size: 1.5rem;

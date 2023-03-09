@@ -10,7 +10,7 @@
             "oldPrice":1500,
             "discaunt":10
         },
-        "yearOfPublishing":"2021",
+        "dateOfPublishing":"2022-03-23",
         "author":"J.R.R Tolkien",
         "genres":[1,2],
         "publisher":"Bloomsbury Publishing",
@@ -27,7 +27,7 @@
             "oldPrice":1600,
             "discaunt":15
         },
-        "yearOfPublishing":"2021",
+        "dateOfPublishing":"2022-05-14",
         "author":"J.R.R Tolkien",
         "genres":[1,2],
         "publisher":"Bloomsbury Publishing",
@@ -44,7 +44,7 @@
             "oldPrice":1800,
             "discaunt":20
         },
-        "yearOfPublishing":"2022",
+        "dateOfPublishing":"2022-07-05",
         "author":"J.R.R Tolkien",
         "genres":[1,2],
         "publisher":"Bloomsbury Publishing",
@@ -61,7 +61,7 @@
             "oldPrice":1000,
             "discaunt":0
         },
-        "yearOfPublishing":"2020",
+        "dateOfPublishing":"2022-06-06",
         "author":"J.R.R Tolkien",
         "genres":[1,2],
         "publisher":"Bloomsbury Publishing",
@@ -78,7 +78,7 @@
             "oldPrice":900,
             "discaunt":10
         },
-        "yearOfPublishing":"2020",
+        "dateOfPublishing":"2023-01-01",
         "author":"Donato Carrisi",
         "genres":[4,5],
         "publisher":"DK Books",
@@ -95,7 +95,7 @@
             "oldPrice":1200,
             "discaunt":0
         },
-        "yearOfPublishing":"2022",
+        "dateOfPublishing":"2022-01-12",
         "author":"Sir Alex Ferguson",
         "genres":[8,9],
         "publisher":"DK Books",
@@ -112,7 +112,7 @@
             "oldPrice":1000,
             "discaunt":30
         },
-        "yearOfPublishing":"2018",
+        "dateOfPublishing":"2022-02-21",
         "author":"Bruce Jones",
         "genres":[8,9],
         "publisher":"DK Books",
@@ -129,7 +129,7 @@
             "oldPrice":800,
             "discaunt":10
         },
-        "yearOfPublishing":"2017",
+        "dateOfPublishing":"2023-05-12",
         "author":"Frank Herbert",
         "genres":[1,2],
         "publisher":"Candlewick Press",
@@ -146,7 +146,7 @@
             "oldPrice":900,
             "discaunt":15
         },
-        "yearOfPublishing":"2020",
+        "dateOfPublishing":"2023-01-23",
         "author":"Donato Carrisi",
         "genres":[4,5],
         "publisher":"Candlewick Press",
@@ -163,7 +163,7 @@
             "oldPrice":1800,
             "discaunt":15
         },
-        "yearOfPublishing":"2020",
+        "dateOfPublishing":"2021-12-12",
         "author":"Leo Tolstoy",
         "genres":[3,6,7],
         "publisher":"Candlewick Press",
@@ -180,7 +180,7 @@
             "oldPrice":600,
             "discaunt":0
         },
-        "yearOfPublishing":"2015",
+        "dateOfPublishing":"2023-04-14",
         "author":"Agatha Christie",
         "genres":[4,5],
         "publisher":"Candlewick Press",
@@ -197,7 +197,7 @@
             "oldPrice":2200,
             "discaunt":25
         },
-        "yearOfPublishing":"2018",
+        "dateOfPublishing":"2023-02-14",
         "author":"Fyodor Dostoevsky",
         "genres":[3,7],
         "publisher":"Candlewick Press",
@@ -214,7 +214,7 @@
             "oldPrice":800,
             "discaunt":5
         },
-        "yearOfPublishing":"2020",
+        "dateOfPublishing":"2023-02-24",
         "author":"Harlan Coben",
         "genres":[4,5,10],
         "publisher":"Tor Books",
@@ -231,7 +231,7 @@
             "oldPrice":1200,
             "discaunt":10
         },
-        "yearOfPublishing":"2021",
+        "dateOfPublishing":"2023-05-24",
         "author":"Robert Ludlum",
         "genres":[5,10],
         "publisher":"Tor Books",
@@ -248,7 +248,7 @@
             "oldPrice":1500,
             "discaunt":0
         },
-        "yearOfPublishing":"2022",
+        "dateOfPublishing":"2022-07-12",
         "author":"J.R.R Tolkien",
         "genres":[1,2],
         "publisher":"Kensington Publishing Corp",
