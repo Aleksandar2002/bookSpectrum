@@ -1095,8 +1095,24 @@ function sendAjaxRequest(url , method){
             success: function (response) {
                 resolve(response);
             },
-            error: function (error) {
-                reject(error);
+            error: function (jqXHR, exception) {
+                var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+                reject(msg);
             }
         });
     })
@@ -1105,5 +1121,11 @@ function waitForPromiseAndRunFunctionWithJsonData(json , func){
     let promise = sendAjaxRequest(json , 'GET');
     promise.then((response)=>{
         func(response);
-    }).catch(err=>alert(err))
+    }).catch(err=>{
+        $('.ajaxErrorMessage').css("display", "flex");
+        $('.ajaxErrorMessage h2').html(err);
+        $('.ajaxErrorMessage button').click(function(){
+            $('.ajaxErrorMessage').css("display", "none");
+        })
+    })
 }
